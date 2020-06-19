@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form">
+	<Dialog id="diaIntro" title="Welcome to City of Cape Town eServices registration" class="sapUiContentPadding">
+		<content>
+			<sap.ui.layout.form:Form editable="true">
+				<sap.ui.layout.form:layout>
+					<sap.ui.layout.form:ResponsiveGridLayout singleContainerFullSize="true" adjustLabelSpan="true" labelSpanM="3"/>
+				</sap.ui.layout.form:layout>
+				<sap.ui.layout.form:formContainers>
+					<sap.ui.layout.form:FormContainer>
+						<sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:fields>
+								<Carousel class="sapUiContentPadding" loop="true" width="700px" hight="400px">
+									<pages>
+										<Image src="image/Intro1.png" alt="Service activation tiles intro"/>
+										<Image src="image/Intro2.png" alt="Data maintenance tiles intro"/>
+										<Image src="image/Intro3.png" alt="Drafts tile intro"/>
+									</pages>
+								</Carousel>
+							</sap.ui.layout.form:fields>
+						</sap.ui.layout.form:FormElement>
+					</sap.ui.layout.form:FormContainer>
+				</sap.ui.layout.form:formContainers>
+			</sap.ui.layout.form:Form>
+		</content>
+		<endButton>
+			<Button text="Close" type="Emphasized" press="onPressCloseIntroDialogButton"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

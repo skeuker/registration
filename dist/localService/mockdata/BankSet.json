@@ -1,0 +1,10 @@
+[{
+	"BankID": "StdBank",
+	"BankText": "Standard Bank"
+}, {
+	"BankID": "Investec",
+	"BankText": "Investec Private Bank"
+}, {
+	"BankID": "Other",
+	"BankText": "Other bank"
+}]

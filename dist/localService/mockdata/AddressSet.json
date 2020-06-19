@@ -1,0 +1,78 @@
+[{
+	"AddressID": "1",
+	"AddressLine1": "40 Heerengracht",
+	"AddressLine2": "Cape Town",
+	"PostalCode": "8000",
+	"Region": "WC",
+	"RegionID": "WC",
+	"OrganisationID": "Waltons",
+	"AddressTypeID": "CPAddress"
+}, {
+	"AddressID": "2",
+	"AddressLine1": "5 Rhine Road",
+	"AddressLine2": "Sea Point",
+	"PostalCode": "8006",
+	"Region": "WC",
+	"RegionID": "WC",
+	"OrganisationID": "Telkom",
+	"AddressTypeID": "DelAddress"
+}, {
+	"AddressID": "3",
+	"PostalCode": "8047",
+	"RegionID": "WC",
+	"AddressTypeID": "DelAddress",
+	"StreetName": "Heerengracht",
+	"HouseNumber": "44",
+	"City": "Cape Town",
+	"POBoxNbr": "",
+	"POBoxPostalCode": "",
+	"CountryID": "ZA",
+	"AddressCategoryID": "Street",
+	"SupplierID": "StefanKeukerVendor"
+}, {
+	"AddressID": "4",
+	"PostalCode": "8002",
+	"RegionID": "WC",
+	"AddressTypeID": "VendorAddress",
+	"StreetName": "Heerengracht",
+	"HouseNumber": "45",
+	"City": "Cape Town",
+	"CountryID": "ZA",
+	"SupplierID": "StefanKeukerVendor",
+	"AddressCategoryID": "POBox"
+}, {
+	"AddressID": "5",
+	"PostalCode": "8001",
+	"RegionID": "WC",
+	"AddressTypeID": "VendorAddress",
+	"StreetName": "Adderley Street",
+	"HouseNumber": "35",
+	"City": "Cape Town",
+	"CountryID": "ZA",
+	"SupplierID": "TelkomVendor",
+	"AddressCategoryID": "Street"
+}, {
+	"AddressID": "6",
+	"PostalCode": "8001",
+	"RegionID": "WC",
+	"AddressTypeID": "CPAddress",
+	"StreetName": "",
+	"HouseNumber": "",
+	"City": "Cape Town",
+	"AddressCategoryID": "POBox",
+	"CountryID": "ZA",
+	"POBoxNumber": "78797",
+	"POBoxPostalCode": "8001",
+	"OrganisationID": "Telkom"
+}, {
+	"AddressID": "7",
+	"PostalCode": "8001",
+	"RegionID": "WC",
+	"PersonID": "Stefan Keuker",
+	"AddressTypeID": "PhysicalAddress",
+	"StreetName": "Belmont",
+	"HouseNumber": "63",
+	"City": "Cape Town",
+	"CountryID": "ZA",
+	"AddressCategoryID": "Street"
+}]

@@ -1,0 +1,20 @@
+[{
+	"RoleID": "01",
+	"RoleText": "Administrator",
+	"RoleScope": "3",
+	"RequiredEntry": "true",
+	"InputCardinality": "1..*"
+}, {
+	"RoleID": "03",
+	"RoleText": "Authorizing person",
+	"RoleScope": "3",
+	"RequiredEntry": "true",
+	"InputCardinality": "1"
+}, {
+	"RoleID": "05",
+	"RoleText": "Transacting person",
+	"RoleScope": "4",
+	"RoleScopeQualifier": "",
+	"RequiredEntry": "true",
+	"InputCardinality": "1..*"
+}]

@@ -1,0 +1,61 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.core="sap.ui.core" xmlns="sap.m"
+	controllerName="capetown.gov.registration.controller.Home" busy="{viewModel>/busy}">
+	<Page id="pageHome" title="City of Cape Town. Registration of people, organisations, services and more" showHeader="true"
+		showSubHeader="{viewModel>/userInCobrowse}" enableScrolling="false">
+		<subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</subHeader>
+		<content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text=""/>
+			<TileContainer allowAdd="true">
+				<tiles>
+					<StandardTile title="My account" info="Maintain personal details" infoState="Information" icon="sap-icon://person-placeholder"
+						activeIcon="sap-icon://customer" id="tileAccount" press="onPersonTilePress" busy="{viewModel>/myAccountTileBusy}"/>
+					<StandardTile title="My services" type="Create" info="Activate services" infoState="Information" icon="sap-icon://list"
+						number="{viewModel>/serviceListTileNumber}" busy="{viewModel>/serviceListTileBusy}" id="tileServicesList" press="onServiceListTilePress"/>
+					<StandardTile title="My people" type="Create" info="Maintain people" infoState="Information" icon="sap-icon://list"
+						number="{viewModel>/personListTileNumber}" busy="{viewModel>/personListTileBusy}" id="tilePeopleList" press="onPersonListTilePress"
+						visible="{= ${viewModel>/personListTileNumber} > 0 }"/>
+					<StandardTile title="My organisations" type="Create" info="Maintain organisations" infoState="Information" icon="sap-icon://list"
+						activeIcon="sap-icon://list" number="{viewModel>/organisationListTileNumber}" busy="{viewModel>/organisationListTileBusy}"
+						press="onOrganisationListTilePress" visible="{= ${viewModel>/organisationListTileNumber} > 0 }"/>
+					<StandardTile title="My suppliers" type="Create" info="Maintain suppliers" infoState="Information" icon="sap-icon://list"
+						activeIcon="sap-icon://list" number="{viewModel>/supplierListTileNumber}" busy="{viewModel>/supplierListTileBusy}"
+						press="onSupplierListTilePress" visible="{= ${viewModel>/supplierListTileNumber} > 0 }"/>
+					<StandardTile title="Drafts" type="Monitor" info="Not yet submitted" infoState="Warning" icon="sap-icon://open-folder"
+						activeIcon="sap-icon://customer" id="tileDrafts" number="{viewModel>/draftsTileNumber}" busy="{viewModel>/draftsTileBusy}"
+						press="onDraftsTilePress" visible="{= ${viewModel>/draftsTileNumber} > 0 }"/>
+					<StandardTile title="Notifications" type="Monitor" info="For my information" infoState="Warning" icon="sap-icon://notification-2"
+						activeIcon="sap-icon://notification-2" id="tileNotifications" number="{viewModel>/notificationListTileNumber}"
+						busy="{viewModel>/notificationListTileBusy}" press="onNotificationListTilePress" visible="{= ${viewModel>/notificationListTileNumber} > 0 }"/>
+				</tiles>
+			</TileContainer>
+		</content>
+		<footer>
+			<Bar design="Footer">
+				<contentRight>
+					<Button text="INTRO" press="showIntroDialog" class="sapUiLargeMarginRight"/>
+					<Button icon="sap-icon://sys-help" press="showUserGuide"/>
+					<Button text="PRIVACY" press="showPrivacyPolicy"/>
+					<Button text="TERMS OF USE" press="showTermsOfUse"/>
+					<MenuButton text="SUPPORT" enabled="{viewModel>/mbtnSupportEnabled}">
+						<menu>
+							<Menu itemSelected="onPressSupportMenuItem">
+								<items>
+									<MenuItem id="mitemSupportRefreshAll" text="Refresh user data" icon="sap-icon://pull-down"/>
+									<MenuItem id="mitemSupportShowDraftsAll" text="Show all drafts" icon="sap-icon://open-folder"/>
+								</items>
+							</Menu>
+						</menu>
+					</MenuButton>
+				</contentRight>
+				<contentLeft>
+					<Text text="&#169; 2019 City of Cape Town. Rate this application:" class="sapUiSmallMarginBegin cctVerticalAlignMiddle"/>
+					<RatingIndicator id="ratingIndicator" iconSize="16px" class="sapUiTinyMarginBegin cctVerticalAlignMiddle" change="gatherRatingFeedback"
+						maxValue="5" value="{viewModel>/ratingValue}" tooltip="Select a star to rate your experience with this application"/>
+					<Text text="{ path: 'viewModel>/lastUserContextUpdate', formatter: '.formatLastUpdateTimeStampWithLabel' }" class="sapUiLargeMarginBegin cctVerticalAlignMiddle"/>
+				</contentLeft>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

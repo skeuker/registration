@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formBankAccount" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout singleContainerFullSize="true" adjustLabelSpan="true" labelSpanM="3"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Account location" width="100%" textAlign="Left" textDirection="Inherit"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<ComboBox id="cboxBankAccountIDTypes" items="{Registration>/BankAccountIDTypeSet}" width="50%"
+							selectionChange="onBankAccountAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+							<items>
+								<core:ListItem key="{Registration>BankAccountIDTypeID}" text="{Registration>BankAccountIDTypeText}"/>
+							</items>
+						</ComboBox>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement id="felemBankAccountType" visible="{= ${Registration>BankAccountIDTypeID} !== 'IBAN' }">
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Account type" width="100%" textAlign="Left" textDirection="Inherit"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<ComboBox id="cboxBankAccountTypes" items="{Registration>/BankAccountTypeSet}" width="40%" change="onBankAccountAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+							<items>
+								<core:ListItem key="{Registration>BankAccountTypeID}" text="{Registration>BankAccountTypeText}"/>
+							</items>
+						</ComboBox>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement id="felemBank" visible="{= ${Registration>BankAccountIDTypeID} !== 'IBAN' }">
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Bank" width="100%" textAlign="Left" textDirection="Inherit"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<ComboBox id="cboxBanks" items="{BankInputControl>/BankSet}" width="50%" selectionChange="onBankAccountAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+							<items>
+								<core:ListItem key="{BankInputControl>BankID}" text="{BankInputControl>BankText}"/>
+							</items>
+						</ComboBox>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement id="felemBankBranchCode" visible="{= ${Registration>BankAccountIDTypeID} !== 'IBAN' }"
+					enabled="{= ${BankInputControl>BankID} === 'Other' }">
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Branch code" width="100%"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<HBox>
+							<Input id="inputBankBranchCode" type="sap.m.InputType.Number" maxLength="6" liveChange="onBankAccountAttributesLiveChange" width="100px"/>
+							<core:Icon src="sap-icon://sys-help" press="hintForBankBranchCode" class="sapUiSmallMarginTop sapUiTinyMarginBegin" tooltip="Help"
+								color="#2B65EC"/>
+						</HBox>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement id="felemBankAccountNumber" visible="{= ${Registration>BankAccountIDTypeID} !== 'IBAN' }">
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Account number" width="100%"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<Input id="inputBankAccountNumber" type="sap.m.InputType.Number" width="50%" liveChange="onBankAccountAttributesLiveChange"/>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement id="felemBankAccountHolderName" visible="{= ${Registration>BankAccountIDTypeID} !== 'IBAN' }">
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Account holder" width="100%"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<Input id="inputBankAccountHolderName" width="50%" liveChange="onBankAccountAttributesLiveChange"/>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	<MessageStrip class="sapUiSmallMarginBeginEnd sapUiMediumMarginTopBottom" type="Information" text="{i18n>messageRequiredInput}" showIcon="true"/>
+</core:FragmentDefinition>

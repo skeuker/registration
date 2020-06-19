@@ -1,0 +1,22 @@
+[{
+	"WardID": "SubCouncil1/4",
+	"WardText": "Ward 4"
+}, {
+	"WardID": "SubCouncil1/23",
+	"WardText": "Ward 23"
+}, {
+	"WardID": "SubCouncil1/29",
+	"WardText": "Ward 29"
+}, {
+	"WardID": "SubCouncil2/6",
+	"WardText": "Ward 6"
+}, {
+	"WardID": "SubCouncil2/7",
+	"WardText": "Ward 7"
+}, {
+	"WardID": "SubCouncil2/8",
+	"WardText": "Ward 8"
+}, {
+	"WardID": "SubCouncil2/111",
+	"WardText": "Ward 111"
+}]

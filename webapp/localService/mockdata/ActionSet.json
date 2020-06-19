@@ -1,0 +1,22 @@
+[{
+	"ActionID": "0",
+	"ActionText": "Save draft"
+}, {
+	"ActionID": "1",
+	"ActionText": "Submit for approval"
+}, {
+	"ActionID": "2",
+	"ActionText": "Approve"
+}, {
+	"ActionID": "3",
+	"ActionText": "Delete"
+}, {
+	"ActionID": "4",
+	"ActionText": "Create"
+}, {
+	"ActionID": "5",
+	"ActionText": "Reject"
+}, {
+	"ActionID": "6",
+	"ActionText": "Prepare"
+}]

@@ -1,0 +1,7 @@
+[{
+	"AddressCategoryID": "Street",
+	"AddressCategoryText": "Street address"
+}, {
+	"AddressCategoryID": "POBox",
+	"AddressCategoryText": "Postal address"
+}]

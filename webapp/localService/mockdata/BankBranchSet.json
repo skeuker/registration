@@ -1,0 +1,11 @@
+[{
+	"BankBranchID": "203000",
+	"BankBranchText": "eBranch code Standard Bank",
+	"isDefault": true,
+	"BankID": "StdBank"
+}, {
+	"BankBranchID": "204000",
+	"BankBranchText": "eBranch code Investec",
+	"isDefault": true,
+	"BankID": "Investec"
+}]

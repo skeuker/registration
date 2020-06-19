@@ -1,0 +1,194 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formSupplierBEEClassification" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement id="felemBEEClassificationType">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="B-BBEE classification type" textAlign="Left" textDirection="Inherit"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxBEEClassificationType" items="{Registration>/BEEClassificationTypeSet}" width="25%"
+								selectedKey="{Registration>BEEClassificationTypeID}" selectionChange="onBEEClassificationAttributesLiveChange" change="onBEEClassificationAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>BEEClassificationTypeID}" text="{Registration>BEEClassificationTypeText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEELevel" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="B-BBEE level" textAlign="Left" textDirection="Inherit"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxBEELevel" items="{Registration>/BEEClassificationLevelSet}" width="30%"
+								visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }" selectedKey="{Registration>BEEClassificationLevelID}"
+								selectionChange="onBEEClassificationAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>BEEClassificationLevelID}" text="{Registration>BEEClassificationLevelText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBOwnPercentage" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Black ownership"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputBOwnPercentage" maxLength="5" type="sap.m.InputType.Number" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }"
+								value="{path: 'Registration>BOwnPercentage', type: 'sap.ui.model.type.Number', formatOptions: {maximum: '100'} }" liveChange="onBEEClassificationAttributesLiveChange" description="%">
+								<layoutData>
+									<sap.ui.layout:GridData span="L2 M2 S4"/>
+								</layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBWOwnPercentage" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Black women ownership"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputBWOwnPercentage" maxLength="5" type="sap.m.InputType.Number" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }"
+								value="{ path: 'Registration>BWOwnPercentage', type: 'sap.ui.model.type.Number', formatOptions: {maximum: '100'} }" liveChange="onBEEClassificationAttributesLiveChange" description="%">
+								<layoutData>
+									<sap.ui.layout:GridData span="L2 M2 S4"/>
+								</layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEEClassifExpiryDate" visible="{= ${Registration>BEEClassificationTypeID} !== 'N' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="B-BBEE certificate expiry"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<DatePicker id="inputBEEClassifExpiryDate" placeholder="Enter a date" dateValue="{Registration>CertificateExpiryDate}"
+								change="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L2 M2 S4"/>
+								</layoutData>
+							</DatePicker>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEEVerifierType" visible="{= ${Registration>BEEClassificationTypeID} === 'EME' || ${Registration>BEEClassificationTypeID} === 'QSE'}">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Verifier type"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxBEEVerifierType" items="{Registration>/BEEVerifierTypeSet}" width="30%"
+								selectedKey="{Registration>BEEVerifierTypeID}" selectionChange="onBEEClassificationAttributesLiveChange" change="onBEEClassificationAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>BEEVerifierTypeID}" text="{Registration>BEEVerifierTypeText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEEVerifierRegistrationNbr" visible="{= ${Registration>BEEClassificationTypeID} === 'EME' &amp;&amp; ${Registration>BEEVerifierTypeID} === 'EME VERIFIER' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Verifier registration number"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputBEEVerifierRegistrationNbr" placeholder="{i18n>inputPlaceHolderBEEVerifierRegistrationNbr}"
+								value="{Registration>VerifierRegNbr}" liveChange="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEEVerifierName" visible="{= ${Registration>BEEClassificationTypeID} === 'EME' &amp;&amp; ${Registration>BEEVerifierTypeID} === 'EME VERIFIER' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Verifier name"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputBEEVerifierName" placeholder="{i18n>inputPlaceHolderBEEVerifierName}"
+								value="{Registration>VerifierName}" liveChange="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEECertificateNumber" visible="{= ${Registration>BEEClassificationTypeID} === 'GEN' || (${Registration>BEEClassificationTypeID} === 'QSE' &amp;&amp; ${Registration>BEEVerifierTypeID} === 'EME VERIFIER') }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="B-BBEE certificate number"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputBEECertificateNumber" placeholder="{i18n>inputPlaceHolderBEECertificateNumber}" width="30%"
+								value="{Registration>CertificateNumber}" liveChange="onBEEClassificationAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemBEECertificateAgency" visible="{= ${Registration>BEEClassificationTypeID} === 'GEN' || (${Registration>BEEClassificationTypeID} === 'QSE' &amp;&amp; ${Registration>BEEVerifierTypeID} === 'EME VERIFIER') }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="B-BBEE certificate agency"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxBEECertificateAgency" items="{ path: 'Registration>/CertificateAgencySet', filters: [{path: 'CertificateTypeID', operator: 'EQ', value1: 'BEE'}] }" width="30%"
+								selectedKey="{Registration>CertificateAgency}" selectionChange="onBEEClassificationAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>CertificateAgencyID}" text="{Registration>CertificateAgencyText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="Min. 51% youth"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Switch id="switchBEEHasQuotaYouth" state="{Registration>hasQuotaYouth}"
+								type="Default" customTextOn="Yes" customTextOff="No" change="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Switch>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="Min. 51% military veterans"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Switch id="switchBEEHasQuotaMilitaryVeteran" state="{Registration>hasQuotaMilitaryVeteran}"
+								type="Default" customTextOn="Yes" customTextOff="No" change="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Switch>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="Min. 51% underdeveloped community or township" class="cctWrappedLabelText"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Switch id="switchBEEHasQuotaTownship" state="{Registration>hasQuotaTownship}"
+								type="Default" customTextOn="Yes" customTextOff="No" change="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Switch>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="Min. 51% cooperative"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Switch id="switchBEEHasQuotaCooperative" state="{Registration>hasQuotaCooperative}"
+								type="Default" customTextOn="Yes" customTextOff="No" change="onBEEClassificationAttributesLiveChange">
+								<layoutData>
+									<sap.ui.layout:GridData span="L3 M3 S5"/>
+								</layoutData>
+							</Switch>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	<MessageStrip class="sapUiSmallMarginBeginEnd sapUiMediumMarginTopBottom" type="Information" text="{i18n>messageRequiredInput}" showIcon="true"/>
+</core:FragmentDefinition>

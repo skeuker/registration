@@ -1,0 +1,70 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<Table id="tabPersonDraftList" itemPress="onDraftPersonListItemPress"
+		items="{ path: 'Registration>/PersonSet', filters: [{ path: 'EntityStatusID', operator: 'EQ', value1: '0'}] }"
+		noDataText="No entries. Click + to add" busy="{viewModel>/busyTablePeople}" backgroundDesign="Solid" class="sapUiMediumMarginBottom">
+		<customData>
+			<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+		</customData>
+		<items>
+			<ColumnListItem counter="0" type="Active">
+				<cells>
+					<Text maxLines="0" text="{Registration>Name}"/>
+					<Text maxLines="0" text="{Registration>Surname}"/>
+					<Text maxLines="0" text="{path: 'Registration>IDType', formatter: '.formatIDType'}"/>
+					<Text maxLines="0" text="{Registration>IDNumber}"/>
+					<Text maxLines="0" text="{Registration>eMailAddress}"/>
+					<Text maxLines="0" text="{Registration>PhoneNumber}"/>
+					<Text maxLines="0" text="{path: 'Registration>EntityStatusID', formatter: '.formatEntityStatusID'}"/>
+					<core:Icon src="sap-icon://sys-cancel" press="onPressPersonDeleteButton" tooltip="Delete" color="#E42217"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column>
+				<header>
+					<Label text="{i18n>labelPersonNameColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelPersonSurnameColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="ID type"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="ID Number"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="eMail address"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Phone number"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Status"/>
+				</header>
+			</Column>
+			<Column vAlign="Middle" width="20px"></Column>
+		</columns>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="People drafts"/>
+				<ToolbarSpacer/>
+				<SearchField width="auto" placeholder="{i18n>pholderEnterSearchCriteria}" search="onPersonSearch" liveChange=""/>
+				<Button type="Transparent" icon="sap-icon://add" text="Add" press="onPressPersonAddButton"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Table>
+</core:FragmentDefinition>

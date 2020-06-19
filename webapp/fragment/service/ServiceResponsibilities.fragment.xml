@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formServiceResponsibilities" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<Table id="tabServiceResponsibilities" itemPress="onPressServiceResponsibilityListItem" busy="{viewModel>/busyTableResponsibilities}"
+								busyIndicatorDelay="{viewModel>/busyDelayTableResponsibilities}" updateStarted="setBusyTableResponsibilities"
+								updateFinished="onUpdateFinishedTableServiceResponsibilities"
+								items="{ path: 'Registration>toResponsibilities', factory: '.createServiceResponsibilityListItem' }"
+								noDataText="No entries. Click + to add">
+								<headerToolbar>
+									<OverflowToolbar>
+										<Title text="Responsibilities"/>
+										<ToolbarSpacer/>
+										<Label id="labelPersonRole" required="true" text="Role"/>
+										<ComboBox id="cboxServicePersonRoles" items="{ path: 'Registration>/RoleSet', filters: [{path: 'RoleScope', operator: 'Contains', value1: '4'}] }" 
+											change="onCBoxServicePersonRoleChange" selectionChange="onCBoxServicePersonRoleChange" placeholder="{i18n>pholderSelectEntry}">
+											<items>
+												<core:ListItem key="{Registration>RoleID}" text="{Registration>RoleText}"/>
+											</items>
+										</ComboBox>
+										<core:Icon src="sap-icon://sys-help" press="hintForRoleType" class="sapUiTinyMarginBegin" tooltip="Help" color="#2B65EC"/>
+										<Button type="Transparent" id="btnServiceResponsibilityAdd" icon="sap-icon://add" text="Add" press="onPressAddResponsibilityButton" enabled="false"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<header>
+											<Label text="Role"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Name"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Surname"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="ID type"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="ID number"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Phone number"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Status"/>
+										</header>
+									</Column>
+									<Column vAlign="Middle" width="20px">
+									</Column>
+								</columns>
+							</Table>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="feEditServiceResponsibilitiesLink" visible="false">
+						<sap.ui.layout.form:fields>
+							<Link text="Edit" id="linkEditServiceResponsibilites" press="onPressServiceResponsibilitiesLink" wrapping="true"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

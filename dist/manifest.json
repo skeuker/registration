@@ -1,0 +1,556 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "capetown.gov.registration",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "servicecatalog.connectivityComponent",
+            "version": "0.0.0"
+        },
+        "dataSources": {
+            "ZREGISTRATION_SRV": {
+                "uri": "/sap/opu/odata/sap/ZREGISTRATION_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "webapp/localService/ZREGISTRATION_SRV/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "_version": "1.1.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "rootView": {
+            "viewName": "capetown.gov.registration.view.App",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "capetown.gov.registration.i18n.i18n",
+                    "bundleLocale": "en"
+                }
+            },
+            "Registration": {
+                "dataSource": "ZREGISTRATION_SRV",
+                "settings": {
+                    "json": "true",
+                    "loadMetadataAsync": false,
+                    "defaultCountMode": "Inline",
+                    "defaultBindingMode": "TwoWay",
+                    "defaultOperationMode": "Client",
+                    "sequentializeRequests": true
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "capetown.gov.registration.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": [
+                        "notFound"
+                    ]
+                }
+            },
+            "routes": [
+                {
+                    "name": "Home",
+                    "pattern": "",
+                    "greedy": false,
+                    "target": [
+                        "Home"
+                    ]
+                },
+                {
+                    "name": "PersonCreateResume",
+                    "pattern": "PersonCreateResume/{PersonID}",
+                    "greedy": false,
+                    "target": [
+                        "PersonCreate"
+                    ]
+                },
+                {
+                    "name": "PersonCreate",
+                    "pattern": "PersonCreate",
+                    "greedy": false,
+                    "target": [
+                        "PersonCreate"
+                    ]
+                },
+                {
+                    "name": "PersonList",
+                    "pattern": "PersonList",
+                    "greedy": false,
+                    "target": [
+                        "PersonList"
+                    ]
+                },
+                {
+                    "name": "Person",
+                    "pattern": "Person/:PersonID:",
+                    "greedy": false,
+                    "target": [
+                        "Person"
+                    ]
+                },
+                {
+                    "name": "OrganisationCreateResume",
+                    "pattern": "OrganisationCreateResume/{OrganisationID}",
+                    "greedy": false,
+                    "target": [
+                        "OrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "OrganisationCreate",
+                    "pattern": "OrganisationCreate",
+                    "greedy": false,
+                    "target": [
+                        "OrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "OrganisationList",
+                    "pattern": "OrganisationList",
+                    "greedy": false,
+                    "target": [
+                        "OrganisationList"
+                    ]
+                },
+                {
+                    "name": "Organisation",
+                    "pattern": "Organisation/{OrganisationID}",
+                    "greedy": false,
+                    "target": [
+                        "Organisation"
+                    ]
+                },
+                {
+                    "name": "SupplierPersonCreateResume",
+                    "pattern": "SupplierPersonCreateResume/{SupplierID}",
+                    "greedy": false,
+                    "target": [
+                        "SupplierPersonCreate"
+                    ]
+                },
+                {
+                    "name": "SupplierCreateForPersonResume",
+                    "pattern": "SupplierCreateForPersonResume/{SupplierID}",
+                    "greedy": false,
+                    "target": [
+                        "SupplierCreateForPerson"
+                    ]
+                },
+                {
+                    "name": "SupplierCreateForPerson",
+                    "pattern": "SupplierCreateForPerson",
+                    "greedy": false,
+                    "target": [
+                        "SupplierCreateForPerson"
+                    ]
+                },
+                {
+                    "name": "SupplierPersonCreate",
+                    "pattern": "SupplierPersonCreate/{PersonID}",
+                    "greedy": false,
+                    "target": [
+                        "SupplierPersonCreate"
+                    ]
+                },
+                {
+                    "name": "SupplierPerson",
+                    "pattern": "SupplierPerson/{SupplierID}/:Form:",
+                    "greedy": false,
+                    "target": [
+                        "SupplierPerson"
+                    ]
+                },
+                {
+                    "name": "SupplierOrganisationCreateResume",
+                    "pattern": "SupplierOrganisationCreateResume/{SupplierID}",
+                    "greedy": false,
+                    "target": [
+                        "SupplierOrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "SupplierCreateForOrganisationResume",
+                    "pattern": "SupplierCreateForOrganisationResume/{SupplierID}",
+                    "greedy": false,
+                    "target": [
+                        "SupplierCreateForOrganisation"
+                    ]
+                },
+                {
+                    "name": "SupplierCreateForOrganisation",
+                    "pattern": "SupplierCreateForOrganisation",
+                    "greedy": false,
+                    "target": [
+                        "SupplierCreateForOrganisation"
+                    ]
+                },
+                {
+                    "name": "SupplierOrganisationCreate",
+                    "pattern": "SupplierOrganisationCreate",
+                    "greedy": false,
+                    "target": [
+                        "SupplierOrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "SupplierOrganisation",
+                    "pattern": "SupplierOrganisation/{SupplierID}/:Form:",
+                    "greedy": false,
+                    "target": [
+                        "SupplierOrganisation"
+                    ]
+                },
+                {
+                    "name": "SupplierList",
+                    "pattern": "SupplierList",
+                    "greedy": false,
+                    "target": [
+                        "SupplierList"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSPersonCreateResume",
+                    "pattern": "ServiceSUSPersonCreateResume/{ServiceID}",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSPersonCreate"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSPersonCreate",
+                    "pattern": "ServiceSUSPersonCreate/{PersonID}",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSPersonCreate"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSPerson",
+                    "pattern": "ServiceSUSPerson/{ServiceID}",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSPerson"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSOrganisationCreateResume",
+                    "pattern": "ServiceSUSOrganisationCreateResume/{ServiceID}",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSOrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSOrganisationCreate",
+                    "pattern": "ServiceSUSOrganisationCreate",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSOrganisationCreate"
+                    ]
+                },
+                {
+                    "name": "ServiceSUSOrganisation",
+                    "pattern": "ServiceSUSOrganisation/{ServiceID}",
+                    "greedy": false,
+                    "target": [
+                        "ServiceSUSOrganisation"
+                    ]
+                },
+                {
+                    "name": "ServiceList",
+                    "pattern": "ServiceList",
+                    "greedy": false,
+                    "target": [
+                        "ServiceList"
+                    ]
+                },
+                {
+                    "name": "Service",
+                    "pattern": "Service/{ServiceID}",
+                    "greedy": false,
+                    "target": [
+                        "Service"
+                    ]
+                },
+                {
+                    "name": "NotificationList",
+                    "pattern": "NotificationList",
+                    "greedy": false,
+                    "target": [
+                        "NotificationList"
+                    ]
+                },
+                {
+                    "name": "Drafts",
+                    "pattern": "Drafts/:showAll:",
+                    "greedy": false,
+                    "target": [
+                        "Drafts"
+                    ]
+                },
+                {
+                    "name": "NotFound",
+                    "pattern": "NotFound",
+                    "greedy": false,
+                    "target": [
+                        "notFound"
+                    ]
+                }
+            ],
+            "targets": {
+                "Home": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Home",
+                    "viewId": "Home",
+                    "viewPath": "capetown.gov.registration.view"
+                },
+                "Person": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Person",
+                    "viewId": "Person",
+                    "viewPath": "capetown.gov.registration.view.person"
+                },
+                "PersonCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewPath": "capetown.gov.registration.view.person",
+                    "viewName": "PersonCreate",
+                    "viewId": "PersonCreate"
+                },
+                "PersonList": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "PersonList",
+                    "viewId": "PersonList",
+                    "viewPath": "capetown.gov.registration.view.person"
+                },
+                "OrganisationList": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "OrganisationList",
+                    "viewId": "OrganisationList",
+                    "viewPath": "capetown.gov.registration.view.organisation"
+                },
+                "Organisation": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Organisation",
+                    "viewPath": "capetown.gov.registration.view.organisation",
+                    "viewId": "Organisation"
+                },
+                "OrganisationCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "OrganisationCreate",
+                    "viewId": "OrganisationCreate",
+                    "viewPath": "capetown.gov.registration.view.organisation"
+                },
+                "SupplierList": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierList",
+                    "viewId": "SupplierList",
+                    "viewPath": "capetown.gov.registration.view.supplier"
+                },
+                "SupplierPerson": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierPerson",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierPerson"
+                },
+                "SupplierPersonCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierPersonCreate",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierPersonCreate"
+                },
+                "SupplierCreateForPerson": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierCreateForPerson",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierCreateForPerson"
+                },
+                "SupplierOrganisation": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierOrganisation",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierOrganisation"
+                },
+                "SupplierOrganisationCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierOrganisationCreate",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierOrganisationCreate"
+                },
+                "SupplierCreateForOrganisation": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "SupplierCreateForOrganisation",
+                    "viewPath": "capetown.gov.registration.view.supplier",
+                    "viewId": "SupplierCreateForOrganisation"
+                },
+                "ServiceList": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceList",
+                    "viewId": "ServiceList",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "ServiceCatalogue": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceCatalogue",
+                    "viewId": "ServiceCatalogue",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "Service": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Service",
+                    "viewId": "Service",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "ServiceSUSPersonCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceSUSPersonCreate",
+                    "viewId": "ServiceSUSPersonCreate",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "ServiceSUSPerson": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceSUSPerson",
+                    "viewId": "ServiceSUSPerson",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "ServiceSUSOrganisationCreate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceSUSOrganisationCreate",
+                    "viewId": "ServiceSUSOrganisationCreate",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "ServiceSUSOrganisation": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "ServiceSUSOrganisation",
+                    "viewId": "ServiceSUSOrganisation",
+                    "viewPath": "capetown.gov.registration.view.service"
+                },
+                "Drafts": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Drafts",
+                    "viewId": "Drafts",
+                    "viewPath": "capetown.gov.registration.view"
+                },
+                "NotificationList": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "NotificationList",
+                    "viewId": "NotificationList",
+                    "viewPath": "capetown.gov.registration.view"
+                },
+                "notFound": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "NotFound",
+                    "viewId": "NotFound"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zregistration",
+        "_version": "1.1.0"
+    }
+}

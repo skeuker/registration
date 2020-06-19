@@ -1,0 +1,663 @@
+{
+    "resources": [
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "preview_hidden.html"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "fragment/person/PersonDataAccuracyDeclaration.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonSelectPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonAttributes.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonServices.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonDataPrivacyDeclaration.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonServiceDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonResponsibilities.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonDraftList.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonAttributesForCreate.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonList.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonAddresses.fragment.xml"
+        },
+        {
+            "name": "fragment/person/PersonUser.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierAttributes.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierScopePopover.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierCertificates.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierListNoDelete.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierPersonContacts.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierOrganisationContacts.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierAddresses.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierBEEClassification.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierDraftList.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierPersonDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierOrganisationAttributesTabBar.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierDeclarations.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierPersonAttributes.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierList.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierDataAccuracyDeclaration.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierOrganisationAttributes.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierBankAccounts.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierPersonAttributesTabBar.fragment.xml"
+        },
+        {
+            "name": "fragment/supplier/SupplierOrganisationDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/IntroDialog.fragment.xml"
+        },
+        {
+            "name": "fragment/NotificationList.fragment.xml"
+        },
+        {
+            "name": "fragment/service/ServiceList.fragment.xml"
+        },
+        {
+            "name": "fragment/service/ServiceResponsibilities.fragment.xml"
+        },
+        {
+            "name": "fragment/service/ServiceScopePopoverWithoutServiceType.fragment.xml"
+        },
+        {
+            "name": "fragment/service/ServiceDraftList.fragment.xml"
+        },
+        {
+            "name": "fragment/service/ServiceAttributes.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/RegistrationConfirmation.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/Address.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintDeclarationFormPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/BankAccount.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintWithCarouselPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/CertificateDialog.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/DeclarationPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintServiceCreateForPersonOrOrganisation.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/BankAccountDialog.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintBusinessPartnerIDPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/ContactDialog.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/DocumentRequest.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/Declaration.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/Certificate.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/AddressDialog.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/Cobrowse.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/Contact.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintAdoptBusinessPartnerPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/reuse/HintChosenUserIDPopover.fragment.xml"
+        },
+        {
+            "name": "fragment/Rating.fragment.xml"
+        },
+        {
+            "name": "fragment/Error.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationServices.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationAttributesForCreate.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationDataAccuracyDeclaration.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationListNoDelete.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationList.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationResponsibilities.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationContacts.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationServiceDocuments.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationAddresses.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationDraftList.fragment.xml"
+        },
+        {
+            "name": "fragment/organisation/OrganisationAttributes.fragment.xml"
+        },
+        {
+            "name": "util/ErrorHandler.js"
+        },
+        {
+            "name": "util/DocumentRequestUtils.js"
+        },
+        {
+            "name": "util/SupplierUtils.js"
+        },
+        {
+            "name": "util/uuid.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "localService/mockserver.js"
+        },
+        {
+            "name": "localService/ZREGISTRATION_SRV/metadata.xml"
+        },
+        {
+            "name": "localService/OrganisationSet.json"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "localService/mockdata/CountrySet.json"
+        },
+        {
+            "name": "localService/mockdata/OrganisationSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankAccountSet.json"
+        },
+        {
+            "name": "localService/mockdata/ServiceTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/RelationshipTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/SubCouncilSet.json"
+        },
+        {
+            "name": "localService/mockdata/DocumentSet.json"
+        },
+        {
+            "name": "localService/mockdata/PersonSet.json"
+        },
+        {
+            "name": "localService/mockdata/ContactSet.json"
+        },
+        {
+            "name": "localService/mockdata/CertificateAgencySet.json"
+        },
+        {
+            "name": "localService/mockdata/CertificateTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/IndustrySet.json"
+        },
+        {
+            "name": "localService/mockdata/DocumentStreamSet.json"
+        },
+        {
+            "name": "localService/mockdata/TitleSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankAccountTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankAccountPurposeSet.json"
+        },
+        {
+            "name": "localService/mockdata/NotificatnSet.json"
+        },
+        {
+            "name": "localService/mockdata/BEEVerifierTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/WardSet.json"
+        },
+        {
+            "name": "localService/mockdata/IDTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/ContactTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/DocumentRequestSet.json"
+        },
+        {
+            "name": "localService/mockdata/ResponsibilitySet.json"
+        },
+        {
+            "name": "localService/mockdata/DeclarationSet.json"
+        },
+        {
+            "name": "localService/mockdata/UserSet.json"
+        },
+        {
+            "name": "localService/mockdata/BEEClassificationSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankAccountIDTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/ServiceParameterSet.json"
+        },
+        {
+            "name": "localService/mockdata/BEEClassificationLevelSet.json"
+        },
+        {
+            "name": "localService/mockdata/AddressTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/ActionSet.json"
+        },
+        {
+            "name": "localService/mockdata/EntityStatusSet.json"
+        },
+        {
+            "name": "localService/mockdata/ServiceSet.json"
+        },
+        {
+            "name": "localService/mockdata/DocumentTriggerSet.json"
+        },
+        {
+            "name": "localService/mockdata/RoleSet.json"
+        },
+        {
+            "name": "localService/mockdata/ParameterTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/MessageSet.json"
+        },
+        {
+            "name": "localService/mockdata/AddressCategorySet.json"
+        },
+        {
+            "name": "localService/mockdata/CertificateSet.json"
+        },
+        {
+            "name": "localService/mockdata/DocumentTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/DeclarationTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankBranchSet.json"
+        },
+        {
+            "name": "localService/mockdata/BankSet.json"
+        },
+        {
+            "name": "localService/mockdata/LegalEntityTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/BEEClassificationTypeSet.json"
+        },
+        {
+            "name": "localService/mockdata/SupplierSet.json"
+        },
+        {
+            "name": "localService/mockdata/AddressSet.json"
+        },
+        {
+            "name": "localService/mockdata/RegionSet.json"
+        },
+        {
+            "name": "localService/SupplierSet.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "image/HintChosenUserID.png"
+        },
+        {
+            "name": "image/Intro2.png"
+        },
+        {
+            "name": "image/HintBankBranchCode02.png"
+        },
+        {
+            "name": "image/HintServiceTypeSSS2.png"
+        },
+        {
+            "name": "image/DeclarationApp.png"
+        },
+        {
+            "name": "image/HintBusinessPartnerID.png"
+        },
+        {
+            "name": "image/HintAddressType2.png"
+        },
+        {
+            "name": "image/HintRoleType3.png"
+        },
+        {
+            "name": "image/Intro3.png"
+        },
+        {
+            "name": "image/HintServiceType1.png"
+        },
+        {
+            "name": "image/HintRoleType03.png"
+        },
+        {
+            "name": "image/HintAddressType3.png"
+        },
+        {
+            "name": "image/HintServiceTypeSSS3.png"
+        },
+        {
+            "name": "image/HintAddressTypeDEFAULT.png"
+        },
+        {
+            "name": "image/HintServiceType2.png"
+        },
+        {
+            "name": "image/HintRoleType2.png"
+        },
+        {
+            "name": "image/HintServiceTypeSSS4.png"
+        },
+        {
+            "name": "image/HintAddressType0001.png"
+        },
+        {
+            "name": "image/HintAddressType0004.png"
+        },
+        {
+            "name": "image/HintRoleType1.png"
+        },
+        {
+            "name": "image/HintServiceType3.png"
+        },
+        {
+            "name": "image/HintServiceTypeSSS1.png"
+        },
+        {
+            "name": "image/HintServiceCreateForPersonOrOrganisation.png"
+        },
+        {
+            "name": "image/HintBankBranchCode01.png"
+        },
+        {
+            "name": "image/HintAdoptBusinessPartner.png"
+        },
+        {
+            "name": "image/Intro1.png"
+        },
+        {
+            "name": "image/HintRoleType01.png"
+        },
+        {
+            "name": "image/HintServiceType4.png"
+        },
+        {
+            "name": "image/HintAddressType1.png"
+        },
+        {
+            "name": "image/HintDeclarationForm.png"
+        },
+        {
+            "name": "image/HintRoleType05.png"
+        },
+        {
+            "name": "image/HintAddressType0003.png"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/person/Person.controller.js"
+        },
+        {
+            "name": "controller/person/PersonList.controller.js"
+        },
+        {
+            "name": "controller/person/PersonCreate.controller.js"
+        },
+        {
+            "name": "controller/Base.controller.js"
+        },
+        {
+            "name": "controller/service/ServiceSUSOrganisationCreate.controller.js"
+        },
+        {
+            "name": "controller/service/ServiceCreate.controller.js"
+        },
+        {
+            "name": "controller/service/ServiceList.controller.js"
+        },
+        {
+            "name": "controller/service/ServiceSUSPersonCreate.controller.js"
+        },
+        {
+            "name": "controller/service/Service.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/Drafts.controller.js"
+        },
+        {
+            "name": "controller/NotificationList.controller.js"
+        },
+        {
+            "name": "controller/supplier/Supplier.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierPersonCreate.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierOrganisation.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierList.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierOrganisationCreate.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierPerson.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierCreateForPerson.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierCreateForOrganisation.controller.js"
+        },
+        {
+            "name": "controller/supplier/SupplierCreate.controller.js"
+        },
+        {
+            "name": "controller/organisation/OrganisationList.controller.js"
+        },
+        {
+            "name": "controller/organisation/Organisation.controller.js"
+        },
+        {
+            "name": "controller/organisation/OrganisationCreate.controller.js"
+        },
+        {
+            "name": "controller/Home.controller.js"
+        },
+        {
+            "name": "test/mockserver.html"
+        },
+        {
+            "name": "test/preview_hidden.html"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/service/ServiceSUSPersonCreate.view.xml"
+        },
+        {
+            "name": "view/service/ServiceSUSOrganisationCreate.view.xml"
+        },
+        {
+            "name": "view/service/ServiceList.view.xml"
+        },
+        {
+            "name": "view/service/Service.view.xml"
+        },
+        {
+            "name": "view/NotFound.view.xml"
+        },
+        {
+            "name": "view/NotificationList.view.xml"
+        },
+        {
+            "name": "view/Home.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierOrganisation.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierCreateForPerson.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierOrganisationCreate.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierPerson.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierList.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierPersonCreate.view.xml"
+        },
+        {
+            "name": "view/supplier/SupplierCreateForOrganisation.view.xml"
+        },
+        {
+            "name": "view/organisation/OrganisationList.view.xml"
+        },
+        {
+            "name": "view/organisation/Organisation.view.xml"
+        },
+        {
+            "name": "view/organisation/OrganisationCreate.view.xml"
+        },
+        {
+            "name": "view/person/Person.view.xml"
+        },
+        {
+            "name": "view/person/PersonList.view.xml"
+        },
+        {
+            "name": "view/person/PersonCreate.view.xml"
+        },
+        {
+            "name": "view/Drafts.view.xml"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}

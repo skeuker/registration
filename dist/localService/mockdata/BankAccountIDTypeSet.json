@@ -1,0 +1,7 @@
+[{
+	"BankAccountIDTypeID": "IBAN",
+	"BankAccountIDTypeText": "Foreign account"
+}, {
+	"BankAccountIDTypeID": "BBAN",
+	"BankAccountIDTypeText": "South African account"
+}]

@@ -1,0 +1,21 @@
+[{
+	"ServiceID": "1",
+	"PersonID": "Stefan Keuker",
+	"ServiceTypeID": "SupplierSelfService",
+	"EntityStatusID": "3",
+	"SupplierID": "StefanKeukerVendor",
+	"isAdministered": true,
+	"LastActionID": "3",
+	"LastActionTimeStamp": "/Date(1493586000000)/",
+	"isValidated": false
+}, {
+	"ServiceID": "2",
+	"ServiceTypeID": "SupplierSelfService",
+	"EntityStatusID": "4",
+	"SupplierID": "TelkomVendor",
+	"isAdministered": true,
+	"OrganisationID": "Telkom",
+	"LastActionID": "4",
+	"LastActionTimeStamp": "/Date(1493586000000)/",
+	"isValidated": true
+}]

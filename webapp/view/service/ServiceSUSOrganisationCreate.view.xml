@@ -1,0 +1,48 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" controllerName="capetown.gov.registration.controller.service.ServiceSUSOrganisationCreate" busy="{viewModel>/busy}">
+	<semantic:FullscreenPage id="pageServiceWizardContent" title="{viewModel>/viewTitle}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:mainAction>
+			<semantic:MainAction press="onPressServiceCreateSaveDraftButton" text="Save draft"/>
+		</semantic:mainAction>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndService" state="Clear"></DraftIndicator>
+		</semantic:draftIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text=""/>
+			<Wizard complete="onPressServiceWizardSubmitButton" finishButtonText="Submit" id="wizServiceCreate" showNextButton="true"
+				enableBranching="true">
+				<WizardStep id="wizstepPersonDataAccuracyDeclaration" icon="sap-icon://employee-approvals" title="Confirm your details" validated="false"
+					nextStep="wizstepSupplierOrganisationSelect">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.person.PersonDataAccuracyDeclaration" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierOrganisationSelect" icon="sap-icon://building" title="Select organisation" validated="false"
+					subsequentSteps="wizstepServiceSupplierSelect, wizstepServiceResponsibilities">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationListNoDelete" type="XML"/>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationDataAccuracyDeclaration" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepServiceSupplierSelect" icon="sap-icon://supplier" title="Select supplier" validated="false"
+					nextStep="wizstepServiceResponsibilities">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierListNoDelete" type="XML"/>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierDataAccuracyDeclaration" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepServiceResponsibilities" icon="sap-icon://task" title="Responsibilities" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.service.ServiceResponsibilities" type="XML"/>
+					</content>
+				</WizardStep>
+			</Wizard>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

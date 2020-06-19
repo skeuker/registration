@@ -1,0 +1,7 @@
+[{
+	"ParameterTypeID": "0",
+	"ParameterTypeText": "Business Partner ID",
+	"ParameterTypeScope": "4",
+	"ParameterTypeScopeQualifier": "MunicipalAccounts",
+	"InputCardinality": "1"
+}]

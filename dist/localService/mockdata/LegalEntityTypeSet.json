@@ -1,0 +1,10 @@
+[{
+	"LegalEntityTypeID": "Pty",
+	"LegalEntityTypeText": "Pty (Ltd)"
+}, {
+	"LegalEntityTypeID": "Cc",
+	"LegalEntityTypeText": "Closed Cooperation"
+}, {
+	"LegalEntityTypeID": "Ltd",
+	"LegalEntityTypeText": "Limited"
+}]

@@ -1,0 +1,26 @@
+[{
+	"CertificateTypeID": "SARSTaxClear",
+	"CertificateTypeText": "* Tax clearance certificate",
+	"CertificateTypeScope": "5",
+	"InputCardinality": "1"
+}, {
+	"CertificateTypeID": "CIDB",
+	"CertificateTypeText": "Construction Industry Development Board",
+	"CertificateTypeScope": "5",
+	"InputCardinality": "0..1"
+}, {
+	"CertificateTypeID": "SIRA",
+	"CertificateTypeText": "Security Industry Regulation Act",
+	"CertificateTypeScope": "5",
+	"InputCardinality": "0..1"
+}, {
+	"CertificateTypeText": "Compensation Industry on Duty Act",
+	"CertificateTypeID": "COIDA",
+	"CertificateTypeScope": "5",
+	"InputCardinality": "0..1"
+}, {
+	"CertificateTypeID": "BEE",
+	"CertificateTypeText": "BEE cerficiate",
+	"CertificateTypeScope": "5",
+	"InputCardinality": "0..1"
+}]

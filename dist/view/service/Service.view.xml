@@ -1,0 +1,88 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}"
+	controllerName="capetown.gov.registration.controller.service.Service">
+	<semantic:FullscreenPage title="{viewModel>/viewTitle}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:customFooterContent>
+			<Text text="{ path: 'Registration>LastUpdateTimeStamp', formatter: '.formatLastUpdateTimeStampWithLabel' }" class="sapUiMediumMarginEnd"/>
+			<Text text="{= (${Registration>LastSubmitReferenceID}) ? 'Last submission reference: ' + ${Registration>LastSubmitReferenceID} : '' }"
+				class="sapUiSmallMarginEnd cctLastSubmissionReference"/>
+			<MenuButton text="Support" enabled="{viewModel>/mbtnSupportEnabled}">
+				<menu>
+					<Menu itemSelected="onPressSupportMenuItem">
+						<items>
+							<MenuItem id="mitemSupportRefreshService" text="Refresh my data" icon="sap-icon://pull-down"/>
+						</items>
+					</Menu>
+				</menu>
+			</MenuButton>
+			<ToolbarSeparator class="sapUiLargeMarginEnd"/>
+			<Button text="Check" press="onPressServiceCheckInputButton"/>
+			<Button text="Save" id="btnSaveEntity" press="onPressServiceSaveButton" type="{viewModel>/btnSaveEntityType}"
+				enabled="{viewModel>/btnSaveEntityEnabled}"/>
+			<Button text="Submit" id="btnSubmitEntity" press="onPressServiceSubmitButton" type="{viewModel>/btnSubmitEntityType}"
+				enabled="{viewModel>/btnSubmitEntityEnabled}"/>
+		</semantic:customFooterContent>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndService" state="Clear"></DraftIndicator>
+		</semantic:draftIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text="">
+				<customData>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/></customData>
+			</MessageStrip>
+			<ObjectHeader responsive="true" fullScreenOptimized="false" intro="" title="{viewModel>/objHeaderTitle}" titleActive="false"
+				titlePress="onPressServiceTitle" showTitleSelector="false" titleSelectorPress="" showMarkers="false" markFlagged="false"
+				markFavorite="false" numberState="Success" backgroundDesign="Translucent" condensed="true">
+				<attributes>
+					<ObjectAttribute title="{viewModel>/objAttributeIDTitle}" text="{viewModel>/objAttributeIDText}"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus title="Status" text="{ path: 'Registration>EntityStatusID', formatter: '.formatEntityStatusID' }"
+						state="{viewModel>/statusEntityState}" icon="{viewModel>/statusEntityIcon}"/>
+				</statuses>
+				<headerContainer>
+					<IconTabBar id="itabService" expandable="false">
+						<items>
+							<IconTabFilter text="Person" key="Person" icon="sap-icon://person-placeholder" visible="{= ${Registration>PersonID} ? true : false }">
+								<content>
+									<Link text="Go to Person" press="onPressNavigateToPersonLink" class="sapUiMediumMarginBegin"/>
+									<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.person.PersonAttributes" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Organisation" key="Organisation" icon="sap-icon://building"
+								visible="{= ${Registration>OrganisationID} ? true : false }">
+								<content>
+									<Link text="Go to Organisation" press="onPressNavigateToOrganisationLink" class="sapUiMediumMarginBegin sapUiSmallMarginBottom"/>
+									<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.organisation.OrganisationAttributes" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Supplier" key="Supplier" icon="sap-icon://supplier" visible="{= ${Registration>SupplierID} ? true : false }">
+								<content>
+									<Link text="Go to Supplier" press="onPressNavigateToSupplierLink" class="sapUiMediumMarginBegin sapUiSmallMarginBottom"/>
+									<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.supplier.SupplierAttributes" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Details" key="Attributes" icon="sap-icon://task">
+								<content>
+									<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.service.ServiceAttributes" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Roles" key="Roles" icon="sap-icon://task" visible="{= ${Registration>OrganisationID} ? true : false }">
+								<content>
+									<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.service.ServiceResponsibilities" type="XML"/>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</headerContainer>
+			</ObjectHeader>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

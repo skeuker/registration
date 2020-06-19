@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formCertificate" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout singleContainerFullSize="true" adjustLabelSpan="true" labelSpanM="3"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Certificate number" width="100%"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<Input id="inputCertificateNumber" liveChange="onCertificateAttributesLiveChange" width="200px"/>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+				<sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:label>
+						<Label required="true" text="Certificate expiry" width="100%"/>
+					</sap.ui.layout.form:label>
+					<sap.ui.layout.form:fields>
+						<DatePicker id="dpickCertificateExpiryDate" placeholder="Enter a date"
+							change="onCertificateAttributesLiveChange" width="40%">
+						</DatePicker>
+					</sap.ui.layout.form:fields>
+				</sap.ui.layout.form:FormElement>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	<MessageStrip class="sapUiSmallMarginBeginEnd sapUiMediumMarginTopBottom" type="Information" text="{i18n>messageRequiredInput}" showIcon="true"/>
+</core:FragmentDefinition>

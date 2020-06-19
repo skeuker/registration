@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>controller/Home.controller.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ErrorHandler.html">ErrorHandler</a></li></ul><h3>Modules</h3><ul><li><a href="module-Base.html">Base</a><ul class='methods'><li data-type='method'><a href="module-Base.html#~getFormActionFields">getFormActionFields</a></li><li data-type='method'><a href="module-Base.html#~getFormFields">getFormFields</a></li><li data-type='method'><a href="module-Base.html#~getFormInputFields">getFormInputFields</a></li><li data-type='method'><a href="module-Base.html#~getGUID">getGUID</a></li><li data-type='method'><a href="module-Base.html#~getID">getID</a></li><li data-type='method'><a href="module-Base.html#~getModel">getModel</a></li><li data-type='method'><a href="module-Base.html#~getResourceBundle">getResourceBundle</a></li><li data-type='method'><a href="module-Base.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-Base.html#~getUUID">getUUID</a></li><li data-type='method'><a href="module-Base.html#~hasErrorMessages">hasErrorMessages</a></li><li data-type='method'><a href="module-Base.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Base.html#~hasMissingInput">hasMissingInput</a></li><li data-type='method'><a href="module-Base.html#~isValid">isValid</a></li><li data-type='method'><a href="module-Base.html#~onMessagesButtonPress">onMessagesButtonPress</a></li><li data-type='method'><a href="module-Base.html#~onNavBack">onNavBack</a></li><li data-type='method'><a href="module-Base.html#~sendBoxMessage">sendBoxMessage</a></li><li data-type='method'><a href="module-Base.html#~sendStripMessage">sendStripMessage</a></li><li data-type='method'><a href="module-Base.html#~sendToastMessage">sendToastMessage</a></li><li data-type='method'><a href="module-Base.html#~setModel">setModel</a></li></ul></li><li><a href="module-Component.html">Component</a><ul class='methods'><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li></ul></li><li><a href="module-Organisation.html">Organisation</a><ul class='methods'><li data-type='method'><a href="module-Organisation.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Organisation.html#~onInit">onInit</a></li><li data-type='method'><a href="module-Organisation.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationCreate.html">OrganisationCreate</a><ul class='methods'><li data-type='method'><a href="module-OrganisationCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationList.html">OrganisationList</a></li><li><a href="module-Person.html">Person</a><ul class='methods'><li data-type='method'><a href="module-Person.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Person.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonCreate.html">PersonCreate</a><ul class='methods'><li data-type='method'><a href="module-PersonCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonList.html">PersonList</a></li><li><a href="module-Service.html">Service</a><ul class='methods'><li data-type='method'><a href="module-Service.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Service.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-ServiceCreate.html">ServiceCreate</a></li><li><a href="module-ServiceList.html">ServiceList</a></li><li><a href="module-Supplier.html">Supplier</a><ul class='methods'><li data-type='method'><a href="module-Supplier.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Supplier.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierCreate.html">SupplierCreate</a><ul class='methods'><li data-type='method'><a href="module-SupplierCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierList.html">SupplierList</a></li></ul><h3>Global</h3><ul><li><a href="global.html">Constructor</a></li><li><a href="global.html#onPatternMatched">onPatternMatched</a></li><li><a href="global.html#onRequestFailed">onRequestFailed</a></li><li><a href="global.html#showMetadataError">showMetadataError</a></li><li><a href="global.html#showServiceError">showServiceError</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">controller/Home.controller.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>sap.ui.define([
+	"capetown/gov/registration/controller/Base.controller",
+	"sap/ui/model/json/JSONModel"
+], function(BaseController, JSONModel) {
+	"use strict";
+	return BaseController.extend("capetown.gov.registration.controller.Home", {
+
+		//initialization
+		onInit: function() {
+
+			//initialize
+			this.initialize();
+
+			//set deferred change groups
+			this.setDeferredChangeGroups();
+
+			//hook into route matched to adopt parameters for UI rendering
+			this.getRouter().getRoute("Home").attachMatched(this.onPatternMatched, this);
+
+			//set view model for controlling UI attributes
+			this._oViewModel = new JSONModel({
+				notificationListTileNumber: 0,
+				organisationListTileNumber: 0,
+				notificationListTileBusy: false,
+				organisationListTileBusy: false,
+				supplierListTileNumber: 0,
+				supplierListTileBusy: false,
+				personListTileNumber: 0,
+				personListTileBusy: false,
+				serviceListTileNumber: 0,
+				serviceListTileBusy: false,
+				draftsTileNumber: 0,
+				draftsTileBusy: false,
+				userInCobrowse: false,
+				ratingValue: 0
+			});
+			this.setModel(this._oViewModel, "viewModel");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onPatternMatched: function() {
+
+			//hide the message strip on this view
+			this._oMessageStrip.setVisible(false);
+
+			//set tiles to busy where applicable
+			this._oViewModel.setProperty("/myAccountTileBusy", true);
+			this._oViewModel.setProperty("/personListTileBusy", true);
+			this._oViewModel.setProperty("/organisationListTileBusy", true);
+			this._oViewModel.setProperty("/supplierListTileBusy", true);
+			this._oViewModel.setProperty("/serviceListTileBusy", true);
+			this._oViewModel.setProperty("/notificationListTileBusy", true);
+			this._oViewModel.setProperty("/draftsTileBusy", true);
+			this._oViewModel.setProperty("/mbtnSupportEnabled", false);
+
+			//get user info (stage 1)
+			this.getUserInfo();
+
+		},
+
+		//get attributes of logged on user
+		getUserInfo: function() {
+
+			//local data declaration
+			var oUserInfo;
+
+			//read logged on user and bind to related person context
+			this.getModel("Registration").callFunction("/getUserInfoFromPortal", {
+
+				//url parameters
+				urlParameters: {
+					"clientAppVersion": "'0.80'"
+				},
+
+				//User details retrieved successfully
+				success: (function(oData, oResponse) {
+
+					//user context
+					oUserInfo = oData.getUserInfoFromPortal;
+
+					//get master data
+					this.getOwnerComponent().bindMasterData();
+
+					//keep track of the user context
+					this.getOwnerComponent().oUserInfo = oUserInfo;
+
+					//prepare view model attributes for display
+					this.prepareHomeViewModelForDisplay(oUserInfo);
+
+					//for first time logon user
+					if (oUserInfo.IsInitialLogon === "X") {
+
+						//show intro
+						this.showIntroDialog();
+
+						//get user context from ERP backend
+						this.getModel("Registration").callFunction("/getUserInfoFromERP", {
+
+							//User details retrieved successfully from ERP backend
+							success: (function(oData, oResponse) {
+
+								//user context
+								oUserInfo = oData.getUserInfoFromERP;
+
+								//get master data
+								this.getOwnerComponent().bindMasterData();
+
+								//keep track of the user context
+								this.getOwnerComponent().oUserInfo = oUserInfo;
+
+								//prepare view model attributes for display
+								this.prepareHomeViewModelForDisplay(oUserInfo);
+
+								//message handling: application is ready for use
+								this.sendAppReadyMessage();
+
+							}).bind(this)
+
+						});
+
+					}
+
+				}).bind(this)
+
+			});
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onPersonListTilePress: function() {
+
+			//navigate to person list view
+			this.getRouter().navTo("PersonList");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onOrganisationListTilePress: function() {
+
+			//navigate to organisation list view
+			this.getRouter().navTo("OrganisationList");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onSupplierListTilePress: function() {
+
+			//navigate to organisation list view
+			this.getRouter().navTo("SupplierList");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onServiceListTilePress: function() {
+
+			//navigate to service list view
+			this.getRouter().navTo("ServiceList");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onNotificationListTilePress: function() {
+
+			//navigate to notification list view
+			this.getRouter().navTo("NotificationList");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onPersonTilePress: function() {
+
+			//navigate to user profile
+			this.getRouter().navTo("Person");
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.Home
+		 */
+		onDraftsTilePress: function() {
+
+			//navigate to drafts view
+			this.getRouter().navTo("Drafts");
+
+		},
+
+		//informing that app is ready for use
+		sendAppReadyMessage: function() {
+
+			//message handling: informing that app is ready for use
+			this.sendStripMessage("We have retrieved your user context. Your application is ready for use...", sap.ui.core.MessageType.Success);
+
+		},
+
+		//show City of Cape Town privacy policy page
+		showPrivacyPolicy: function() {
+
+			//open another window with privacy policy page
+			window.open("http://www.capetown.gov.za/General/Privacy", "Privacy policy");
+
+		},
+
+		//show City of Cape Town terms of use page
+		showTermsOfUse: function() {
+
+			//open another window with terms of use page
+			window.open("http://www.capetown.gov.za/General/Terms-of-use", "Terms of use");
+
+		},
+
+		//show intro dialog
+		showIntroDialog: function() {
+
+			//create dialog for renderting intro
+			this.oIntroDialog = sap.ui.xmlfragment("capetown.gov.registration.fragment.IntroDialog", this);
+			this.oIntroDialog.attachAfterClose(function() {
+				this.oIntroDialog.destroy();
+			}.bind(this));
+			this.getView().addDependent(this.oIntroDialog);
+
+			//open registration confirmation dialog
+			this.oIntroDialog.open();
+
+		},
+
+		//close intro dialog
+		onPressCloseIntroDialogButton: function() {
+
+			//close registration confirmation dialog
+			this.oIntroDialog.close();
+
+		},
+
+		//gather feedback related to app rating
+		gatherRatingFeedback: function(oEvent) {
+
+			//create new rating entry
+			var oRatingContext = this._oODataModel.createEntry("RatingSet", {
+				properties: {
+					RatingID: this.getUUID(),
+					RatingValue: this.getView().byId("ratingIndicator").getValue().toString(),
+					RatingTimeStamp: new Date()
+				}
+			});
+
+			//construct rating dialog content
+			var oRatingPopoverContent = sap.ui.xmlfragment("capetown.gov.registration.fragment.Rating", this);
+
+			//construct dialog instance	to collect rating feedback		
+			this.oRatingPopover = new sap.m.ResponsivePopover({
+				placement: "Top",
+				modal: true,
+				icon: "sap-icon://citizen-connect",
+				title: "Rating feedback",
+				contentWidth: "450px",
+				content: oRatingPopoverContent,
+
+				//buttons
+				beginButton:
+
+				//send feedback
+					new sap.m.Button({
+					type: sap.m.ButtonType.Emphasized,
+					text: "Send",
+					press: function() {
+
+						//get rading feedback provided
+						var sRatingFeedback = sap.ui.getCore().byId("tareaRatingFeedback").getValue();
+
+						//view is now busy
+						this._oViewModel.setProperty("/busy", true);
+
+						//adopt rating feedback
+						this._oODataModel.setProperty(this.oRatingPopover.getBindingContext("Registration").getPath() + "/RatingFeedback",
+							sRatingFeedback);
+
+						//submit changes to this point
+						this._oODataModel.submitChanges({
+
+							//successfully submitted changes
+							success: (function() {
+
+								//view is no longer busy
+								this._oViewModel.setProperty("/busy", false);
+
+							}).bind(this)
+
+						});
+
+						//close rating dialog
+						this.oRatingPopover.close();
+
+					}.bind(this)
+
+				}),
+
+				//event handler for dialog destroy
+				afterClose: function() {
+
+					//destroy error dialog UI control
+					this.oRatingPopover.destroy();
+
+				}.bind(this)
+
+			});
+
+			//add view dependant
+			this.getView().addDependent(this.oRatingPopover);
+
+			//set rating binding context to rating dialog
+			this.oRatingPopover.setBindingContext(oRatingContext, "Registration");
+
+			//open dialog
+			this.oRatingPopover.openBy(oEvent.getSource());
+
+		},
+
+		//prepare home view model attributes for display
+		prepareHomeViewModelForDisplay: function(oUserInfo) {
+
+			//update my account tile
+			this._oViewModel.setProperty("/myAccountTileBusy", false);
+
+			//prepare view model for cobrowse mode
+			this.adoptComponentAttributes("Cobrowse", this._oViewModel);
+
+			//update person list tile
+			this._oViewModel.setProperty("/personListTileNumber", oUserInfo.PersonCount);
+			this._oViewModel.setProperty("/personListTileBusy", false);
+
+			//update organisation list tile
+			this._oViewModel.setProperty("/organisationListTileNumber", oUserInfo.OrganisationCount);
+			this._oViewModel.setProperty("/organisationListTileBusy", false);
+
+			//update supplier list tile
+			this._oViewModel.setProperty("/supplierListTileNumber", oUserInfo.SupplierCount);
+			this._oViewModel.setProperty("/supplierListTileBusy", false);
+
+			//update service list tile
+			this._oViewModel.setProperty("/serviceListTileNumber", oUserInfo.ServiceCount);
+			this._oViewModel.setProperty("/serviceListTileBusy", false);
+
+			//update notification list tile
+			this._oViewModel.setProperty("/notificationListTileNumber", oUserInfo.NotificationCount);
+			this._oViewModel.setProperty("/notificationListTileBusy", false);
+
+			//update draft list tile
+			this._oViewModel.setProperty("/draftsTileNumber", oUserInfo.DraftCount);
+			this._oViewModel.setProperty("/draftsTileBusy", false);
+
+			//update application rating 
+			this._oViewModel.setProperty("/ratingValue", Number(oUserInfo.RatingValue));
+
+			//enable support menu
+			this._oViewModel.setProperty("/mbtnSupportEnabled", true);
+
+		},
+
+		//close window currently rendering this application
+		closeWindow: function() {
+
+			//close current window
+			window.close();
+
+		},
+		
+		//handle support menu item press
+		onPressSupportMenuItem: function(oEvent) {
+
+			//get selected menu item
+			var oSupportMenuItem = oEvent.getParameter("item");
+
+			//refresh user data from ERP backend
+			if (/mitemSupportRefreshAll/.test(oSupportMenuItem.getId())) {
+				this.refreshUserDataFromERP();
+			}
+
+		}
+
+	});
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Sep 27 2017 15:03:10 GMT+0300 (E. Europe Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

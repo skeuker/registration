@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover id="popChosenUserID" showHeader="false" class="sapUiContentPadding" placement="Right">
+		<content>
+			<Image src="image/HintChosenUserID.png" alt="Hint for setting chosen user ID"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

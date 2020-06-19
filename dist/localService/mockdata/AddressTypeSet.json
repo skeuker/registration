@@ -1,0 +1,52 @@
+[{
+	"AddressTypeID": "CPAddress",
+	"AddressTypeText": "Correspondence",
+	"RequiredEntry": "true",
+	"AddressTypeScope": "3",
+	"InputCardinality": "1",
+	"OutgoingFilterArgument": "POBox"
+}, {
+	"AddressTypeID": "DelAddress",
+	"AddressTypeText": "Delivery address",
+	"RequiredEntry": "true",
+	"AddressTypeScope": "3",
+	"InputCardinality": "1"
+}, {
+	"AddressTypeID": "VendorAddress",
+	"AddressTypeText": "Ordering address",
+	"AddressTypeScope": "5",
+	"InputCardinality": "1",
+	"OutgoingFilterArgument": "Street"
+}, {
+	"AddressTypeID": "PhysicalAddress",
+	"AddressTypeText": "Physical address",
+	"AddressTypeScope": "2",
+	"InputCardinality": "1",
+	"OutgoingFilterArgument": "Street"
+}, {
+	"AddressTypeID": "VendorAddress2",
+	"AddressTypeText": "PO Box address",
+	"AddressTypeScope": "5",
+	"InputCardinality": "0..1",
+	"OutgoingFilterArgument": "POBox"
+}, {
+	"AddressTypeID": "0001",
+	"AddressTypeText": "Main address",
+	"AddressTypeScope": "3",
+	"InputCardinality": "0..1"
+}, {
+	"AddressTypeID": "0003",
+	"AddressTypeText": "Supplier address",
+	"AddressTypeScope": "5",
+	"InputCardinality": "0..1"
+}, {
+	"AddressTypeID": "0004",
+	"AddressTypeText": "PO Box address",
+	"AddressTypeScope": "5",
+	"InputCardinality": "0..1"
+}, {
+	"AddressTypeID": "DEFAULT",
+	"AddressTypeText": "Physical address",
+	"AddressTypeScope": "2",
+	"InputCardinality": "0..1"
+}]

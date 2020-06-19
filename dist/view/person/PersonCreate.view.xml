@@ -1,0 +1,46 @@
+<mvc:XMLView xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" controllerName="capetown.gov.registration.controller.person.PersonCreate" busy="{viewModel>/busy}">
+	<semantic:FullscreenPage id="pagePersonWizardContent" title="{viewModel>/viewTitle}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:mainAction>
+			<semantic:MainAction press="onPressPersonCreateSaveDraftButton" text="Save draft"/>
+		</semantic:mainAction>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndPerson" state="Clear"></DraftIndicator>
+		</semantic:draftIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text=""/>
+			<Wizard complete="onPressPersonWizardSubmitButton" finishButtonText="{viewModel>/wizFinishButtonText}" id="wizPersonCreate" showNextButton="true"
+				enableBranching="true">
+				<WizardStep id="wizstepPersonAttributes" icon="sap-icon://initiative" title="Person details" validated="false"
+					nextStep="wizstepPersonUser">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.person.PersonAttributesForCreate" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepPersonUser" icon="sap-icon://account" title="User account" validated="false"
+					subsequentSteps="wizstepPersonDocuments, wizstepPersonDataPrivacyDeclaration">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.person.PersonUser" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepPersonDocuments" icon="sap-icon://documents" title="Documents" validated="false"
+					nextStep="wizstepPersonDataPrivacyDeclaration">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.person.PersonDocuments" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepPersonDataPrivacyDeclaration" icon="sap-icon://employee-approvals" title="Data privacy statement" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.person.PersonDataPrivacyDeclaration" type="XML"/>
+					</content>
+				</WizardStep>
+			</Wizard>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:XMLView>

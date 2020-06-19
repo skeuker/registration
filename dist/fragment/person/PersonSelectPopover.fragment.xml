@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover id="popPersonSelect" title="Add new responsibility" class="sapUiContentPadding" placement="Bottom"
+		initialFocus="selPersonOption" contentWidth="50%">
+		<content>
+			<Table id="tabPersonSelectPopover" noDataText="No entries. Click + to add" title="Select Person" search="onPressPersonSelectDialogSearch"
+				items="{ path : 'Registration>/PersonSet', filters: [{path: 'EntityStatusID', operator: 'BT', value1: '0', value2: '4'}, { path: 'EntityStatusID', operator: 'BT', value1: '6', value2: '7'}], sorter : { path : 'Name', descending : false } }">
+				<ColumnListItem type="Active">
+					<cells>
+						<ObjectIdentifier title="{Registration>Name} {Registration>Surname}"/>
+						<Text maxLines="1" text="{Registration>IDNumber}"/>
+						<Text maxLines="1" text="{Registration>eMailAddress}"/>
+						<Text maxLines="1" text="{= ${Registration>PhoneNumber}? ${Registration>PhoneNumber} : ${Registration>MobilePhoneNumber} }"/>
+						<Text maxLines="1" text="{ path : 'Registration>EntityStatusID', formatter : '.formatEntityStatusID' }"/>
+					</cells>
+				</ColumnListItem>
+				<columns>
+					<Column width="12em">
+						<header>
+							<Text text="Name"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<header>
+							<Text text="ID number"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<header>
+							<Text text="eMail address"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<header>
+							<Text text="Phone number"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<header>
+							<Text text="Status"/>
+						</header>
+					</Column>
+				</columns>
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="People"/>
+						<ToolbarSpacer/>
+						<SearchField width="auto" placeholder="{i18n>pholderEnterSearchCriteria}" search="onPressPersonSelectDialogSearch" liveChange=""/>
+						<Button type="Transparent" icon="sap-icon://add" text="Add" press="onPressPersonSelectDialogAddPersonButton"/>
+					</OverflowToolbar>
+				</headerToolbar>
+			</Table>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

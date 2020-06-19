@@ -1,0 +1,43 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "buildRequired": true,
+    "lastBuildDateTime": "Wed, 26 Jun 2019 12:40:27 GMT"
+  },
+  "generation": [
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationProject",
+      "templateVersion": "1.32.0",
+      "dateTimeStamp": "Mon, 08 Aug 2016 08:12:20 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Mon, 17 Oct 2016 05:22:41 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "mockpreview": {
+    "loadJSONFiles": true,
+    "mockUri": "/sap/opu/odata/sap/ZREGISTRATION_SRV/",
+    "metadataFilePath": "localService/metadata.xml",
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "dataBinding": {},
+  "deploy": {
+    "destination": "EAD",
+    "name": "ZREGISTRATION"
+  }
+}

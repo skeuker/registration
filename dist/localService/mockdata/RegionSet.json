@@ -1,0 +1,16 @@
+[{
+	"RegionID": "WC",
+	"RegionText": "Western Cape"
+}, {
+	"RegionID": "NC",
+	"RegionText": "Northern Cape"
+}, {
+	"RegionID": "GP",
+	"RegionText": "Gauteng"
+}, {
+	"RegionID": "EC",
+	"RegionText": "Eastern Cape"
+}, {
+	"RegionID": "KZN",
+	"RegionText": "KwaZulu Natal"
+}]

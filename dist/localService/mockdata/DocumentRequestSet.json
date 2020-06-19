@@ -1,0 +1,9 @@
+[{
+	"DocumentRequestID": "1",
+	"DocumentTypeID": "VATRegDoc",
+	"SupplierID": "TelkomVendor"
+}, {
+	"DocumentRequestID": "2",
+	"DocumentTypeID": "ISO9001Certificate",
+	"SupplierID": "TelkomVendor"
+}]

@@ -1,0 +1,7 @@
+[{
+	"DocumentTriggerID": "1",
+	"DocumentTriggerText": "Load VAT certificate",
+	"TriggerScope": "5",
+	"TriggerFilter": "VATRegistrationNbr",
+	"DocumentTypeID": "VATRegDoc"
+}]

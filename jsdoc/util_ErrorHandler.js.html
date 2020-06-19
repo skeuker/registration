@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>util/ErrorHandler.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ErrorHandler.html">ErrorHandler</a></li></ul><h3>Modules</h3><ul><li><a href="module-Base.html">Base</a><ul class='methods'><li data-type='method'><a href="module-Base.html#~getFormActionFields">getFormActionFields</a></li><li data-type='method'><a href="module-Base.html#~getFormFields">getFormFields</a></li><li data-type='method'><a href="module-Base.html#~getFormInputFields">getFormInputFields</a></li><li data-type='method'><a href="module-Base.html#~getGUID">getGUID</a></li><li data-type='method'><a href="module-Base.html#~getID">getID</a></li><li data-type='method'><a href="module-Base.html#~getModel">getModel</a></li><li data-type='method'><a href="module-Base.html#~getResourceBundle">getResourceBundle</a></li><li data-type='method'><a href="module-Base.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-Base.html#~getUUID">getUUID</a></li><li data-type='method'><a href="module-Base.html#~hasErrorMessages">hasErrorMessages</a></li><li data-type='method'><a href="module-Base.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Base.html#~hasMissingInput">hasMissingInput</a></li><li data-type='method'><a href="module-Base.html#~isValid">isValid</a></li><li data-type='method'><a href="module-Base.html#~onMessagesButtonPress">onMessagesButtonPress</a></li><li data-type='method'><a href="module-Base.html#~onNavBack">onNavBack</a></li><li data-type='method'><a href="module-Base.html#~sendBoxMessage">sendBoxMessage</a></li><li data-type='method'><a href="module-Base.html#~sendStripMessage">sendStripMessage</a></li><li data-type='method'><a href="module-Base.html#~sendToastMessage">sendToastMessage</a></li><li data-type='method'><a href="module-Base.html#~setModel">setModel</a></li></ul></li><li><a href="module-Component.html">Component</a><ul class='methods'><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li></ul></li><li><a href="module-Organisation.html">Organisation</a><ul class='methods'><li data-type='method'><a href="module-Organisation.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Organisation.html#~onInit">onInit</a></li><li data-type='method'><a href="module-Organisation.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationCreate.html">OrganisationCreate</a><ul class='methods'><li data-type='method'><a href="module-OrganisationCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationList.html">OrganisationList</a></li><li><a href="module-Person.html">Person</a><ul class='methods'><li data-type='method'><a href="module-Person.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Person.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonCreate.html">PersonCreate</a><ul class='methods'><li data-type='method'><a href="module-PersonCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonList.html">PersonList</a></li><li><a href="module-Service.html">Service</a><ul class='methods'><li data-type='method'><a href="module-Service.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Service.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-ServiceCreate.html">ServiceCreate</a></li><li><a href="module-ServiceList.html">ServiceList</a></li><li><a href="module-Supplier.html">Supplier</a><ul class='methods'><li data-type='method'><a href="module-Supplier.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Supplier.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierCreate.html">SupplierCreate</a><ul class='methods'><li data-type='method'><a href="module-SupplierCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierList.html">SupplierList</a></li></ul><h3>Global</h3><ul><li><a href="global.html">Constructor</a></li><li><a href="global.html#onPatternMatched">onPatternMatched</a></li><li><a href="global.html#onRequestFailed">onRequestFailed</a></li><li><a href="global.html#showMetadataError">showMetadataError</a></li><li><a href="global.html#showServiceError">showServiceError</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">util/ErrorHandler.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>sap.ui.define([
+	"sap/ui/base/Object",
+	"sap/m/MessageBox",
+	"sap/ui/model/json/JSONModel"
+], function(UI5Object, MessageBox, JSONModel) {
+	"use strict";
+
+	/**
+	 * @class ErrorHandler
+	 * @description Handles application errors by automatically attaching to the model events and displaying errors when needed.
+	 * @param {sap.ui.core.UIComponent} oComponent reference to the app's component
+	 * @public
+	 */
+	return UI5Object.extend("com.rbgapps.controller.ErrorHandler", {
+
+		/**
+		 * @method Constructor
+		 * @inner
+		*/
+		constructor: function(oComponent) {
+
+			//initialize variables
+			this._oResourceBundle = oComponent.getModel("i18n").getResourceBundle();
+			this._oComponent = oComponent;
+			this._oModel = oComponent.getModel("Registration");
+			this._bMessageOpen = false;
+			this._sErrorText = this._oResourceBundle.getText("messageServiceErrorHasOccured");
+
+			//failed to get metadata
+			this._oModel.attachMetadataFailed(function(oEvent) {
+				var oParams = oEvent.getParameters();
+				this.showMetadataError(oParams.response.message);
+			}, this);
+
+			//attach to request failure event
+			this._oModel.attachRequestFailed(this.onRequestFailed, this);
+
+		},
+
+		/**
+		 * Event Handler for Request Fail event
+		 * The user can try to refresh the metadata.
+		 * @param {object} oEvent an event containing the response data
+		 * @private
+		 */
+		onRequestFailed: function(oEvent) {
+
+			//get request failure context
+			var oParams = oEvent.getParameters();
+
+			// An entity that was not found in the service is also throwing a 404 error in oData.
+			// We already cover this case with a notFound target so we skip it here.
+			// A request that cannot be sent to the server is a technical error that we have to handle though
+			if ((oParams.response.statusCode !== "404") || (oParams.response.statusCode === 404 &amp;&amp;
+					oParams.response.responseText.indexOf("Cannot POST") === 0)) {
+				this.showServiceError(oParams.response);
+			}
+
+		},
+
+		/**
+		 * @method showMetadataError
+		 * @description Shows a {@link sap.m.MessageBox} when the metadata call has failed.
+		 * @description The user can try to refresh the metadata.
+		 * @param {string} sDetails a technical error to be displayed on request
+		 * @private
+		 */
+		showMetadataError: function(sMessageDetails) {
+
+			//get backend connection error message text
+			var sMessage = this._oComponent.getModel("i18n").getResourceBundle().getText("messageBackendConnectionErrorOccured");
+
+			//construct default message details text where applicable
+			if (!sMessageDetails) {
+				sMessageDetails = this._oComponent.getModel("i18n").getResourceBundle().getText("messageMetaDataErrorOccured");
+			}
+
+			//show error dialog				
+			this._oComponent.showErrorDialog(sMessage, sMessageDetails, "Backend or connection error occured");
+
+		},
+
+		/**
+		 * Shows error dialog when a service call has failed.
+		 * @param {object} oResponse a technical error to be displayed on request
+		 * @private
+		 */
+		showServiceError: function(oResponse) {
+
+			//local data declaration
+			var sMessage;
+			var sMessageDetails;
+
+			//get backend connection error message text
+			sMessage = this._oComponent.getModel("i18n").getResourceBundle().getText("messageBackendConnectionErrorOccured");
+
+			//format response text for display in error message details
+			try {
+				var oResponseText = JSON.parse(oResponse.responseText);
+				sMessageDetails = oResponseText.error.message.value;
+			} catch (exception) {
+				sMessageDetails = "An unexpected connection or backend error occured";
+			}
+
+			//show error dialog				
+			this._oComponent.showErrorDialog(sMessage, sMessageDetails, "Backend or connection error occured");
+
+		}
+
+	});
+
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Sep 27 2017 15:03:10 GMT+0300 (E. Europe Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

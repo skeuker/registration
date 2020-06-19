@@ -1,0 +1,16 @@
+[{
+	"CertificateID": "2121",
+	"CertificateNumber": "67809987-2016",
+	"ExpiryDate": "20170228",
+	"CertificateTypeID": "SARSTaxClear",
+	"SupplierID": "StefanKeukerVendor",
+	"CertificateAttributes": "{\"PIN\":\"3367385\",\"Bla\":\"Nix\"}",
+	"CertificateExpiryDate": "/Date(1501448400000)/"
+}, {
+	"CertificateID": "2122",
+	"CertificateNumber": "78739432-789",
+	"CertificateExpiryDate": "/Date(1503522000000)/",
+	"CertificateTypeID": "SARSTaxClear",
+	"SupplierID": "TelkomVendor",
+	"CertificateAttributes": "{\"PIN\":\"787688\"}"
+}]

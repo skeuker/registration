@@ -1,0 +1,5 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.core="sap.ui.core" xmlns="sap.m" controllerName="capetown.gov.registration.controller.App">
+	<App id="app">
+		<pages></pages>
+	</App>
+</mvc:View>

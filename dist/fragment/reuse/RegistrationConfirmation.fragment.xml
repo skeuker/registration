@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<VBox width="100%" class="sapUiLargeMarginTopBottom" direction="Row" justifyContent="Center">
+		<items>
+			<core:HTML id="htmlRegistrationConfirmation" sanitizeContent="true"
+				content="&lt;div&gt;&lt;p&gt;&lt;b&gt;Your registration request has been submitted.&lt;/b&gt;&lt;/p&gt; &lt;p&gt;&lt;i&gt;Your reference is sReferenceID.&lt;/i&gt;&lt;/p&gt;&lt;/div&gt;"/>
+		</items>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+[{
+	"PersonID": "Joe Bloggs",
+	"OrganisationID": "Telkom",
+	"RoleID": "03",
+	"ResponsibilityID": "1",
+	"EntityStatusID": "1"
+}, {
+	"PersonID": "Stefan Keuker",
+	"OrganisationID": "Telkom",
+	"RoleID": "01",
+	"ResponsibilityID": "3",
+	"EntityStatusID": "1"
+}, {
+	"ResponsibilityID": "4",
+	"PersonID": "John Doe",
+	"OrganisationID": "Telkom",
+	"RoleID": "05",
+	"EntityStatusID": "1"
+}]

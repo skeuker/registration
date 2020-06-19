@@ -1,0 +1,7 @@
+[{
+	"RelationshipTypeID": "HO",
+	"RelationshipTypeText": "Head Office"
+}, {
+	"RelationshipTypeID": "SUB",
+	"RelationshipTypeText": "Subsidiary"
+}]

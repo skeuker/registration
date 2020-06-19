@@ -1,0 +1,7 @@
+[{
+	"BEEVerifierTypeID": "EME VERIFIER",
+	"BEEVerifierTypeText": "B-BBEE Verifier"
+}, {
+	"BEEVerifierTypeID": "AFFIDAVIT",
+	"BEEVerifierTypeText": "Affidavit"
+}]

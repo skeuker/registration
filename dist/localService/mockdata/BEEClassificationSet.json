@@ -1,0 +1,27 @@
+[{
+	"BEEClassificationID": "BEE1",
+	"BEELevel": "8",
+	"BOwnPercentage": "20",
+	"BWOwnPercentage": "30",
+	"ExpiryDate": "20181002",
+	"CertificateNumber": "1919188",
+	"CertificateAgency": "",
+	"VerifierAgency": "HiThere",
+	"VerifierType": "EME ",
+	"VerifierRegNbr": "36363",
+	"SupplierID": "StefanKeukerVendor",
+	"BEEClassificationTypeID": "GEN",
+	"BEEClassificationLevelID": "4",
+	"CertificateExpiryDate": "/Date(1487714400000)/"
+}, {
+	"BEEClassificationID": "BEE2",
+	"BEEClassificationLevelID": "4",
+	"BOwnPercentage": "39",
+	"BWOwnPercentage": "49",
+	"CertificateNumber": "1919188",
+	"CertificateAgency": "Fairtrade",
+	"SupplierID": "TelkomVendor",
+	"BEEClassificationTypeID": "GEN",
+	"CertificateExpiryDate": "/Date(1487714400000)/",
+	"VerifierAgency": ""
+}]

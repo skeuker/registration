@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Component-dbg.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ErrorHandler.html">ErrorHandler</a></li></ul><h3>Modules</h3><ul><li><a href="module-Base.html">Base</a><ul class='methods'><li data-type='method'><a href="module-Base.html#~getFormActionFields">getFormActionFields</a></li><li data-type='method'><a href="module-Base.html#~getFormFields">getFormFields</a></li><li data-type='method'><a href="module-Base.html#~getFormInputFields">getFormInputFields</a></li><li data-type='method'><a href="module-Base.html#~getGUID">getGUID</a></li><li data-type='method'><a href="module-Base.html#~getID">getID</a></li><li data-type='method'><a href="module-Base.html#~getModel">getModel</a></li><li data-type='method'><a href="module-Base.html#~getResourceBundle">getResourceBundle</a></li><li data-type='method'><a href="module-Base.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-Base.html#~getUUID">getUUID</a></li><li data-type='method'><a href="module-Base.html#~hasErrorMessages">hasErrorMessages</a></li><li data-type='method'><a href="module-Base.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Base.html#~hasMissingInput">hasMissingInput</a></li><li data-type='method'><a href="module-Base.html#~isValid">isValid</a></li><li data-type='method'><a href="module-Base.html#~onMessagesButtonPress">onMessagesButtonPress</a></li><li data-type='method'><a href="module-Base.html#~onNavBack">onNavBack</a></li><li data-type='method'><a href="module-Base.html#~sendBoxMessage">sendBoxMessage</a></li><li data-type='method'><a href="module-Base.html#~sendStripMessage">sendStripMessage</a></li><li data-type='method'><a href="module-Base.html#~sendToastMessage">sendToastMessage</a></li><li data-type='method'><a href="module-Base.html#~setModel">setModel</a></li></ul></li><li><a href="module-Component.html">Component</a><ul class='methods'><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li></ul></li><li><a href="module-Organisation.html">Organisation</a><ul class='methods'><li data-type='method'><a href="module-Organisation.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Organisation.html#~onInit">onInit</a></li><li data-type='method'><a href="module-Organisation.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationCreate.html">OrganisationCreate</a><ul class='methods'><li data-type='method'><a href="module-OrganisationCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationList.html">OrganisationList</a></li><li><a href="module-Person.html">Person</a><ul class='methods'><li data-type='method'><a href="module-Person.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Person.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonCreate.html">PersonCreate</a><ul class='methods'><li data-type='method'><a href="module-PersonCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonList.html">PersonList</a></li><li><a href="module-Service.html">Service</a><ul class='methods'><li data-type='method'><a href="module-Service.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Service.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-ServiceCreate.html">ServiceCreate</a></li><li><a href="module-ServiceList.html">ServiceList</a></li><li><a href="module-Supplier.html">Supplier</a><ul class='methods'><li data-type='method'><a href="module-Supplier.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Supplier.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierCreate.html">SupplierCreate</a><ul class='methods'><li data-type='method'><a href="module-SupplierCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierList.html">SupplierList</a></li></ul><h3>Global</h3><ul><li><a href="global.html">Constructor</a></li><li><a href="global.html#onPatternMatched">onPatternMatched</a></li><li><a href="global.html#onRequestFailed">onRequestFailed</a></li><li><a href="global.html#showMetadataError">showMetadataError</a></li><li><a href="global.html#showServiceError">showServiceError</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Component-dbg.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*global history */
+/**
+ * Component
+ * @description Registration component
+ * @module Component
+ */
+sap.ui.define([
+	"sap/ui/core/UIComponent",
+	"sap/ui/Device",
+	"capetown/gov/registration/model/models",
+	"capetown/gov/registration/util/ErrorHandler",
+	"sap/ui/model/json/JSONModel"
+], function(UIComponent, Device, models, ErrorHandler, JSONModel) {
+	"use strict";
+
+	return UIComponent.extend("capetown.gov.registration.Component", {
+
+		metadata: {
+			manifest: "json"
+		},
+
+		//user context of logged on person
+		oUserInfo: null,
+
+		/**
+		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+		 * @public
+		 * @override
+		 */
+		init: function() {
+
+			//instantiate an error handler
+			this.oErrorHandler = new ErrorHandler(this);
+
+			//preload error fragment to prevent issues later due to connection issues
+			sap.ui.xmlfragment("capetown.gov.registration.fragment.Error").destroy();
+
+			// set the device model
+			this.setModel(models.createDeviceModel(), "device");
+
+			// call the base component's init function
+			UIComponent.prototype.init.apply(this, arguments);
+
+			//get OData model reference for duplicate check lists
+			this._oODataModel = this.getModel("Registration");
+
+			//get application configuration
+			this.getConfiguration();
+
+			// create the views based on the url/hash
+			this.getRouter().initialize();
+
+		},
+
+		//register global script error event handler
+		onWindowError: function(sErrorMessage, sFile, iLine) {
+
+			//get script error message text
+			var sMessage = this.getModel("i18n").getResourceBundle().getText("messageScriptErrorOccured");
+
+			//construct error message details
+			var sMessageDetails = [
+				"Error: " + sErrorMessage,
+				"Location: " + sFile,
+				"Line: " + iLine
+			].join(" - ");
+
+			//replace message details when no further error details were reported
+			if (sErrorMessage === undefined || sErrorMessage === "") {
+				sMessageDetails = this.getModel("i18n").getResourceBundle().getText("messageScriptErrorOccuredNoDetails");
+			}
+
+			//show browser script error dialog
+			this.showErrorDialog(sMessage, sMessageDetails, "Browser script exception occured");
+
+		},
+
+		//show error dialog
+		showErrorDialog: function(sMessage, sMessageDetails, sTitle) {
+
+			//only one error dialog at a time
+			if (this.bErrorDialogOpen) {
+				return;
+			}
+
+			//create Error model for rendering in dialog
+			var oError = new sap.ui.model.json.JSONModel({
+				message: sMessage,
+				messageDetails: sMessageDetails
+			});
+
+			//construct confirmation dialog content
+			var oErrorDialogContent = sap.ui.xmlfragment("capetown.gov.registration.fragment.Error", this);
+
+			//construct dialog instance			
+			var oScriptErrorDialog = new sap.m.Dialog({
+				icon: "sap-icon://message-error",
+				type: sap.m.DialogType.Message,
+				state: sap.ui.core.ValueState.Error,
+				title: sTitle,
+				contentWidth: "450px",
+				draggable: true,
+				content: oErrorDialogContent,
+
+				//buttons
+				buttons: [
+
+					//e-mail this error text
+					new sap.m.Button({
+						type: sap.m.ButtonType.Transparent,
+						text: "e-Mail",
+						press: function() {
+
+							//trigger email send
+							sap.m.URLHelper.triggerEmail("stefan.keuker@capetown.gov.za", "Registration script error", sMessageDetails);
+
+							//close script error dialog dialog
+							oScriptErrorDialog.close();
+
+						}
+
+					}),
+
+					//close this error dialog
+					new sap.m.Button({
+						type: "Emphasized",
+						text: "Close",
+						press: function() {
+
+							//close script error dialog dialog
+							oScriptErrorDialog.close();
+
+						}
+
+					})
+
+				],
+
+				//event handler for dialog destroy
+				afterClose: function() {
+
+					//destroy error dialog UI control
+					oScriptErrorDialog.destroy();
+
+					//error dialog no longer open
+					this.bErrorDialogOpen = false;
+
+				}
+
+			});
+
+			//set error model to dialog
+			oScriptErrorDialog.setModel(oError, "Error");
+
+			//keep track that error dialog open
+			this.bErrorDialogOpen = true;
+
+			//open dialog
+			oScriptErrorDialog.open();
+
+		},
+
+		//set error message text details to visible
+		toggleErrorDetails: function() {
+
+			//get current visibility of error details
+			var bVisible = sap.ui.getCore().byId("felemErrorMessageDetails").getVisible();
+
+			//set error message details text area to visible
+			switch (bVisible) {
+				case true:
+					sap.ui.getCore().byId("felemErrorMessageDetails").setVisible(false);
+					break;
+				case false:
+					sap.ui.getCore().byId("felemErrorMessageDetails").setVisible(true);
+					break;
+			}
+
+		},
+
+		/**
+		 * The component is destroyed by UI5 automatically.
+		 * In this method, the ErrorHandler is destroyed.
+		 * @public
+		 * @override
+		 */
+		destroy: function() {
+
+			//distroy the error handler
+			this.oErrorHandler.destroy();
+
+			// call the base component's destroy function
+			UIComponent.prototype.destroy.apply(this, arguments);
+
+		},
+
+		//get content density class
+		getContentDensityClass: function() {
+
+			//get content density class
+			if (this._sContentDensityClass === undefined) {
+				// check whether FLP has already set the content density class; do nothing in this case
+				if (jQuery(document.body).hasClass("sapUiSizeCozy") || jQuery(document.body).hasClass("sapUiSizeCompact")) {
+					this._sContentDensityClass = "";
+				} else if (!Device.support.touch) { // apply "compact" mode if touch is not supported
+					this._sContentDensityClass = "sapUiSizeCompact";
+				} else {
+					// "cozy" in case of touch support; default for most sap.m controls, but needed for desktop-first controls like sap.ui.table.Table
+					this._sContentDensityClass = "sapUiSizeCozy";
+				}
+			}
+
+			//feedback to caller
+			return this._sContentDensityClass;
+
+		},
+
+		//get configuration
+		getConfiguration: function() {
+
+			//set models: OData model
+			if (!this._oODataModel) {
+				this._oODataModel = this.getModel("Registration");
+				sap.ui.getCore().setModel(this._oODataModel, "Registration");
+			}
+
+			//set to use batch request for read
+			this._oODataModel.setUseBatch(true);
+
+			//set deferred groupId for read of configuration
+			var aDeferredGroups = this._oODataModel.getDeferredGroups();
+			if (aDeferredGroups.indexOf("Configuration") &lt; 0) {
+				aDeferredGroups.push("Configuration");
+				this._oODataModel.setDeferredGroups(aDeferredGroups);
+			}
+
+			//get service types
+			this._oODataModel.read("/BankAccountPurposeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/RelationshipTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/LegalEntityTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/AddressCategorySet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/BankAccountTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/CertificateTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/ParameterTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/ServiceTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/ContactTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/EntityStatusSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/IndustrySet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/AddressTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/IDTypeSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/CountrySet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/RegionSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/ActionSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/TitleSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/RoleSet", {
+				groupId: "Configuration"
+			});
+			this._oODataModel.read("/BankSet", {
+				groupId: "Configuration"
+			});
+
+			//submit batch request			
+			this._oODataModel.submitChanges({
+
+				//changes in organisation group ID
+				groupId: "Configuration",
+
+				//success event handler: nothing at this stage
+				success: function(oData, response) {
+
+				}
+
+			});
+
+		},
+
+		//bind component to its master data
+		bindMasterData: function() {
+
+			//create and bind person list for duplicate check
+			this.oPersonList = new sap.m.List({});
+			this.oPersonList.setModel(this._oODataModel, "Registration");
+			this.oPersonList.bindItems({
+				path: "Registration>/PersonSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oPersonList.getBinding("items").refresh();
+
+			//create and bind organisation list for duplicate check
+			this.oOrganisationList = new sap.m.List({});
+			this.oOrganisationList.setModel(this._oODataModel, "Registration");
+			this.oOrganisationList.bindItems({
+				path: "Registration>/OrganisationSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oOrganisationList.getBinding("items").refresh();
+
+			//create and bind supplier list for duplicate check
+			this.oSupplierList = new sap.m.List({});
+			this.oSupplierList.setModel(this._oODataModel, "Registration");
+			this.oSupplierList.bindItems({
+				path: "Registration>/SupplierSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oSupplierList.getBinding("items").refresh();
+
+			//create and bind service list for duplicate check
+			this.oServiceList = new sap.m.List({});
+			this.oServiceList.setModel(this._oODataModel, "Registration");
+			this.oServiceList.bindItems({
+				path: "Registration>/ServiceSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oServiceList.getBinding("items").refresh();
+
+			//create and bind responsiblity list for duplicate check
+			this.oResponsibilityList = new sap.m.List({});
+			this.oResponsibilityList.setModel(this._oODataModel, "Registration");
+			this.oResponsibilityList.bindItems({
+				path: "Registration>/ResponsibilitySet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oResponsibilityList.getBinding("items").refresh();
+
+			//bind to notifications
+			this.oNotificationList = new sap.m.List({});
+			this.oNotificationList.setModel(this._oODataModel, "Registration");
+			this.oNotificationList.bindItems({
+				path: "Registration>/NotificatnSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oNotificationList.getBinding("items").refresh();
+
+			//bind to messages
+			this.oMessageList = new sap.m.List({});
+			this.oMessageList.setModel(this._oODataModel, "Registration");
+			this.oMessageList.bindItems({
+				path: "Registration>/MessageSet",
+				template: new sap.m.ObjectListItem({})
+			});
+			this.oMessageList.getBinding("items").refresh();
+
+		}
+
+	});
+
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Sep 27 2017 15:03:10 GMT+0300 (E. Europe Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

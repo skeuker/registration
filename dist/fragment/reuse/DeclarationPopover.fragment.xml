@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover id="popDeclaration" title="{viewModel>/popDeclarationFormTitle}" class="sapUiContentPadding" placement="Bottom" contentWidth="530px">
+		<content>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Declaration" type="XML"/>
+		</content>
+		<beginButton>
+			<Button text="Confirm" press="onPressDeclarationConfirmButton"/>
+		</beginButton>
+		<endButton>
+			<Button press="hintForDeclarationForm" type="Transparent" icon="sap-icon://sys-help" tooltip="Help"/>
+		</endButton>
+	</ResponsivePopover>
+</core:FragmentDefinition>

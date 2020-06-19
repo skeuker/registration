@@ -1,0 +1,18 @@
+[{
+	"ContactTypeID": "0",
+	"ContactTypeText": "Switchboard",
+	"ContactTypeScope": "3",
+	"ContactTypeScopeQualifier": "",
+	"RequiredEntry": "true",
+	"InputCardinality": "1"
+}, {
+	"ContactTypeID": "Accounts",
+	"ContactTypeText": "Accounts department",
+	"ContactTypeScope": "5",
+	"InputCardinality": "1"
+}, {
+	"ContactTypeID": "Sales",
+	"ContactTypeText": "Sales department",
+	"ContactTypeScope": "5",
+	"InputCardinality": "0..1"
+}]

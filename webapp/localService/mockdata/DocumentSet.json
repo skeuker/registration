@@ -1,0 +1,72 @@
+[{
+	"DocumentID": "Doc1",
+	"DocumentType": "IDDoc",
+	"RelatedObjectID": "John Doe",
+	"RelatedObjectType": "Administrator",
+	"FileName": "some file 1.txt",
+	"AdministratorID": "Joe Bloggs",
+	"PersonID": "Joe Bloggs",
+	"FileSize": "566622"
+}, {
+	"DocumentID": "Doc2",
+	"DocumentType": "AccredDoc",
+	"RelatedObjectID": "Joe Bloggs",
+	"RelatedObjectType": "Administrator",
+	"FileName": "another file 2.txt",
+	"AdministratorID": "Joe Bloggs",
+	"PersonID": "Stefan Keuker",
+	"FileSize": "1005"
+}, {
+	"DocumentID": "Doc3",
+	"DocumentType": "IDDoc",
+	"RelatedObjectID": "Joe Bloggs",
+	"RelatedObjectType": "Administrator",
+	"FileName": "another file 3.txt",
+	"AdministratorID": "John Doe",
+	"PersonID": "John Doe",
+	"FileSize": "899"
+}, {
+	"DocumentID": "Doc4",
+	"DocumentType": "AccredDoc",
+	"FileName": "anOrgFile.txt",
+	"FileSize": "855566",
+	"OrganisationID": "Waltons"
+}, {
+	"DocumentID": "Doc5",
+	"DocumentType": "AccredDoc",
+	"FileName": "aService.docx",
+	"FileSize": "66445",
+	"ServiceID": "2",
+	"OrganisationID": ""
+}, {
+	"DocumentID": "Doc6",
+	"DocumentType": "ISO9001Certificate",
+	"FileName": "SomeDocument.docx",
+	"FileSize": "787878",
+	"SupplierID": "StefanKeukerVendor"
+}, {
+	"DocumentID": "Doc7",
+	"DocumentType": "ISO9001Certificate",
+	"FileName": "ISO9001_Certficate.pdf",
+	"FileSize": "646677",
+	"SupplierID": "TelkomVendor",
+	"DocumentRequestID": "79879873"
+}, {
+	"DocumentID": "Doc8",
+	"DocumentType": "LetterOfAuthorization",
+	"FileName": "AuthLetter.pdf",
+	"FileSize": "747433",
+	"OrganisationID": "Telkom"
+}, {
+	"DocumentID": "Doc9",
+	"DocumentType": "ProofOfIncorporation",
+	"FileName": "IncorporationLetter.pdf",
+	"FileSize": "434253",
+	"OrganisationID": "Telkom"
+}, {
+	"DocumentID": "Doc10",
+	"DocumentType": "VATRegDoc",
+	"FileName": "bladoc.doc",
+	"FileSize": "97897",
+	"SupplierID": "TelkomVendor"
+}]

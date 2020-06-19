@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<Table id="tabOrganisationList" itemPress="onPressOrganisationListItem"
+		items="{ path: 'Registration>/OrganisationSet', filters: [{ path: 'EntityStatusID', operator: 'BT', value1: '1', value2: '4' }, { path: 'EntityStatusID', operator: 'EQ', value1: '6'}] }"
+		noDataText="No entries. Click + to add" mode="SingleSelectMaster" backgroundDesign="Solid">
+		<customData>
+			<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+		</customData>
+		<items>
+			<ColumnListItem counter="0" press="onPressOrganisationListItem" type="Active">
+				<cells>
+					<Text maxLines="1" text="{Registration>Name}"/>
+					<Text maxLines="1" text="{ path: 'Registration>RelationshipTypeID', formatter:'.formatRelationshipTypeID' }"/>
+					<Text maxLines="1" text="{Registration>CompanyRegNbr}"/>
+					<Text maxLines="1" text="{Registration>BusinessPartnerID}"/>
+					<Text maxLines="1" text="{ path: 'Registration>LegalEntityType', formatter:'.formatLegalEntityType' }"/>
+					<Text maxLines="1" text="{ path: 'Registration>EntityStatusID', formatter:'.formatEntityStatusID' }"/>
+					<Text maxLines="1" text="{ path: 'Registration>LastActionTimeStamp', formatter:'.formatLastActionTimeStamp' }"/>
+					<core:Icon src="sap-icon://sys-cancel" press="onPressOrganisationDeleteButton" tooltip="Delete" color="#E42217"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column>
+				<header>
+					<Label text="{i18n>labelOrganisationNameColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelOrganisationTypeColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelCompanyRegNbrColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelBusinessPartnerIDColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLegalEntityTypeColumn}"/>
+				</header>
+			</Column>
+			<Column width="75px">
+				<header>
+					<Label text="Status"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLastActionTimeStampColumn}"/>
+				</header>
+			</Column>
+			<Column vAlign="Middle" width="20px"></Column>
+		</columns>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Organisations"/>
+				<OverflowToolbarButton id="btnOrganisationListRefresh" type="Transparent" icon="sap-icon://refresh"
+					press="onPressOrganisationListRefreshButton" enabled="true" visible="{viewModel>/btnOrganisationListRefreshVisible}"/>
+				<ToolbarSpacer/>
+				<SearchField width="auto" placeholder="{i18n>pholderEnterSearchCriteria}" search="onOrganisationSearch" liveChange=""/>
+				<Button type="Transparent" text="Sort" icon="sap-icon://sort" press="onPressOrganisationListSort"/>
+				<Button type="Transparent" icon="sap-icon://add" rext="Add" press="onPressOrganisationAddButton" visible="false"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Table>
+</core:FragmentDefinition>

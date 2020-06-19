@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Registration">
+            <EntityType Name="Organisation">
+                <Key>
+                    <PropertyRef Name="OrganisationID"/>
+                </Key>
+                <Property Name="OrganisationID" Nullable="false" Type="Edm.String"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="CompanyRegNbr" Type="Edm.String"/>
+                <Property Name="BusinessPartnerID" Type="Edm.String"/>
+                <Property Name="LegalEntityType" Type="Edm.String"/>
+                <Property Name="RelationshipTypeID" Type="Edm.String"/>
+                <Property Name="EntityStatusID" Type="Edm.String"/>
+                <Property Name="LastActionID" Type="Edm.String"/>
+                <Property Name="LastActionTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="LastUpdateTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="isValidated" Type="Edm.Boolean"/>
+                <Property Name="isAdministered" Type="Edm.Boolean"/>
+                <Property Name="isAdopted" Type="Edm.Boolean"/>
+                <Property Name="isSupplier" Type="Edm.String"/>
+                <Property Name="ServiceIDOrigin" Type="Edm.String"/>
+                <Property Name="SupplierIDOrigin" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toDocuments" Relationship="Registration.OrganisationDocument" ToRole="To_Document"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toAddresses" Relationship="Registration.OrganisationAddress" ToRole="To_Address"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toSupplier" Relationship="Registration.OrganisationSupplier" ToRole="To_Supplier"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toBankAccounts" Relationship="Registration.OrganisationBankAccount" ToRole="To_BankAccount"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toResponsibilities" Relationship="Registration.OrganisationResponsibility" ToRole="To_Responsibility"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toContacts" Relationship="Registration.OrganisationContact" ToRole="To_Contact"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toServices" Relationship="Registration.OrganisationService" ToRole="To_Service"/>
+                <NavigationProperty FromRole="From_Organisation" Name="toNotifications" Relationship="Registration.OrganisationNotificatn" ToRole="To_Notification"/>
+            </EntityType>
+            <EntityType Name="Person">
+                <Key>
+                    <PropertyRef Name="PersonID"/>
+                </Key>
+                <Property Name="PersonID" Nullable="false" Type="Edm.String"/>
+                <Property Name="eMailAddress" Type="Edm.String"/>
+                <Property Name="Surname" Type="Edm.String"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="TitleID" Type="Edm.String"/>
+                <Property Name="chosenUserID" Type="Edm.String"/>
+                <Property Name="UserID" Type="Edm.String"/>
+                <Property Name="IDType" Type="Edm.String"/>
+                <Property Name="IDNumber" Type="Edm.String"/>
+                <Property Name="IDCountryOfIssue" Type="Edm.String"/>
+                <Property Name="PhoneNumber" Type="Edm.String"/>
+                <Property Name="Initials" Type="Edm.String"/>
+                <Property Name="BusinessPartnerID" Type="Edm.String"/>
+                <Property Name="FaxNumber" Type="Edm.String"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String"/>
+                <Property Name="EntityStatusID" Type="Edm.String"/>
+                <Property Name="LastActionID" Type="Edm.String"/>
+                <Property Name="LastActionTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="LastUpdateTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="isValidated" Type="Edm.Boolean"/>
+                <Property Name="isAdministered" Type="Edm.Boolean"/>
+                <Property Name="isAdopted" Type="Edm.Boolean"/>
+                <Property Name="isSupplier" Type="Edm.String"/>
+                <Property Name="ServiceIDOrigin" Type="Edm.String"/>
+                <Property Name="OrganisationIDOrigin" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_Administrator" Name="toDocuments" Relationship="Registration.PersonDocument" ToRole="To_Document"/>
+                <NavigationProperty FromRole="From_Person" Name="toAddresses" Relationship="Registration.PersonAddress" ToRole="To_Address"/>
+                <NavigationProperty FromRole="From_Person" Name="toSupplier" Relationship="Registration.PersonSupplier" ToRole="To_Supplier"/>
+                <NavigationProperty FromRole="From_Person" Name="toResponsibilities" Relationship="Registration.PersonResponsibility" ToRole="To_ResponsibilityNew"/>
+                <NavigationProperty FromRole="From_Person" Name="toServices" Relationship="Registration.PersonService" ToRole="To_Service"/>
+                <NavigationProperty FromRole="To_Person" Name="toUser" Relationship="Registration.UserPerson" ToRole="From_User"/>
+                <NavigationProperty FromRole="From_Person" Name="toBankAccounts" Relationship="Registration.PersonBankAccount" ToRole="To_BankAccount"/>
+                <NavigationProperty FromRole="From_Person" Name="toNotifications" Relationship="Registration.PersonNotificatn" ToRole="To_Notification"/>
+            </EntityType>
+            <EntityType Name="Title">
+                <Key>
+                    <PropertyRef Name="TitleID"/>
+                </Key>
+                <Property Name="TitleID" Nullable="false" Type="Edm.String"/>
+                <Property Name="TitleText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Document">
+                <Key>
+                    <PropertyRef Name="DocumentID"/>
+                </Key>
+                <Property Name="DocumentID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DocumentType" Type="Edm.String"/>
+                <Property Name="FileName" Type="Edm.String"/>
+                <Property Name="MimeType" Type="Edm.String"/>
+                <Property Name="LastModified" Type="Edm.String"/>
+                <Property Name="FileUrl" Type="Edm.String"/>
+                <Property Name="FileSize" Type="Edm.String"/>
+                <Property Name="FileData" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="FileType" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="ServiceID" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Document" Name="toPerson" Relationship="Registration.PersonDocument" ToRole="From_Administrator"/>
+                <NavigationProperty FromRole="To_Document" Name="toOrganisation" Relationship="Registration.OrganisationDocument" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_Document" Name="toService" Relationship="Registration.ServiceDocument" ToRole="From_Service"/>
+                <NavigationProperty FromRole="From_Document" Name="toStream" Relationship="Registration.DocumentDocumentStream" ToRole="To_DocumentStream"/>
+                <NavigationProperty FromRole="To_Document" Name="toSupplier" Relationship="Registration.SupplierDocument" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="DocumentType">
+                <Key>
+                    <PropertyRef Name="DocumentTypeID"/>
+                </Key>
+                <Property Name="DocumentTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DocumentTypeText" Type="Edm.String"/>
+                <Property Name="DocumentTypeScope" Type="Edm.String"/>
+                <Property Name="DocumentTypeScopeQualifier" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+                <Property Name="FilterArgument" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="User">
+                <Key>
+                    <PropertyRef Name="UserID"/>
+                </Key>
+                <Property Name="UserID" Nullable="false" Type="Edm.String"/>
+                <Property Name="UserAlias" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_User" Name="toPersons" Relationship="Registration.UserPerson" ToRole="To_Person"/>
+            </EntityType>
+            <EntityType Name="Address">
+                <Key>
+                    <PropertyRef Name="AddressID"/>
+                </Key>
+                <Property Name="AddressID" Nullable="false" Type="Edm.String"/>
+                <Property Name="PostalCode" Type="Edm.String"/>
+                <Property Name="RegionID" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="AddressTypeID" Type="Edm.String"/>
+                <Property Name="StreetName" Type="Edm.String"/>
+                <Property Name="HouseNumber" Type="Edm.String"/>
+                <Property Name="City" Type="Edm.String"/>
+                <Property Name="POBoxNumber" Type="Edm.String"/>
+                <Property Name="POBoxPostalCode" Type="Edm.String"/>
+                <Property Name="CountryID" Type="Edm.String"/>
+                <Property Name="AddressCategoryID" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="AddressNumber" Type="Edm.String"/>
+                <Property Name="BuildingFloorFlat" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Address" Name="toOrganisation" Relationship="Registration.OrganisationAddress" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_Address" Name="toPerson" Relationship="Registration.PersonAddress" ToRole="From_Person"/>
+                <NavigationProperty FromRole="To_Address" Name="toSupplier" Relationship="Registration.SupplierAddress" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="LegalEntityType">
+                <Key>
+                    <PropertyRef Name="LegalEntityTypeID"/>
+                </Key>
+                <Property Name="LegalEntityTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="LegalEntityTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Region">
+                <Key>
+                    <PropertyRef Name="RegionID"/>
+                </Key>
+                <Property Name="RegionID" Nullable="false" Type="Edm.String"/>
+                <Property Name="RegionText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Role">
+                <Key>
+                    <PropertyRef Name="RoleID"/>
+                </Key>
+                <Property Name="RoleID" Nullable="false" Type="Edm.String"/>
+                <Property Name="RoleText" Type="Edm.String"/>
+                <Property Name="RoleScope" Type="Edm.String"/>
+                <Property Name="RoleScopeQualifier" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="IDType">
+                <Key>
+                    <PropertyRef Name="IDTypeID"/>
+                </Key>
+                <Property Name="IDTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="IDTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Country">
+                <Key>
+                    <PropertyRef Name="CountryID"/>
+                </Key>
+                <Property Name="CountryID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CountryText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="RelationshipType">
+                <Key>
+                    <PropertyRef Name="RelationshipTypeID"/>
+                </Key>
+                <Property Name="RelationshipTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="RelationshipTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="AddressType">
+                <Key>
+                    <PropertyRef Name="AddressTypeID"/>
+                </Key>
+                <Property Name="AddressTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="AddressTypeText" Type="Edm.String"/>
+                <Property Name="AddressTypeScope" Type="Edm.String"/>
+                <Property Name="AddressTypeScopeQualifier" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+                <Property Name="OutgoingFilterArgument" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Supplier">
+                <Key>
+                    <PropertyRef Name="SupplierID"/>
+                </Key>
+                <Property Name="SupplierID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CSDNumber" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="isCommunitySupplier" Type="Edm.Boolean"/>
+                <Property Name="TradingAsName" Type="Edm.String"/>
+                <Property Name="EntityStatusID" Type="Edm.String"/>
+                <Property Name="LastActionID" Type="Edm.String"/>
+                <Property Name="LastActionTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="IndustryKeys" Type="Edm.String"/>
+                <Property Name="IncomeTaxNbr" Type="Edm.String"/>
+                <Property Name="VATRegistrationNbr" Type="Edm.String"/>
+                <Property Name="LastUpdateTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="SubCouncilID" Type="Edm.String"/>
+                <Property Name="WardID" Type="Edm.String"/>
+                <Property Name="isValidated" Type="Edm.Boolean"/>
+                <Property Name="VendorID" Type="Edm.String"/>
+                <Property Name="isAdministered" Type="Edm.Boolean"/>
+                <Property Name="ServiceIDOrigin" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Supplier" Name="toPerson" Relationship="Registration.PersonSupplier" ToRole="From_Person"/>
+                <NavigationProperty FromRole="To_Supplier" Name="toOrganisation" Relationship="Registration.OrganisationSupplier" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toBEEClassification" Relationship="Registration.SupplierBEEClassification" ToRole="To_BBBEEClassification"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toCertificates" Relationship="Registration.SupplierCertificate" ToRole="To_Certificate"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toDocuments" Relationship="Registration.SupplierDocument" ToRole="To_Document"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toContacts" Relationship="Registration.SupplierContact" ToRole="To_Contact"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toAddresses" Relationship="Registration.SupplierAddress" ToRole="To_Address"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toBankAccounts" Relationship="Registration.SupplierBankAccount" ToRole="To_BankAccount"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toServices" Relationship="Registration.SupplierService" ToRole="To_Service"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toNotifications" Relationship="Registration.SupplierNotificatn" ToRole="To_Notification"/>
+                <NavigationProperty FromRole="From_Supplier" Name="toDeclarations" Relationship="Registration.SupplierDeclaration" ToRole="To_Declaration"/>
+            </EntityType>
+            <EntityType Name="Certificate">
+                <Key>
+                    <PropertyRef Name="CertificateID"/>
+                </Key>
+                <Property Name="CertificateID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CertificateNumber" Type="Edm.String"/>
+                <Property Name="CertificateExpiryDate" Type="Edm.DateTime"/>
+                <Property Name="CertificateTypeID" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="CertificateAttributes" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Certificate" Name="toSupplier" Relationship="Registration.SupplierCertificate" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="BankAccount">
+                <Key>
+                    <PropertyRef Name="BankAccountID"/>
+                </Key>
+                <Property Name="BankAccountID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankID" Type="Edm.String"/>
+                <Property Name="BranchID" Type="Edm.String"/>
+                <Property Name="BankAccountTypeID" Type="Edm.String"/>
+                <Property Name="AccountNumber" Type="Edm.String"/>
+                <Property Name="AccountHolderName" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="BankAccountPurposeID" Type="Edm.String"/>
+                <Property Name="BankAccountIDTypeID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_BankAccount" Name="toOrganisation" Relationship="Registration.OrganisationBankAccount" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_BankAccount" Name="toPerson" Relationship="Registration.PersonBankAccount" ToRole="From_Person"/>
+                <NavigationProperty FromRole="To_BankAccount" Name="toSupplier" Relationship="Registration.SupplierBankAccount" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="Contact">
+                <Key>
+                    <PropertyRef Name="ContactID"/>
+                </Key>
+                <Property Name="ContactID" Nullable="false" Type="Edm.String"/>
+                <Property Name="eMailAddress" Type="Edm.String"/>
+                <Property Name="PhoneNumber" Type="Edm.String"/>
+                <Property Name="FaxNumber" Type="Edm.String"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String"/>
+                <Property Name="ContactTypeID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="ContactName" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Contact" Name="toOrganisation" Relationship="Registration.OrganisationContact" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_Contact" Name="toSupplier" Relationship="Registration.SupplierContact" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="CertificateType">
+                <Key>
+                    <PropertyRef Name="CertificateTypeID"/>
+                </Key>
+                <Property Name="CertificateTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CertificateTypeText" Type="Edm.String"/>
+                <Property Name="CertificateTypeScope" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ContactType">
+                <Key>
+                    <PropertyRef Name="ContactTypeID"/>
+                </Key>
+                <Property Name="ContactTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ContactTypeText" Type="Edm.String"/>
+                <Property Name="ContactTypeScope" Type="Edm.String"/>
+                <Property Name="ContactTypeScopeQualifier" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Service">
+                <Key>
+                    <PropertyRef Name="ServiceID"/>
+                </Key>
+                <Property Name="ServiceID" Nullable="false" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="ServiceTypeID" Type="Edm.String"/>
+                <Property Name="EntityStatusID" Type="Edm.String"/>
+                <Property Name="LastActionID" Type="Edm.String"/>
+                <Property Name="LastActionTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="ServiceScopeID" Type="Edm.String"/>
+                <Property Name="LastUpdateTimeStamp" Type="Edm.DateTime"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="isValidated" Type="Edm.Boolean"/>
+                <Property Name="isAdministered" Type="Edm.Boolean"/>
+                <NavigationProperty FromRole="To_Service" Name="toPerson" Relationship="Registration.PersonService" ToRole="From_Person"/>
+                <NavigationProperty FromRole="From_Service" Name="toResponsibilities" Relationship="Registration.ServiceResponsibility" ToRole="To_Responsibility"/>
+                <NavigationProperty FromRole="From_Service" Name="toDocuments" Relationship="Registration.ServiceDocument" ToRole="To_Document"/>
+                <NavigationProperty FromRole="From_Service" Name="toParameters" Relationship="Registration.ServiceServiceParameter" ToRole="To_ServiceParameter"/>
+                <NavigationProperty FromRole="To_Service" Name="toOrganisation" Relationship="Registration.OrganisationService" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_Service" Name="toSupplier" Relationship="Registration.SupplierService" ToRole="From_Supplier"/>
+                <NavigationProperty FromRole="From_Service" Name="toNotifications" Relationship="Registration.ServiceNotificatn" ToRole="To_Notification"/>
+            </EntityType>
+            <EntityType Name="Responsibility">
+                <Key>
+                    <PropertyRef Name="ResponsibilityID"/>
+                </Key>
+                <Property Name="ResponsibilityID" Nullable="false" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="RoleID" Type="Edm.String"/>
+                <Property Name="ServiceID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_ResponsibilityNew" Name="toPerson" Relationship="Registration.PersonResponsibility" ToRole="From_Person"/>
+                <NavigationProperty FromRole="To_Responsibility" Name="toOrganisation" Relationship="Registration.OrganisationResponsibility" ToRole="From_Organisation"/>
+                <NavigationProperty FromRole="To_Responsibility" Name="toService" Relationship="Registration.ServiceResponsibility" ToRole="From_Service"/>
+            </EntityType>
+            <EntityType Name="ServiceType">
+                <Key>
+                    <PropertyRef Name="ServiceTypeID"/>
+                </Key>
+                <Property Name="ServiceTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ServiceTypeText" Type="Edm.String"/>
+                <Property Name="ServiceTypeScope" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="EntityStatus">
+                <Key>
+                    <PropertyRef Name="EntityStatusID"/>
+                </Key>
+                <Property Name="EntityStatusID" Nullable="false" Type="Edm.String"/>
+                <Property Name="EntityStatusText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Action">
+                <Key>
+                    <PropertyRef Name="ActionID"/>
+                </Key>
+                <Property Name="ActionID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ActionText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ServiceParameter">
+                <Key>
+                    <PropertyRef Name="ServiceParameterID"/>
+                </Key>
+                <Property Name="ServiceParameterID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ParameterTypeID" Type="Edm.String"/>
+                <Property Name="ParameterValue" Type="Edm.String"/>
+                <Property Name="ServiceID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_ServiceParameter" Name="toService" Relationship="Registration.ServiceServiceParameter" ToRole="From_Service"/>
+            </EntityType>
+            <EntityType Name="ParameterType">
+                <Key>
+                    <PropertyRef Name="ParameterTypeID"/>
+                </Key>
+                <Property Name="ParameterTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ParameterTypeText" Type="Edm.String"/>
+                <Property Name="ParameterTypeScope" Type="Edm.String"/>
+                <Property Name="ParameterTypeScopeQualifier" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DocumentStream">
+                <Key>
+                    <PropertyRef Name="DocumentID"/>
+                </Key>
+                <Property Name="DocumentID" Nullable="false" Type="Edm.String"/>
+                <Property Name="MimeType" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BEEClassification">
+                <Key>
+                    <PropertyRef Name="BEEClassificationID"/>
+                </Key>
+                <Property Name="BEEClassificationID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BEEClassificationLevelID" Type="Edm.String"/>
+                <Property Name="BOwnPercentage" Type="Edm.String"/>
+                <Property Name="BWOwnPercentage" Type="Edm.String"/>
+                <Property Name="CertificateExpiryDate" Type="Edm.DateTime"/>
+                <Property Name="CertificateNumber" Type="Edm.String"/>
+                <Property Name="CertificateAgency" Type="Edm.String"/>
+                <Property Name="VerifierAgency" Type="Edm.String"/>
+                <Property Name="BEEVerifierTypeID" Type="Edm.String"/>
+                <Property Name="VerifierRegNbr" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="BEEClassificationTypeID" Type="Edm.String"/>
+                <Property Name="VerifierName" Type="Edm.String"/>
+                <Property Name="hasQuotaYouth" Type="Edm.Boolean"/>
+                <Property Name="hasQuotaMilitaryVeteran" Type="Edm.Boolean"/>
+                <Property Name="hasQuotaTownship" Type="Edm.Boolean"/>
+                <Property Name="hasQuotaCooperative" Type="Edm.Boolean"/>
+                <NavigationProperty FromRole="To_BBBEEClassification" Name="toSupplier" Relationship="Registration.SupplierBEEClassification" ToRole="From_Supplier"/>
+            </EntityType>
+            <EntityType Name="Industry">
+                <Key>
+                    <PropertyRef Name="IndustryID"/>
+                </Key>
+                <Property Name="IndustryID" Nullable="false" Type="Edm.String"/>
+                <Property Name="IndustryText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BEEClassificationType">
+                <Key>
+                    <PropertyRef Name="BEEClassificationTypeID"/>
+                </Key>
+                <Property Name="BEEClassificationTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BEEClassificationTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BEEClassificationLevel">
+                <Key>
+                    <PropertyRef Name="BEEClassificationLevelID"/>
+                </Key>
+                <Property Name="BEEClassificationLevelID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BEEClassificationLevelText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BEEVerifierType">
+                <Key>
+                    <PropertyRef Name="BEEVerifierTypeID"/>
+                </Key>
+                <Property Name="BEEVerifierTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BEEVerifierTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="AddressCategory">
+                <Key>
+                    <PropertyRef Name="AddressCategoryID"/>
+                </Key>
+                <Property Name="AddressCategoryID" Nullable="false" Type="Edm.String"/>
+                <Property Name="AddressCategoryText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Bank">
+                <Key>
+                    <PropertyRef Name="BankID"/>
+                </Key>
+                <Property Name="BankID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankText" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_Bank" Name="toBankBranches" Relationship="Registration.BankBankBranch" ToRole="To_BankBranch"/>
+            </EntityType>
+            <EntityType Name="BankAccountType">
+                <Key>
+                    <PropertyRef Name="BankAccountTypeID"/>
+                </Key>
+                <Property Name="BankAccountTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankAccountTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BankAccountPurpose">
+                <Key>
+                    <PropertyRef Name="BankAccountPurposeID"/>
+                </Key>
+                <Property Name="BankAccountPurposeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankAccountPurposeText" Type="Edm.String"/>
+                <Property Name="BankAccountPurposeScope" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Notificatn">
+                <Key>
+                    <PropertyRef Name="NotificatnID"/>
+                </Key>
+                <Property Name="NotificatnID" Nullable="false" Type="Edm.String"/>
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="OrganisationID" Type="Edm.String"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="ServiceID" Type="Edm.String"/>
+                <Property Name="NotifiedAt" Type="Edm.DateTime"/>
+                <Property Name="NotificationSeverity" Type="Edm.String"/>
+                <Property Name="NotificationText" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_Notification" Name="toMessages" Relationship="Registration.NotificatnMessage" ToRole="To_Message"/>
+                <NavigationProperty FromRole="To_Notification" Name="toService" Relationship="Registration.ServiceNotificatn" ToRole="From_Service"/>
+                <NavigationProperty FromRole="To_Notification" Name="toPerson" Relationship="Registration.PersonNotificatn" ToRole="From_Person"/>
+                <NavigationProperty FromRole="To_Notification" Name="toSupplier" Relationship="Registration.SupplierNotificatn" ToRole="From_Supplier"/>
+                <NavigationProperty FromRole="To_Notification" Name="toOrganisation" Relationship="Registration.OrganisationNotificatn" ToRole="From_Organisation"/>
+            </EntityType>
+            <EntityType Name="Message">
+                <Key>
+                    <PropertyRef Name="MessageID"/>
+                </Key>
+                <Property Name="MessageID" Nullable="false" Type="Edm.String"/>
+                <Property Name="NotificatnID" Type="Edm.String"/>
+                <Property Name="MessageType" Type="Edm.String"/>
+                <Property Name="MessageText" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Message" Name="toNotification" Relationship="Registration.NotificatnMessage" ToRole="From_Notification"/>
+            </EntityType>
+            <EntityType Name="SubCouncil">
+                <Key>
+                    <PropertyRef Name="SubCouncilID"/>
+                </Key>
+                <Property Name="SubCouncilID" Nullable="false" Type="Edm.String"/>
+                <Property Name="SubCouncilText" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_SubCouncil" Name="toWards" Relationship="Registration.SubCouncilWard" ToRole="To_Ward"/>
+            </EntityType>
+            <EntityType Name="Ward">
+                <Key>
+                    <PropertyRef Name="WardID"/>
+                </Key>
+                <Property Name="WardID" Nullable="false" Type="Edm.String"/>
+                <Property Name="WardText" Type="Edm.String"/>
+                <Property Name="SubCouncilID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Ward" Name="toSubCouncil" Relationship="Registration.SubCouncilWard" ToRole="From_SubCouncil"/>
+            </EntityType>
+            <EntityType Name="BankAccountIDType">
+                <Key>
+                    <PropertyRef Name="BankAccountIDTypeID"/>
+                </Key>
+                <Property Name="BankAccountIDTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankAccountIDTypeText" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DeclarationType">
+                <Key>
+                    <PropertyRef Name="DeclarationTypeID"/>
+                </Key>
+                <Property Name="DeclarationTypeID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DeclarationTypeText" Type="Edm.String"/>
+                <Property Name="DeclarationTypeScope" Type="Edm.String"/>
+                <Property Name="InputCardinality" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Declaration">
+                <Key>
+                    <PropertyRef Name="DeclarationID"/>
+                </Key>
+                <Property Name="DeclarationID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DeclarationTypeID" Type="Edm.String"/>
+                <Property Name="ExpiryDate" Type="Edm.DateTime"/>
+                <Property Name="SupplierID" Type="Edm.String"/>
+                <Property Name="DeclarationData" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_Declaration" Name="toSupplier" Relationship="Registration.SupplierDeclaration" ToRole="From_Supplier"/>
+                <NavigationProperty FromRole="From_Declaration" Name="DeclarationStreamSet" Relationship="Registration.DeclarationDeclarationStream" ToRole="To_DeclarationStream"/>
+            </EntityType>
+            <EntityType Name="DeclarationStream">
+                <Key>
+                    <PropertyRef Name="DeclarationID"/>
+                </Key>
+                <Property Name="DeclarationID" Nullable="false" Type="Edm.String"/>
+                <Property Name="MimeType" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CertificateAgency">
+                <Key>
+                    <PropertyRef Name="CertificateAgencyID"/>
+                </Key>
+                <Property Name="CertificateAgencyID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CertificateAgencyText" Type="Edm.String"/>
+                <Property Name="CertificateTypeID" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ChangeDocument">
+                <Key>
+                    <PropertyRef Name="ChangeDocumentID"/>
+                </Key>
+                <Property Name="ChangeDocumentID" Nullable="false" Type="Edm.String"/>
+                <Property Name="EntityID" Type="Edm.String"/>
+                <Property Name="PropertyID" Type="Edm.String"/>
+                <Property Name="PropertyValue" Type="Edm.String"/>
+                <Property Name="CRUDActionID" Type="Edm.String"/>
+                <Property Name="CRUDActionTimeStamp" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Rating">
+                <Key>
+                    <PropertyRef Name="RatingID"/>
+                </Key>
+                <Property Name="RatingID" Nullable="false" Type="Edm.String"/>
+                <Property Name="RatingValue" Type="Edm.String"/>
+                <Property Name="RatingFeedback" Type="Edm.String"/>
+                <Property Name="RatingTimeStamp" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BankBranch">
+                <Key>
+                    <PropertyRef Name="BankBranchID"/>
+                </Key>
+                <Property Name="BankBranchID" Nullable="false" Type="Edm.String"/>
+                <Property Name="BankBranchText" Type="Edm.String"/>
+                <Property Name="isDefault" Type="Edm.Boolean"/>
+                <Property Name="BankID" Type="Edm.String"/>
+                <NavigationProperty FromRole="To_BankBranch" Name="toBank" Relationship="Registration.BankBankBranch" ToRole="From_Bank"/>
+            </EntityType>
+            <EntityType Name="DocumentTrigger">
+                <Key>
+                    <PropertyRef Name="DocumentTriggerID"/>
+                </Key>
+                <Property Name="DocumentTriggerID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DocumentTriggerText" Type="Edm.String"/>
+                <Property Name="TriggerScope" Type="Edm.String"/>
+                <Property Name="TriggerFilter" Type="Edm.String"/>
+                <Property Name="DocumentTypeID" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="UserInfo">
+                <Property Name="PersonID" Type="Edm.String"/>
+                <Property Name="PersonCount" Type="Edm.String"/>
+                <Property Name="OrganisationCount" Type="Edm.String"/>
+                <Property Name="ServiceCount" Type="Edm.String"/>
+                <Property Name="DraftCount" Type="Edm.String"/>
+                <Property Name="IsInitialLogon" Type="Edm.String"/>
+                <Property Name="SupplierCount" Type="Edm.String"/>
+                <Property Name="NotificationCount" Type="Edm.String"/>
+                <Property Name="RatingValue" Type="Edm.String"/>
+            </ComplexType>
+            <Association Name="PersonDocument">
+                <End Multiplicity="1" Role="From_Administrator" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_Document" Type="Registration.Document"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Administrator">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_Document">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationDocument">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Document" Type="Registration.Document"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Document">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationAddress">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Address" Type="Registration.Address"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Address">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonAddress">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_Address" Type="Registration.Address"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_Address">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonSupplier">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_Supplier" Type="Registration.Supplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_Supplier">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationSupplier">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Supplier" Type="Registration.Supplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Supplier">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationBankAccount">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_BankAccount" Type="Registration.BankAccount"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_BankAccount">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonResponsibility">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_ResponsibilityNew" Type="Registration.Responsibility"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_ResponsibilityNew">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationResponsibility">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Responsibility" Type="Registration.Responsibility"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Responsibility">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonService">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_Service" Type="Registration.Service"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_Service">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ServiceResponsibility">
+                <End Multiplicity="1" Role="From_Service" Type="Registration.Service"/>
+                <End Multiplicity="*" Role="To_Responsibility" Type="Registration.Responsibility"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Service">
+                        <PropertyRef Name="ServiceID"/>
+                    </Principal>
+                    <Dependent Role="To_Responsibility">
+                        <PropertyRef Name="ServiceID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ServiceDocument">
+                <End Multiplicity="1" Role="From_Service" Type="Registration.Service"/>
+                <End Multiplicity="*" Role="To_Document" Type="Registration.Document"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Service">
+                        <PropertyRef Name="ServiceID"/>
+                    </Principal>
+                    <Dependent Role="To_Document">
+                        <PropertyRef Name="ServiceID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="UserPerson">
+                <End Multiplicity="1" Role="From_User" Type="Registration.User"/>
+                <End Multiplicity="*" Role="To_Person" Type="Registration.Person"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_User">
+                        <PropertyRef Name="UserID"/>
+                    </Principal>
+                    <Dependent Role="To_Person">
+                        <PropertyRef Name="UserID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ServiceServiceParameter">
+                <End Multiplicity="1" Role="From_Service" Type="Registration.Service"/>
+                <End Multiplicity="*" Role="To_ServiceParameter" Type="Registration.ServiceParameter"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Service">
+                        <PropertyRef Name="ServiceID"/>
+                    </Principal>
+                    <Dependent Role="To_ServiceParameter">
+                        <PropertyRef Name="ServiceID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationContact">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Contact" Type="Registration.Contact"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Contact">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="DocumentDocumentStream">
+                <End Multiplicity="1" Role="From_Document" Type="Registration.Document"/>
+                <End Multiplicity="1" Role="To_DocumentStream" Type="Registration.DocumentStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Document">
+                        <PropertyRef Name="DocumentID"/>
+                    </Principal>
+                    <Dependent Role="To_DocumentStream">
+                        <PropertyRef Name="DocumentID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationService">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Service" Type="Registration.Service"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Service">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonBankAccount">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_BankAccount" Type="Registration.BankAccount"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_BankAccount">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierBEEClassification">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="0..1" Role="To_BBBEEClassification" Type="Registration.BEEClassification"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_BBBEEClassification">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierCertificate">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Certificate" Type="Registration.Certificate"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Certificate">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierDocument">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Document" Type="Registration.Document"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Document">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierContact">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Contact" Type="Registration.Contact"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Contact">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierAddress">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Address" Type="Registration.Address"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Address">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierBankAccount">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_BankAccount" Type="Registration.BankAccount"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_BankAccount">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierService">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Service" Type="Registration.Service"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Service">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="NotificatnMessage">
+                <End Multiplicity="1" Role="From_Notification" Type="Registration.Notificatn"/>
+                <End Multiplicity="*" Role="To_Message" Type="Registration.Message"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Notification">
+                        <PropertyRef Name="NotificatnID"/>
+                    </Principal>
+                    <Dependent Role="To_Message">
+                        <PropertyRef Name="NotificatnID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ServiceNotificatn">
+                <End Multiplicity="1" Role="From_Service" Type="Registration.Service"/>
+                <End Multiplicity="*" Role="To_Notification" Type="Registration.Notificatn"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Service">
+                        <PropertyRef Name="ServiceID"/>
+                    </Principal>
+                    <Dependent Role="To_Notification">
+                        <PropertyRef Name="ServiceID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PersonNotificatn">
+                <End Multiplicity="1" Role="From_Person" Type="Registration.Person"/>
+                <End Multiplicity="*" Role="To_Notification" Type="Registration.Notificatn"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Person">
+                        <PropertyRef Name="PersonID"/>
+                    </Principal>
+                    <Dependent Role="To_Notification">
+                        <PropertyRef Name="PersonID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierNotificatn">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Notification" Type="Registration.Notificatn"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Notification">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OrganisationNotificatn">
+                <End Multiplicity="1" Role="From_Organisation" Type="Registration.Organisation"/>
+                <End Multiplicity="*" Role="To_Notification" Type="Registration.Notificatn"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Organisation">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Principal>
+                    <Dependent Role="To_Notification">
+                        <PropertyRef Name="OrganisationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SupplierDeclaration">
+                <End Multiplicity="1" Role="From_Supplier" Type="Registration.Supplier"/>
+                <End Multiplicity="*" Role="To_Declaration" Type="Registration.Declaration"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Supplier">
+                        <PropertyRef Name="SupplierID"/>
+                    </Principal>
+                    <Dependent Role="To_Declaration">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="DeclarationDeclarationStream">
+                <End Multiplicity="1" Role="From_Declaration" Type="Registration.Declaration"/>
+                <End Multiplicity="*" Role="To_DeclarationStream" Type="Registration.DeclarationStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Declaration">
+                        <PropertyRef Name="DeclarationID"/>
+                    </Principal>
+                    <Dependent Role="To_DeclarationStream">
+                        <PropertyRef Name="DeclarationID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BankBankBranch">
+                <End Multiplicity="1" Role="From_Bank" Type="Registration.Bank"/>
+                <End Multiplicity="*" Role="To_BankBranch" Type="Registration.BankBranch"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Bank">
+                        <PropertyRef Name="BankID"/>
+                    </Principal>
+                    <Dependent Role="To_BankBranch">
+                        <PropertyRef Name="BankID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SubCouncilWard">
+                <End Multiplicity="1" Role="From_SubCouncil" Type="Registration.SubCouncil"/>
+                <End Multiplicity="*" Role="To_Ward" Type="Registration.Ward"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_SubCouncil">
+                        <PropertyRef Name="SubCouncilID"/>
+                    </Principal>
+                    <Dependent Role="To_Ward">
+                        <PropertyRef Name="SubCouncilID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="default" m:IsDefaultEntityContainer="true">
+                <EntitySet EntityType="Registration.Organisation" Name="OrganisationSet"/>
+                <EntitySet EntityType="Registration.Person" Name="PersonSet"/>
+                <EntitySet EntityType="Registration.Title" Name="TitleSet"/>
+                <EntitySet EntityType="Registration.Document" Name="DocumentSet"/>
+                <EntitySet EntityType="Registration.DocumentType" Name="DocumentTypeSet"/>
+                <EntitySet EntityType="Registration.User" Name="UserSet"/>
+                <EntitySet EntityType="Registration.Address" Name="AddressSet"/>
+                <EntitySet EntityType="Registration.LegalEntityType" Name="LegalEntityTypeSet"/>
+                <EntitySet EntityType="Registration.Region" Name="RegionSet"/>
+                <EntitySet EntityType="Registration.Role" Name="RoleSet"/>
+                <EntitySet EntityType="Registration.IDType" Name="IDTypeSet"/>
+                <EntitySet EntityType="Registration.Country" Name="CountrySet"/>
+                <EntitySet EntityType="Registration.RelationshipType" Name="RelationshipTypeSet"/>
+                <EntitySet EntityType="Registration.AddressType" Name="AddressTypeSet"/>
+                <EntitySet EntityType="Registration.Supplier" Name="SupplierSet"/>
+                <EntitySet EntityType="Registration.Certificate" Name="CertificateSet"/>
+                <EntitySet EntityType="Registration.BankAccount" Name="BankAccountSet"/>
+                <EntitySet EntityType="Registration.Contact" Name="ContactSet"/>
+                <EntitySet EntityType="Registration.CertificateType" Name="CertificateTypeSet"/>
+                <EntitySet EntityType="Registration.ContactType" Name="ContactTypeSet"/>
+                <EntitySet EntityType="Registration.Service" Name="ServiceSet"/>
+                <EntitySet EntityType="Registration.Responsibility" Name="ResponsibilitySet"/>
+                <EntitySet EntityType="Registration.ServiceType" Name="ServiceTypeSet"/>
+                <EntitySet EntityType="Registration.EntityStatus" Name="EntityStatusSet"/>
+                <EntitySet EntityType="Registration.Action" Name="ActionSet"/>
+                <EntitySet EntityType="Registration.ServiceParameter" Name="ServiceParameterSet"/>
+                <EntitySet EntityType="Registration.ParameterType" Name="ParameterTypeSet"/>
+                <EntitySet EntityType="Registration.DocumentStream" Name="DocumentStreamSet"/>
+                <EntitySet EntityType="Registration.BEEClassification" Name="BEEClassificationSet"/>
+                <EntitySet EntityType="Registration.Industry" Name="IndustrySet"/>
+                <EntitySet EntityType="Registration.BEEClassificationType" Name="BEEClassificationTypeSet"/>
+                <EntitySet EntityType="Registration.BEEClassificationLevel" Name="BEEClassificationLevelSet"/>
+                <EntitySet EntityType="Registration.BEEVerifierType" Name="BEEVerifierTypeSet"/>
+                <EntitySet EntityType="Registration.AddressCategory" Name="AddressCategorySet"/>
+                <EntitySet EntityType="Registration.Bank" Name="BankSet"/>
+                <EntitySet EntityType="Registration.BankAccountType" Name="BankAccountTypeSet"/>
+                <EntitySet EntityType="Registration.BankAccountPurpose" Name="BankAccountPurposeSet"/>
+                <EntitySet EntityType="Registration.Notificatn" Name="NotificatnSet"/>
+                <EntitySet EntityType="Registration.Message" Name="MessageSet"/>
+                <EntitySet EntityType="Registration.SubCouncil" Name="SubCouncilSet"/>
+                <EntitySet EntityType="Registration.Ward" Name="WardSet"/>
+                <EntitySet EntityType="Registration.BankAccountIDType" Name="BankAccountIDTypeSet"/>
+                <EntitySet EntityType="Registration.DeclarationType" Name="DeclarationTypeSet"/>
+                <EntitySet EntityType="Registration.Declaration" Name="DeclarationSet"/>
+                <EntitySet EntityType="Registration.DeclarationStream" Name="DeclarationStreamSet"/>
+                <EntitySet EntityType="Registration.CertificateAgency" Name="CertificateAgencySet"/>
+                <EntitySet EntityType="Registration.ChangeDocument" Name="ChangeDocumentSet"/>
+                <EntitySet EntityType="Registration.Rating" Name="RatingSet"/>
+                <EntitySet EntityType="Registration.BankBranch" Name="BankBranchSet"/>
+                <EntitySet EntityType="Registration.DocumentTrigger" Name="DocumentTriggerSet"/>
+                <AssociationSet Association="Registration.PersonDocument" Name="PersonDocumentSet">
+                    <End EntitySet="PersonSet" Role="From_Administrator"/>
+                    <End EntitySet="DocumentSet" Role="To_Document"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationDocument" Name="OrganisationDocumentSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="DocumentSet" Role="To_Document"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationAddress" Name="OrganisationAddressSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="AddressSet" Role="To_Address"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonAddress" Name="PersonAddressSet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="AddressSet" Role="To_Address"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonSupplier" Name="PersonSupplierSet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="SupplierSet" Role="To_Supplier"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationSupplier" Name="OrganisationSupplierSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="SupplierSet" Role="To_Supplier"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationBankAccount" Name="OrganisationBankAccountSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="BankAccountSet" Role="To_BankAccount"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonResponsibility" Name="PersonResponsibilitySet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="ResponsibilitySet" Role="To_ResponsibilityNew"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationResponsibility" Name="OrganisationResponsibilitySet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="ResponsibilitySet" Role="To_Responsibility"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonService" Name="PersonServiceSet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="ServiceSet" Role="To_Service"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.ServiceResponsibility" Name="ServiceResponsibilitySet">
+                    <End EntitySet="ServiceSet" Role="From_Service"/>
+                    <End EntitySet="ResponsibilitySet" Role="To_Responsibility"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.ServiceDocument" Name="ServiceDocumentSet">
+                    <End EntitySet="ServiceSet" Role="From_Service"/>
+                    <End EntitySet="DocumentSet" Role="To_Document"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.UserPerson" Name="UserPersonSet">
+                    <End EntitySet="UserSet" Role="From_User"/>
+                    <End EntitySet="PersonSet" Role="To_Person"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.ServiceServiceParameter" Name="ServiceServiceParameterSet">
+                    <End EntitySet="ServiceSet" Role="From_Service"/>
+                    <End EntitySet="ServiceParameterSet" Role="To_ServiceParameter"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationContact" Name="OrganisationContactSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="ContactSet" Role="To_Contact"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.DocumentDocumentStream" Name="DocumentDocumentStreamSet">
+                    <End EntitySet="DocumentSet" Role="From_Document"/>
+                    <End EntitySet="DocumentStreamSet" Role="To_DocumentStream"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationService" Name="OrganisationServiceSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="ServiceSet" Role="To_Service"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonBankAccount" Name="PersonBankAccountSet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="BankAccountSet" Role="To_BankAccount"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierBEEClassification" Name="SupplierBEEClassificationSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="BEEClassificationSet" Role="To_BBBEEClassification"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierCertificate" Name="SupplierCertificateSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="CertificateSet" Role="To_Certificate"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierDocument" Name="SupplierDocumentSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="DocumentSet" Role="To_Document"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierContact" Name="SupplierContactSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="ContactSet" Role="To_Contact"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierAddress" Name="SupplierAddressSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="AddressSet" Role="To_Address"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierBankAccount" Name="SupplierBankAccountSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="BankAccountSet" Role="To_BankAccount"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierService" Name="SupplierServiceSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="ServiceSet" Role="To_Service"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.NotificatnMessage" Name="NotificatnMessageSet">
+                    <End EntitySet="NotificatnSet" Role="From_Notification"/>
+                    <End EntitySet="MessageSet" Role="To_Message"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.ServiceNotificatn" Name="ServiceNotificatnSet">
+                    <End EntitySet="ServiceSet" Role="From_Service"/>
+                    <End EntitySet="NotificatnSet" Role="To_Notification"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.PersonNotificatn" Name="PersonNotificatnSet">
+                    <End EntitySet="PersonSet" Role="From_Person"/>
+                    <End EntitySet="NotificatnSet" Role="To_Notification"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierNotificatn" Name="SupplierNotificatnSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="NotificatnSet" Role="To_Notification"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.OrganisationNotificatn" Name="OrganisationNotificatnSet">
+                    <End EntitySet="OrganisationSet" Role="From_Organisation"/>
+                    <End EntitySet="NotificatnSet" Role="To_Notification"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SupplierDeclaration" Name="SupplierDeclarationSet">
+                    <End EntitySet="SupplierSet" Role="From_Supplier"/>
+                    <End EntitySet="DeclarationSet" Role="To_Declaration"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.DeclarationDeclarationStream" Name="DeclarationDeclarationStreamSet">
+                    <End EntitySet="DeclarationSet" Role="From_Declaration"/>
+                    <End EntitySet="DeclarationStreamSet" Role="To_DeclarationStream"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.BankBankBranch" Name="BankBankBranchSet">
+                    <End EntitySet="BankSet" Role="From_Bank"/>
+                    <End EntitySet="BankBranchSet" Role="To_BankBranch"/>
+                </AssociationSet>
+                <AssociationSet Association="Registration.SubCouncilWard" Name="SubCouncilWardSet">
+                    <End EntitySet="SubCouncilSet" Role="From_SubCouncil"/>
+                    <End EntitySet="WardSet" Role="To_Ward"/>
+                </AssociationSet>
+                <FunctionImport Name="getUserInfoFromPortal" ReturnType="Registration.UserInfo" m:HttpMethod="GET">
+                    <Parameter MaxLength="5" Mode="In" Name="clientAppVersion" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+                <FunctionImport Name="getUserInfoFromERP" ReturnType="Registration.UserInfo" m:HttpMethod="GET"/>
+                <FunctionImport EntitySet="MessageSet" Name="validatePerson" ReturnType="Registration.Message" m:HttpMethod="GET">
+                    <Parameter MaxLength="0" Mode="In" Name="PersonID" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+                <FunctionImport EntitySet="MessageSet" Name="validateOrganisation" ReturnType="Registration.Message" m:HttpMethod="GET">
+                    <Parameter MaxLength="0" Mode="In" Name="OrganisationID" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+                <FunctionImport EntitySet="MessageSet" Name="validateSupplier" ReturnType="Registration.Message" m:HttpMethod="GET">
+                    <Parameter MaxLength="0" Mode="In" Name="SupplierID" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formOrganisationServices" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<Table id="tabOrganisationServicesList" itemPress="onPressOrganisationServiceListItem" items="{ path: 'Registration>toServices' }"
+								noDataText="No entries. Click + to add" class="sapUiMediumMarginBottom">
+								<customData>
+									<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+								</customData>
+								<items>
+									<ColumnListItem counter="0" type="Active">
+										<cells>
+											<Text maxLines="0" text="{ path: 'Registration>ServiceTypeID', formatter:'.formatServiceTypeID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>OrganisationID', formatter:'.formatOrganisationID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>EntityStatusID', formatter:'.formatEntityStatusID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>LastActionID', formatter:'.formatActionID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>LastActionTimeStamp', type: 'sap.ui.model.type.Date', formatOptions: { style: 'full'} }"/>
+											<core:Icon src="sap-icon://sys-cancel" press="onPressOrganisationServiceDeleteButton" tooltip="Delete" color="#E42217"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+								<headerToolbar>
+									<OverflowToolbar>
+										<Title text="Registered services"/>
+										<ToolbarSpacer/>
+										<Label id="labelServiceType" required="true" text="Service type" visible="{viewModel>/cboxOrganisationServiceTypesVisible}"/>
+										<ComboBox id="cboxOrganisationServiceTypes" placeholder="{i18n>pholderSelectEntry}"
+											items="{ path: 'Registration>/ServiceTypeSet', filters: [{path: 'ServiceTypeScope', operator: 'EQ', value1: '4'}, {path: 'ServiceTypeScope', operator: 'EQ', value1: '43'}] }"
+											change="onCBoxOrganisationServiceTypesChange" selectionChange="onCBoxOrganisationServiceTypesChange"
+											visible="{viewModel>/cboxOrganisationServiceTypesVisible}">
+											<items>
+												<core:ListItem key="{Registration>ServiceTypeID}" text="{Registration>ServiceTypeText}"/>
+											</items>
+										</ComboBox>
+										<core:Icon id="iconHintForServiceType" src="sap-icon://sys-help" press="hintForServiceType" class="sapUiTinyMarginBegin" tooltip="Help"
+											color="#2B65EC" visible="{viewModel>/cboxOrganisationServiceTypesVisible}"/>
+										<Button id="btnOrganisationServiceAdd" type="Transparent" icon="sap-icon://add" text="Add" press="onPressOrganisationServiceAddButton"
+											enabled="false" visible="{viewModel>/cboxOrganisationServiceTypesVisible}"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<header>
+											<Label text="{i18n>labelServiceTypeIDColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelOrganisationIDColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelEntityStatusColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelLastActionColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelLastActionTimeStampColumn}"/>
+										</header>
+									</Column>
+									<Column vAlign="Middle" width="20px"></Column>
+								</columns>
+							</Table>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

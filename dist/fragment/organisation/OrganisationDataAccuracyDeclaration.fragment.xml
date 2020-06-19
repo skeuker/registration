@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formOrganisationDataAccuracyDeclaration" class="sapUiMediumMarginTop sapUiMediumMarginBottom"
+		visible="{= ${Registration>OrganisationID} !== null &amp;&amp; ${Registration>OrganisationID} !== undefined &amp;&amp; ${Registration>OrganisationID} !== '' }" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<core:HTML sanitizeContent="true"
+								content='&lt;div class=&quot;content&quot;&gt;&lt;div&gt;Press the button to verify details of the organisation for which you are taking action. &lt;/div&gt;Confirm you have verified and updated where required by checking the box.&lt;/div&gt;'></core:HTML>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<Button type="Emphasized" text="Update details" press="onPressOrganisationUpdateDetailsButton" width="150px" class="sapUiSmallMarginTop">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Button>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<CheckBox select="onSelectOrganisationDataAccuracyDeclarationCheckBox"
+								selected="{viewModel>/chkOrganisationDataAccuracyDeclarationSelected}" text="I have verified and updated details where required"
+								enabled="{viewModel>/chkOrganisationDataAccuracyDeclarationEnabled}"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

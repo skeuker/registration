@@ -1,0 +1,6 @@
+[{
+	"DeclarationTypeID": "SupplierDeclaration",
+	"DeclarationTypeText": "Supplier declaration",
+	"DeclarationTypeScope": "5",
+	"InputCardinality": "1"
+}]

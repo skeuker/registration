@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formPersonServices" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<Table id="tabPersonServicesList" itemPress="onPressPersonServiceListItem"
+								items="{ path: 'Registration>toServices', filters: [ { path: 'EntityStatusID', operator: 'EQ', value1: '1'}, { path: 'EntityStatusID', operator: 'EQ', value1: '2'}] }"
+								noDataText="{viewModel>/sPersonServicesNoDataText}" class="sapUiMediumMarginBottom">
+								<customData>
+									<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+								</customData>
+								<headerToolbar>
+									<OverflowToolbar>
+										<Title text="Registered services"/>
+										<ToolbarSpacer/>
+										<Label required="true" text="Service type" visible="{viewModel>/cboxPersonServiceTypesVisible}"/>
+										<ComboBox id="cboxPersonServiceTypes" placeholder="{i18n>pholderSelectEntry}"
+											items="{ path: 'Registration>/ServiceTypeSet', filters: [{path: 'ServiceTypeScope', operator: 'EQ', value1: '4'}, {path: 'ServiceTypeScope', operator: 'EQ', value1: '42'}] }"
+											change="onCBoxPersonServiceTypesChange" selectionChange="onCBoxPersonServiceTypesChange"
+											visible="{viewModel>/cboxPersonServiceTypesVisible}">
+											<items>
+												<core:ListItem key="{Registration>ServiceTypeID}" text="{Registration>ServiceTypeText}"/>
+											</items>
+										</ComboBox>
+										<Button id="btnPersonServiceAdd" type="Transparent" icon="sap-icon://add" text="Add" press="onPressPersonServiceAddButton"
+											enabled="false" visible="{viewModel>/cboxPersonServiceTypesVisible}"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<items>
+									<ColumnListItem counter="0" type="Active">
+										<cells>
+											<Text maxLines="0" text="{ path: 'Registration>ServiceTypeID', formatter:'.formatServiceTypeID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>PersonID', formatter:'.formatPersonID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>EntityStatusID', formatter:'.formatEntityStatusID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>LastActionID', formatter:'.formatActionID' }"/>
+											<Text maxLines="0" text="{ path: 'Registration>LastActionTimeStamp', type: 'sap.ui.model.type.Date', formatOptions: { style: 'full'} }"/>
+											<core:Icon src="sap-icon://sys-cancel" press="onPressPersonServiceDeleteButton" tooltip="Delete" color="#E42217"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+									<Column>
+										<header>
+											<Label text="{i18n>labelServiceTypeIDColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelPersonIDColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelEntityStatusColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelLastActionColumn}"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="{i18n>labelLastActionTimeStampColumn}"/>
+										</header>
+									</Column>
+									<Column vAlign="Middle" width="20px"></Column>
+								</columns>
+							</Table>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

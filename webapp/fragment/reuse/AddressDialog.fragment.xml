@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="popAddress" title="{viewModel>/popAddressFormTitle}" class="sapUiContentPadding" placement="Bottom" contentWidth="650px">
+		<content>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Address" type="XML"/>
+		</content>
+		<beginButton>
+			<Button text="Cancel" press="onPressAddressCancelButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Confirm" type="Emphasized" press="onPressAddressConfirmButton"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

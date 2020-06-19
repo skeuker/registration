@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" controllerName="capetown.gov.registration.controller.supplier.SupplierCreateForPerson" busy="{viewModel>/busy}">
+	<semantic:FullscreenPage title="{viewModel>/viewTitle}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:mainAction>
+			<semantic:MainAction press="onPressSupplierCreateSaveDraftButton" text="Save draft"/>
+		</semantic:mainAction>
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndSupplier" state="Clear"></DraftIndicator>
+		</semantic:draftIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text=""/>
+			<Wizard id="wizSupplierCreate" complete="onPressSupplierWizardSubmitButton" finishButtonText="{viewModel>/wizFinishButtonText}" showNextButton="true"
+				enableBranching="false">
+				<WizardStep id="wizstepSupplierAttributes" icon="sap-icon://initiative" title="Supplier details" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierPersonAttributes" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierBEEClassification" icon="sap-icon://survey" title="B-BBEE" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierBEEClassification" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierAddresses" icon="sap-icon://addresses" title="Addresses" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierAddresses" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierContacts" icon="sap-icon://contacts" title="Contacts" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierPersonContacts" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierBankAccounts" icon="sap-icon://wallet" title="Bank accounts" validated="false" activate="setBanksModel">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierBankAccounts" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierCertificates" icon="sap-icon://badge" title="Certificates" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierCertificates" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierDocuments" icon="sap-icon://documents" title="Documents" validated="false"
+					activate="setSupplierDocumentTypesModel">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierPersonDocuments" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep id="wizstepSupplierDeclarations" icon="sap-icon://signature" title="Declarations" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierDeclarations" type="XML"/>
+					</content>
+				</WizardStep>
+			</Wizard>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

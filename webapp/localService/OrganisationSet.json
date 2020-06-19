@@ -1,0 +1,28 @@
+[{
+	"OrganisationID": "Waltons",
+	"Name": "Waltons Stationary",
+	"AdministratorID": "",
+	"OrganisationType": "1",
+	"CompanyRegNbr": "1927/000485/07",
+	"LegalEntityType": "Pty",
+	"BusinessPartnerID": "9000001199",
+	"AddressID": "1",
+	"RelationshipTypeID": "HO",
+	"EntityStatusID": "0",
+	"isAdopted": false
+}, {
+	"OrganisationID": "Telkom",
+	"Name": "Telkom ",
+	"AdministratorID": "",
+	"OrganisationType": "1",
+	"LegalEntityType": "Ltd",
+	"CompanyRegNbr": "1991/005476/30",
+	"BusinessPartnerID": "9003000123",
+	"AddressID": "2",
+	"RelationshipTypeID": "SUB",
+	"EntityStatusID": "2",
+	"isAdministered": true,
+	"isAdopted": false,
+	"LastSubmitReferenceID": "UIHI87",
+	"isValidated": true
+}]

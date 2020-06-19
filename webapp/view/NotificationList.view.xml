@@ -1,0 +1,20 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" controllerName="capetown.gov.registration.controller.NotificationList">
+	<semantic:FullscreenPage title="{i18n>titleNotificationList}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text="">
+				<customData>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+				</customData>
+			</MessageStrip>
+			<core:Fragment fragmentName="capetown.gov.registration.fragment.NotificationList" type="XML"/>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover id="popHintDeclaration" showHeader="false" class="sapUiContentPadding" placement="Top">
+		<content>
+			<Image src="image/HintDeclarationForm.png" alt="Declaration hint"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

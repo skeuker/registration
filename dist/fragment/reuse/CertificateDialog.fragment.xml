@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="popCertificate" title="{viewModel>/popCertificateFormTitle}" class="sapUiContentPadding" placement="Bottom" contentWidth="650px">
+		<content>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Certificate" type="XML"/>
+		</content>
+		<beginButton>
+			<Button text="Cancel" press="onPressCertificateCancelButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Confirm" type="Emphasized" press="onPressCertificateConfirmButton"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<Table id="tabSupplierList" itemPress="onPressSupplierListItem"
+		items="{ path: 'Registration>/SupplierSet', parameters : { expand : 'toOrganisation,toPerson' }, filters: [ { path: 'EntityStatusID', operator: 'BT', value1: '1', value2: '4' }, { path: 'EntityStatusID', operator: 'EQ', value1: '6'} ] }"
+		noDataText="No entries. Click + to add" mode="SingleSelectMaster" backgroundDesign="Solid" class="sapUiMediumMarginBottom">
+		<customData>
+			<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+		</customData>
+		<items>
+			<ColumnListItem counter="0" type="Active">
+				<cells>
+					<Text maxLines="1" text="{Registration>TradingAsName}"/>
+					<Text maxLines="1" text="{= ${Registration>OrganisationID} ? ${Registration>toOrganisation/CompanyRegNbr} : 'Not applicable' }"/>
+					<Text maxLines="1" text="{= ${Registration>OrganisationID} ? ${Registration>toOrganisation/BusinessPartnerID} : ${Registration>toPerson/BusinessPartnerID} }"/>
+					<Text maxLines="1" text="{Registration>VendorID}"/>
+					<Text maxLines="1" text="{= ${Registration>OrganisationID} ? ${path: 'Registration>toOrganisation/LegalEntityType', formatter:'.formatLegalEntityType'} : 'Sole proprietor' }"/>
+					<Text maxLines="1" text="{ path: 'Registration>EntityStatusID', formatter:'.formatEntityStatusID' }"/>
+					<Text maxLines="1" text="{ path: 'Registration>LastActionTimeStamp', formatter:'.formatLastActionTimeStamp' }"/>
+					<core:Icon src="sap-icon://sys-cancel" press="onPressSupplierDeleteButton" tooltip="Delete" color="#E42217"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column>
+				<header>
+					<Label text="{i18n>labelSupplierTradingAsNameColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelCompanyRegNbrColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelBusinessPartnerIDColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelVendorIDColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLegalEntityTypeColumn}"/>
+				</header>
+			</Column>
+			<Column width="75px">
+				<header>
+					<Label text="Status"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLastActionTimeStampColumn}"/>
+				</header>
+			</Column>
+			<Column vAlign="Middle" width="20px"></Column>
+		</columns>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Suppliers"/>
+				<OverflowToolbarButton id="btnSupplierListRefresh" type="Transparent" icon="sap-icon://refresh" press="onPressSupplierListRefreshButton"
+					enabled="true" visible="{viewModel>/btnSupplierListRefreshVisible}"/>
+				<ToolbarSpacer/>
+				<SearchField width="auto" placeholder="{i18n>pholderEnterSearchCriteria}" search="onSupplierSearch" liveChange=""/>
+				<Button type="Transparent" text="Sort" icon="sap-icon://sort" press="onPressSupplierListSort"/>
+				<Button type="Transparent" icon="sap-icon://add" text="Add" press="onPressSupplierAddButton" visible="false"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Table>
+</core:FragmentDefinition>

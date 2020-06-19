@@ -1,0 +1,20 @@
+[{
+	"BankAccountID": "12121",
+	"BankID": "StdBank",
+	"BranchID": "661611",
+	"AccountType": "Cheque",
+	"AccountNumber": "46299922000",
+	"AccountHolderName": "Stefan Keuker",
+	"SupplierID": "StefanKeukerVendor",
+	"BankAccountTypeID": "Cheque",
+	"BankAccountPurposeID": "VEND"
+}, {
+	"BankAccountID": "21212",
+	"BankID": "StdBank",
+	"BranchID": "787865",
+	"BankAccountTypeID": "Cheque",
+	"AccountNumber": "89898989333",
+	"AccountHolderName": "Telkom Ltd",
+	"SupplierID": "TelkomVendor",
+	"BankAccountPurposeID": "VEND"
+}]

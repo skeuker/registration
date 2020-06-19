@@ -1,0 +1,19 @@
+[{
+	"ContactID": "0",
+	"eMailAddress": "sales@telkom.co.za",
+	"ContactTypeID": "0",
+	"OrganisationID": "Telkom"
+}, {
+	"ContactID": "1",
+	"eMailAddress": "stefan@rbgapps.com",
+	"PhoneNumber": "0214610587",
+	"MobilePhoneNumber": "0829777444",
+	"ContactTypeID": "Accounts",
+	"SupplierID": "StefanKeukerVendor"
+}, {
+	"ContactID": "2",
+	"eMailAddress": "accounts@telkom.com",
+	"PhoneNumber": "021-8782223",
+	"ContactTypeID": "Accounts",
+	"SupplierID": "TelkomVendor"
+}]

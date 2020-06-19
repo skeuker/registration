@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>controller/NotificationList.controller.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ErrorHandler.html">ErrorHandler</a></li></ul><h3>Modules</h3><ul><li><a href="module-Base.html">Base</a><ul class='methods'><li data-type='method'><a href="module-Base.html#~getFormActionFields">getFormActionFields</a></li><li data-type='method'><a href="module-Base.html#~getFormFields">getFormFields</a></li><li data-type='method'><a href="module-Base.html#~getFormInputFields">getFormInputFields</a></li><li data-type='method'><a href="module-Base.html#~getGUID">getGUID</a></li><li data-type='method'><a href="module-Base.html#~getID">getID</a></li><li data-type='method'><a href="module-Base.html#~getModel">getModel</a></li><li data-type='method'><a href="module-Base.html#~getResourceBundle">getResourceBundle</a></li><li data-type='method'><a href="module-Base.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-Base.html#~getUUID">getUUID</a></li><li data-type='method'><a href="module-Base.html#~hasErrorMessages">hasErrorMessages</a></li><li data-type='method'><a href="module-Base.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Base.html#~hasMissingInput">hasMissingInput</a></li><li data-type='method'><a href="module-Base.html#~isValid">isValid</a></li><li data-type='method'><a href="module-Base.html#~onMessagesButtonPress">onMessagesButtonPress</a></li><li data-type='method'><a href="module-Base.html#~onNavBack">onNavBack</a></li><li data-type='method'><a href="module-Base.html#~sendBoxMessage">sendBoxMessage</a></li><li data-type='method'><a href="module-Base.html#~sendStripMessage">sendStripMessage</a></li><li data-type='method'><a href="module-Base.html#~sendToastMessage">sendToastMessage</a></li><li data-type='method'><a href="module-Base.html#~setModel">setModel</a></li></ul></li><li><a href="module-Component.html">Component</a><ul class='methods'><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~destroy">destroy</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li><li data-type='method'><a href="module-Component.html#~init">init</a></li></ul></li><li><a href="module-Organisation.html">Organisation</a><ul class='methods'><li data-type='method'><a href="module-Organisation.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Organisation.html#~onInit">onInit</a></li><li data-type='method'><a href="module-Organisation.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationCreate.html">OrganisationCreate</a><ul class='methods'><li data-type='method'><a href="module-OrganisationCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-OrganisationList.html">OrganisationList</a></li><li><a href="module-Person.html">Person</a><ul class='methods'><li data-type='method'><a href="module-Person.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Person.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonCreate.html">PersonCreate</a><ul class='methods'><li data-type='method'><a href="module-PersonCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-PersonList.html">PersonList</a></li><li><a href="module-Service.html">Service</a><ul class='methods'><li data-type='method'><a href="module-Service.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Service.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-ServiceCreate.html">ServiceCreate</a></li><li><a href="module-ServiceList.html">ServiceList</a></li><li><a href="module-Supplier.html">Supplier</a><ul class='methods'><li data-type='method'><a href="module-Supplier.html#~hasInvalidInput">hasInvalidInput</a></li><li data-type='method'><a href="module-Supplier.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierCreate.html">SupplierCreate</a><ul class='methods'><li data-type='method'><a href="module-SupplierCreate.html#~onPatternMatched">onPatternMatched</a></li></ul></li><li><a href="module-SupplierList.html">SupplierList</a></li></ul><h3>Global</h3><ul><li><a href="global.html">Constructor</a></li><li><a href="global.html#onPatternMatched">onPatternMatched</a></li><li><a href="global.html#onRequestFailed">onRequestFailed</a></li><li><a href="global.html#showMetadataError">showMetadataError</a></li><li><a href="global.html#showServiceError">showServiceError</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">controller/NotificationList.controller.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>sap.ui.define([
+	"capetown/gov/registration/controller/Base.controller",
+	"sap/ui/model/json/JSONModel"
+], function(BaseController, JSONModel) {
+	"use strict";
+	return BaseController.extend("capetown.gov.registration.controller.NotificationList", {
+
+		//Initialization of this controller
+		onInit: function() {
+
+			//initialize
+			this.initialize();
+
+			//hook into route matched to adopt parameters for UI rendering
+			this.getRouter().getRoute("NotificationList").attachMatched(this.onPatternMatched, this);
+
+			//set models: view model
+			var oViewModel = new JSONModel({
+				tableNoDataText: this.getResourceBundle().getText("tableNoDataText"),
+				busy: false,
+				delay: 0
+			});
+			this.getView().setModel(oViewModel, "viewModel");
+			this._oViewModel = oViewModel;
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.NotificationList
+		 */
+		onPatternMatched: function(oEvent) {
+
+			//Initialize variables
+			this._oMessageStrip.setVisible(false);
+			
+			//prepare view model for cobrowse mode
+			this.adoptComponentAttributes("Cobrowse", this._oViewModel);
+
+			//trigger refresh of list
+			this.getView().byId("tabNotificationList").getBinding("items").refresh();
+
+		},
+
+		/**
+		 *@memberOf capetown.gov.registration.controller.NotificationList
+		 * Event handler for 'Press' on NotificationList
+		 */
+		onPressNotificationListItem: function(oEvent) {
+
+			//prepare object path to be passed on to target
+			var oListItem = oEvent.getParameter("listItem") || oEvent.getSource();
+			var oContext = oListItem.getBindingContext("Registration");
+			var oNotification = oContext.getObject();
+
+			//Navigate to person view
+			if (oNotification.PersonID) {
+				this.getRouter().navTo("Person", {
+					PersonID: oNotification.PersonID
+				});
+			}
+
+			//Navigate to organisation view
+			if (oNotification.OrganisationID) {
+				this.getRouter().navTo("Organisation", {
+					OrganisationID: oNotification.OrganisationID
+				});
+			}
+			
+			//Navigate to service view
+			if (oNotification.ServiceID) {
+				this.getRouter().navTo("Service", {
+					ServiceID: oNotification.ServiceID
+				});
+			}
+
+			//Navigate to supplier view
+			if (oNotification.SupplierID) {
+
+				//get supplier entity
+				var sSupplierKey = "/" + this.getModel("Registration").createKey("SupplierSet", {
+					SupplierID: oNotification.SupplierID
+				});
+				var oSupplier = this._oODataModel.getObject(sSupplierKey);
+
+				//supplier organisation
+				if (oSupplier.OrganisationID) {
+					this.getRouter().navTo("SupplierOrganisation", {
+						SupplierID: oNotification.SupplierID
+					});
+				}
+
+				//supplier person
+				if (oSupplier.PersonID) {
+					this.getRouter().navTo("SupplierPerson", {
+						SupplierID: oNotification.SupplierID
+					});
+				}
+
+			}
+
+			//Render broadcast notification in popover
+			if (!oNotification.ServiceID &amp;&amp;
+				!oNotification.SupplierID &amp;&amp;
+				!oNotification.PersonID &amp;&amp;
+				!oNotification.OrganisationID) {
+
+				//by notification severity
+				switch (oNotification.NotificationSeverity) {
+
+					//send as success message	
+					case "Success":
+						sap.m.MessageBox.success(oNotification.NotificationText);
+						break;
+
+						//send as information message	
+					case "Information":
+						sap.m.MessageBox.information(oNotification.NotificationText);
+						break;
+
+						//send as warning message	
+					case "Warning":
+						sap.m.MessageBox.warning(oNotification.NotificationText);
+						break;
+
+						//send as error message	
+					case "Error":
+						sap.m.MessageBox.error(oNotification.NotificationText);
+						break;
+
+				}
+
+			}
+
+		},
+
+		//delete Notification
+		onPressNotificationDeleteButton: function(oEvent) {
+
+			//local data declaration
+			var sConfirmationText;
+
+			//get context pointing to person for deletion
+			var oContext = oEvent.getSource().getParent().getBindingContext("Registration");
+
+			//get Notification attributes
+			var oNotification = this._oODataModel.getObject(oContext.getPath());
+
+			//build confirmation text for person notification deletion
+			if (oNotification.PersonID) {
+				sConfirmationText = "Delete notification for " + this.formatPersonID(oNotification.PersonID) + "?";
+			}
+
+			//build confirmation text for organisation notification deletion
+			if (oNotification.OrganisationID) {
+				sConfirmationText = "Delete notification for " + this.formatOrganisationID(
+					oNotification.OrganisationID) + "?";
+			}
+
+			//build confirmation text for supplier notification deletion
+			if (oNotification.SupplierID) {
+				sConfirmationText = "Delete notification for " + this.formatSupplierID(oNotification.SupplierID) + "?";
+			}
+
+			//build confirmation text for service notification deletion
+			if (oNotification.ServiceID) {
+				sConfirmationText = "Delete notification for " + this.formatServiceID(oNotification.ServiceID) + "?";
+			}
+
+			//build confirmation text for broadcast notification
+			if (!oNotification.ServiceID &amp;&amp;
+				!oNotification.SupplierID &amp;&amp;
+				!oNotification.PersonID &amp;&amp;
+				!oNotification.OrganisationID) {
+				sConfirmationText = "Delete the selected notification?";
+			}
+
+			//confirmation dialog to delete this notification
+			sap.m.MessageBox.confirm(sConfirmationText, {
+				actions: [
+					sap.m.MessageBox.Action.YES,
+					sap.m.MessageBox.Action.CANCEL
+				],
+
+				//on confirmation dialog close
+				onClose: (function(oAction) {
+
+					//user choice: proceed with deletion
+					if (oAction === sap.m.MessageBox.Action.YES) {
+
+						//delete notification from backend
+						this._oODataModel.remove(oContext.getPath(), {
+
+							//notification entity deleted successfully
+							success: (function() {
+
+								//message handling: deleted successfully
+								this.sendStripMessage(this.getResourceBundle().getText("deleteModelEntitySuccessful"), sap.ui.core.MessageType.Success);
+
+								//post processing after successful updating in the backend
+								this._oViewModel.setProperty("/busy", false);
+
+							}).bind(this)
+
+						});
+
+					}
+
+				}).bind(this)
+
+			});
+
+		},
+
+		//factory function for notification list item
+		createNotificationListItem: function(sId, oContext) {
+
+			//local data declaration
+			var sNotificationType;
+			var sNotificationForEntity;
+
+			//get entity
+			var oNotification = this._oODataModel.getObject(oContext.getPath());
+
+			//instantiate new column list item
+			var oColumnListItem = new sap.m.ColumnListItem({
+				type: "Active",
+				busy: false
+			});
+
+			//determine notification type and entity referred 
+			if (oNotification.OrganisationID) {
+				sNotificationType = "Organisation";
+				sNotificationForEntity = this.formatOrganisationID(oNotification.OrganisationID);
+			}
+			if (oNotification.PersonID) {
+				sNotificationType = "Person";
+				sNotificationForEntity = this.formatPersonID(oNotification.PersonID);
+			}
+			if (oNotification.SupplierID) {
+				sNotificationType = "Supplier";
+				sNotificationForEntity = this.formatSupplierID(oNotification.SupplierID);
+			}
+			if (oNotification.ServiceID) {
+				sNotificationType = "Service";
+				sNotificationForEntity = this.formatServiceID(oNotification.ServiceID);
+			}
+			if (!sNotificationType) {
+				sNotificationType = "Broadcast";
+				sNotificationForEntity = "Me";
+			}
+
+			//Notification type value
+			oColumnListItem.insertCell(new sap.m.Text({
+				text: sNotificationType
+			}), 999);
+
+			//'Notification for entity' cell
+			oColumnListItem.insertCell(new sap.m.Text({
+				text: sNotificationForEntity
+			}), 999);
+
+			//notification severity
+			oColumnListItem.insertCell(new sap.m.Text({
+				text: oNotification.NotificationSeverity
+			}), 999);
+
+			//notification text 
+			oColumnListItem.insertCell(new sap.m.Text({
+				text: oNotification.NotificationText, //.substring(0, 41) + "..."
+				maxLines: 1
+			}), 999);
+
+			//action timestamp
+			var sNotifiedAt;
+			if (oNotification.NotifiedAt) {
+				sNotifiedAt = oNotification.NotifiedAt.toLocaleDateString("en-us", {
+					weekday: "long",
+					year: "numeric",
+					month: "short",
+					day: "numeric"
+				});
+			}
+			oColumnListItem.insertCell(new sap.m.Text({
+				text: sNotifiedAt
+			}), 999);
+
+			//delete button
+			oColumnListItem.insertCell(new sap.ui.core.Icon({
+				src: "sap-icon://sys-cancel",
+				tooltip: "Delete",
+				color: "#E42217",
+				press: (this.onPressNotificationDeleteButton).bind(this)
+			}), 999);
+
+			//return column list item instance for rendering in UI
+			return oColumnListItem;
+
+		},
+
+		/*		//delete selected notifications
+				onPressSelectedNotificationsDeleteButton: function() {
+
+					//get selected notification items
+					var aNotificationListItems = this.getView().byId("tabNotificationList").getSelectedItems();
+
+					//message handling: select notications
+					if (aNotificationListItems.length === 0) {
+						this.sendStripMessage(this.getResourceBundle().getText("messageSelectNotificationsForDelete"), sap.ui.core.MessageType.Warning);
+						return;
+					}
+
+					//prepare view: set to busy
+					this._oViewModel.setProperty("/busy", true);
+
+					//for each notification to be deleted
+					aNotificationListItems.forEach(function(oNotificationListItem) {
+
+						//delete notification from backend
+						this._oODataModel.remove(oNotificationListItem.getBindingContext("Registration").getPath(), {
+
+						});
+					}.bind(this));
+
+					//post processing after successful updating in the backend
+					this._oViewModel.setProperty("/busy", false);
+
+					//message handling: selected notifications have been deleted
+					this.sendStripMessage(this.getResourceBundle().getText("deleteNotificationsSuccessful"), sap.ui.core.MessageType.Success);
+
+				},*/
+
+		//delete selected notifications
+		onPressSelectedNotificationsDeleteButton: function() {
+
+			//get selected notification items
+			var aNotificationListItems = this.getView().byId("tabNotificationList").getSelectedItems();
+
+			//message handling: select notications
+			if (aNotificationListItems.length === 0) {
+				this.sendStripMessage(this.getResourceBundle().getText("messageSelectNotificationsForDelete"), sap.ui.core.MessageType.Warning);
+				return;
+			}
+
+			//confirmation dialog to delete selected notification(s)
+			sap.m.MessageBox.confirm(this.getResourceBundle().getText("messageDeleteSelectedNotifications"), {
+				actions: [
+					sap.m.MessageBox.Action.YES,
+					sap.m.MessageBox.Action.CANCEL
+				],
+
+				//on confirmation dialog close
+				onClose: (function(oAction) {
+
+					//user choice: proceed with deletion
+					if (oAction === sap.m.MessageBox.Action.YES) {
+
+						//prepare view: set to busy
+						this._oViewModel.setProperty("/busy", true);
+
+						//for each notification to be deleted
+						aNotificationListItems.forEach(function(oNotificationListItem) {
+
+							//delete notification from backend
+							this._oODataModel.remove(oNotificationListItem.getBindingContext("Registration").getPath(), {
+
+							});
+						}.bind(this));
+
+						//post processing after successful updating in the backend
+						this._oViewModel.setProperty("/busy", false);
+
+						//message handling: selected notifications have been deleted
+						this.sendStripMessage(this.getResourceBundle().getText("deleteNotificationsSuccessful"), sap.ui.core.MessageType.Success);
+
+					}
+
+				}).bind(this)
+
+			});
+
+		}
+
+	});
+
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Sep 27 2017 15:03:10 GMT+0300 (E. Europe Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

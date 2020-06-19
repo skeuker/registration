@@ -1,0 +1,135 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<HBox class="sapUiLargeMarginBegin sapUiSmallMarginBottom">
+		<Label required="true" labelFor="switchisAdopted" text="{i18n>labelSwitchPersonIsAdopted}" width="100%"
+			class="sapUiSmallMarginTop"/>
+		<Switch id="switchisAdopted" state="{Registration>isAdopted}" type="Default" customTextOn="Yes" customTextOff="No" class="sapUiSmallMarginBegin"/>
+		<core:Icon src="sap-icon://message-warning" press="hintForAdoptBusinessPartner" class="sapUiTinyMarginTop sapUiSmallMarginBegin" tooltip="Take note"
+			color="Critical" size="30px"/>
+	</HBox>
+	<sap.ui.layout.form:Form id="formPersonAttributes" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout id="rglPersonAttributes"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label busy="false" id="labelPersonTitle" required="true" text="Title" textAlign="Left" textDirection="Inherit" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxAdministratorTitle" items="{Registration>/TitleSet}" selectedKey="{Registration>TitleID}" width="20%"
+								selectionChange="onPersonAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>TitleID}" text="{Registration>TitleText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label id="labelNameInput" required="true" text="Name" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputPersonName" placeholder="{i18n>inputPlaceHolderName}" value="{Registration>Name}" width="30%"
+								liveChange="onPersonAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label id="labelSurnameInput" required="true" text="{i18n>labelSurnameInput}" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputSurname" placeholder="{i18n>inputPlaceHolderSurname}" value="{Registration>Surname}" width="30%"
+								liveChange="onPersonAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement visible="{= !${Registration>isAdopted} }">
+						<sap.ui.layout.form:label>
+							<Label id="labelPersonPhoneNumberInput" required="true" text="Phone number" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<List id="listPersonCommunication" showSeparators="None" items="{ path: 'Comms>/items', factory: '.createCommsListItem' }"
+								showNoData="false">
+								<layoutData>
+									<sap.ui.layout:GridData span="L4 M4 S4"/>
+								</layoutData>
+							</List>
+							<Button icon="sap-icon://add" text="Add" press="onPressAddCommunicationItemButton" type="Transparent" width="30px">
+								<layoutData>
+									<sap.ui.layout:GridData span="L1 M1 S1"/>
+								</layoutData>
+							</Button>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Resident type" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<RadioButtonGroup columns="2" width="100%">
+								<buttons>
+									<RadioButton id="rbSANational" text="South African permanent resident" select="onPersonAttributesLiveChange"
+										selected="{= ${Registration>IDType} === '000001' || ${Registration>IDType} === '' }"
+										enabled="{= !${path: 'Registration>isValidated'} }"/>
+									<RadioButton id="rbForeignNational" text="Foreign national" select="onPersonAttributesLiveChange"
+										selected="{= ${Registration>IDType} === '000004' }" enabled="{= !${path: 'Registration>isValidated'} }"/>
+								</buttons>
+							</RadioButtonGroup>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Identification type" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxIdentificationType" items="{Registration>/IDTypeSet}" selectedKey="{Registration>IDType}" width="25%"
+								selectionChange="onPersonAttributesLiveChange" enabled="{= !${path: 'Registration>isValidated' } }" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>IDTypeID}" text="{Registration>IDTypeText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Identification number" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputIDNumber" placeholder="{i18n>inputPlaceHolderIDNumber}" value="{Registration>IDNumber}" width="30%"
+								liveChange="onPersonAttributesLiveChange" enabled="{= !${path: 'Registration>isValidated' } }"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement visible="{= ${Registration>IDType} === '000004' }">
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Country of issue" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxIDCountryOfIssue" items="{Registration>/CountrySet}" selectedKey="{Registration>IDCountryOfIssue}" width="40%"
+								selectionChange="onPersonAttributesLiveChange" enabled="{= !${path: 'Registration>isValidated' } }" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>CountryID}" text="{Registration>CountryText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement visible="{Registration>isAdopted}">
+						<sap.ui.layout.form:label>
+							<Label id="labelPersonBusinessPartnerIDInput" required="true" text="{i18n>labelBusinessPartnerIDInput}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<HBox>
+								<Input id="inputPersonBusinessPartnerID" value="{Registration>BusinessPartnerID}" width="100%" liveChange="onPersonAttributesLiveChange"
+									enabled="{= !${path: 'Registration>isValidated' } }"/>
+								<core:Icon src="sap-icon://sys-help" press="hintForBusinessPartner" class="sapUiSmallMarginTop sapUiTinyMarginBegin" tooltip="Help"
+									color="#2B65EC"/>
+							</HBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	<MessageStrip class="sapUiSmallMarginBeginEnd sapUiMediumMarginTopBottom" type="Information" text="{i18n>messageRequiredInput}" showIcon="true"/>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formPersonDataPrivcyDeclaration" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout id="rglPersonDataPrivacyDeclaration"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer id="fcPersonDataPrivacyDeclaration">
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<core:HTML sanitizeContent="true"
+								content='&lt;div class=&quot;content&quot;&gt;&lt;div&gt;We endeavour to ensure that the data you submit to us remains confidential and is used only for the purposes stated in the data privacy document. Please confirm that you accept our data privacy statement below. The data privacy statement is displayed in a new window. If the display of additional windows is currently suppressed by a pop-up blocker, you must first de-activate this setting.&lt;/div&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.capetown.gov.za/General/Privacy&quot;&gt;Data privacy statement&lt;/a&gt;&lt;/div&gt;'>
+							</core:HTML>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<CheckBox select="onPersonDataPrivacyDeclarationCheckBoxSelect" selected="{viewModel&gt;/privacyDeclarationAccepted}" text="I have read and accept the privacy statement"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="feEditPersonDataPrivacyDeclarationLink" visible="false">
+					<sap.ui.layout.form:fields>
+					    <Link text="Edit" id="linkEditPersonDataPrivacyDeclaration" press="onPressPersonDataPrivacyDeclarationLink" wrapping="true"/>
+					</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

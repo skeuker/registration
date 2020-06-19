@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formServiceDocuments" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout id="rglServiceDocuments"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer id="fcServiceDocuments">
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement id="feServiceDocuments">
+						<sap.ui.layout.form:fields>
+							<UploadCollection change="onUploadCollectionChange" fileDeleted="onDocumentDeleted" fileType="jpg,png,bmp,pdf,docx,doc,png,gif,txt"
+								id="ucServiceDocumentUploadCollection" items="{ path: 'Registration>toDocuments', factory: '.createUploadCollectionItem' }"
+								maximumFileSize="10" maximumFilenameLength="60" mimeType="text/plain,text/xml,image/png,image/jpeg" multiple="true"
+								sameFilenameAllowed="true" typeMissmatch="onUploadFileTypeMismatch" filenameLengthExceed="onUploadFileNameLengthExceed"
+								uploadComplete="onServiceDocumentUploadComplete" uploadEnabled="false" uploadUrl="../" noDataText="No entries. Click + to add">
+								<toolbar>
+									<OverflowToolbar>
+										<Title text="Documents"/>
+										<ToolbarSpacer/>
+										<Label id="labelServiceDocumentTypes" required="true" text="Document type"/>
+										<ComboBox id="cboxServiceDocumentTypes" placeholder="{i18n>pholderSelectEntry}"
+											items="{ path: 'Registration>/DocumentTypeSet', filters: [{path: 'DocumentTypeScope', operator: 'EQ', value1: '4'}, {path: 'DocumentTypeScope', operator: 'EQ', value1: '42'}] }"
+											selectedKey="{viewModel>/cboxDocTypeSelectedItem}" change="onServiceDocumentTypeLiveChange"
+											selectionChange="onCBoxServiceDocumentTypesChange">
+											<items>
+												<core:ListItem key="{Registration>DocumentTypeID}" text="{Registration>DocumentTypeText}"/>
+											</items>
+										</ComboBox>
+										<UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+									</OverflowToolbar>
+								</toolbar>
+							</UploadCollection>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

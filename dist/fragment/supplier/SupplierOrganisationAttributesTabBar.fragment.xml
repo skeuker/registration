@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<IconTabBar class="sapUiMediumMarginBottom">
+		<items>
+			<IconTabFilter text="Attributes" icon="sap-icon://building">
+				<content>
+					<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierOrganisationAttributes" type="XML"/>
+				</content>
+			</IconTabFilter>
+			<IconTabFilter text="B-BBEE" icon="sap-icon://survey">
+				<content>
+					<core:Fragment fragmentName="capetown.gov.registration.fragment.supplier.SupplierBEEClassification" type="XML"/>
+				</content>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+</core:FragmentDefinition>

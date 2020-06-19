@@ -1,0 +1,64 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<Table id="tabOrganisationDraftList" itemPress="onDraftOrganisationListItemPress"
+		items="{ path: 'Registration>/OrganisationSet', filters: [{ path: 'EntityStatusID', operator: 'EQ', value1: '0'}] }"
+		noDataText="No entries. Click + to add" mode="SingleSelectMaster" backgroundDesign="Solid" class="sapUiMediumMarginBottom">
+		<customData>
+			<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+		</customData>
+		<items>
+			<ColumnListItem counter="0" type="Active">
+				<cells>
+					<Text maxLines="1" text="{Registration>Name}"/>
+					<Text maxLines="1" text="{ path: 'Registration>RelationshipTypeID', formatter:'.formatRelationshipTypeID' }"/>
+					<Text maxLines="1" text="{Registration>CompanyRegNbr}"/>
+					<Text maxLines="1" text="{Registration>BusinessPartnerID}"/>
+					<Text maxLines="1" text="{ path: 'Registration>LegalEntityType', formatter:'.formatLegalEntityType' }"/>
+					<Text maxLines="1" text="{ path: 'Registration>EntityStatusID', formatter:'.formatEntityStatusID' }"/>
+					<core:Icon src="sap-icon://sys-cancel" press="onPressOrganisationDeleteButton" tooltip="Delete" color="#E42217"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column>
+				<header>
+					<Label text="{i18n>labelOrganisationNameColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelOrganisationTypeColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelCompanyRegNbrColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelBusinessPartnerIDColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLegalEntityTypeColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Status"/>
+				</header>
+			</Column>
+			<Column vAlign="Middle" width="20px"></Column>
+		</columns>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Organisation drafts"/>
+				<ToolbarSpacer/>
+				<SearchField width="auto" placeholder="{i18n>pholderEnterSearchCriteria}" id="__field0" search="onOrganisationSearch" liveChange=""/>
+				<Button type="Transparent" icon="sap-icon://add" text="Add" press="onPressOrganisationAddButton"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Table>
+</core:FragmentDefinition>

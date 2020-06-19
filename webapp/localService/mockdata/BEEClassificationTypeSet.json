@@ -1,0 +1,13 @@
+[{
+	"BEEClassificationTypeID": "GEN",
+	"BEEClassificationTypeText": "General"
+}, {
+	"BEEClassificationTypeID": "QSE",
+	"BEEClassificationTypeText": "Qualifying small enterprise"
+}, {
+	"BEEClassificationTypeID": "EME",
+	"BEEClassificationTypeText": "Exempt micro enterprise"
+}, {
+	"BEEClassificationTypeID": "N",
+	"BEEClassificationTypeText": "Non contributor"
+}]

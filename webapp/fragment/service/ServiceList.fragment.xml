@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns="sap.m">
+	<Table id="tabServiceList" itemPress="onPressServiceListItem" 
+		items="{ path: 'Registration>/ServiceSet', filters: [{ path: 'EntityStatusID', operator: 'BT', value1: '1', value2: '4' }], factory: '.createServiceListItem' }"
+		noDataText="{viewModel>/tableNoDataText}" backgroundDesign="Solid">
+		<customData>
+			<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+		</customData>
+		<columns>
+			<Column>
+				<header>
+					<Label text="{i18n>labelServiceTypeIDColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelServiceRegisteredForColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelEntityStatusColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLastActionColumn}"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="{i18n>labelLastActionTimeStampColumn}"/>
+				</header>
+			</Column>
+			<Column vAlign="Middle" width="20px"></Column>
+		</columns>
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Services"/>
+				<ToolbarSpacer/>
+				<Label id="labelServiceType" required="true" text="Service type" labelFor="cboxServiceTypes"/>
+				<ComboBox id="cboxServiceTypes" items="{ path: 'Registration>/ServiceTypeSet' }" change="onCBoxServiceTypesChange"
+					selectionChange="onCBoxServiceTypesChange" placeholder="{i18n>pholderSelectEntry}">
+					<items>
+						<core:ListItem key="{Registration>ServiceTypeID}" text="{Registration>ServiceTypeText}"/>
+					</items>
+				</ComboBox>
+				<core:Icon src="sap-icon://sys-help" press="hintForServiceType" class="sapUiTinyMarginBegin" tooltip="Help" color="#2B65EC"/>
+				<Button id="btnServiceAdd" type="Transparent" icon="sap-icon://add" text="Add" press="onPressServiceAddButton" enabled="false"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Table>
+</core:FragmentDefinition>

@@ -1,0 +1,25 @@
+[{
+	"EntityStatusID": "0",
+	"EntityStatusText": "Draft"
+}, {
+	"EntityStatusID": "1",
+	"EntityStatusText": "Submitted"
+}, {
+	"EntityStatusID": "2",
+	"EntityStatusText": "Approved"
+}, {
+	"EntityStatusID": "3",
+	"EntityStatusText": "Rejected"
+}, {
+	"EntityStatusID": "T",
+	"EntityStatusText": "Transient"
+}, {
+	"EntityStatusID": "4",
+	"EntityStatusText": "Revised"
+}, {
+	"EntityStatusID": "5",
+	"EntityStatusText": "Deleted"
+}, {
+	"EntityStatusID": "6",
+	"EntityStatusText": "Ready"
+}]

@@ -1,0 +1,77 @@
+[{
+	"DocumentTypeID": "IDDoc",
+	"DocumentTypeText": "* ID Document",
+	"UseCase": "Person",
+	"TypeScopeID": "0",
+	"DocumentTypeScopeID": "0",
+	"DocumentTypeScope": "2",
+	"RequiredEntry": "true",
+	"DocumentTypeScopeQualifier": "",
+	"InputCardinality": "1"
+}, {
+	"DocumentTypeID": "LetterOfAuthorization",
+	"DocumentTypeText": "Letter of authorization",
+	"UseCase": "Organisation",
+	"TypeScopeID": "1",
+	"DocumentTypeScopeID": "1",
+	"DocumentTypeScope": "3",
+	"DocumentTypeScopeQualifier": "",
+	"InputCardinality": "0..1"
+}, {
+	"DocumentTypeID": "ProofOfIncorporation",
+	"DocumentTypeText": "* Proof of incorporation",
+	"UseCase": "Organisation",
+	"TypeScopeID": "1",
+	"DocumentTypeScopeID": "1",
+	"DocumentTypeScope": "3",
+	"RequiredEntry": "true",
+	"DocumentTypeScopeQualifier": "",
+	"InputCardinality": "1"
+}, {
+	"DocumentTypeID": "BBBEE Certificate",
+	"DocumentTypeText": "BBBEE certificate",
+	"TypeScopeID": "2",
+	"TypeScopeQualifier": "3",
+	"DocumentTypeScopeID": "12",
+	"DocumentTypeScopeQualifier": "",
+	"DocumentTypeScope": "43",
+	"InputCardinality": "0..1"
+}, {
+	"DocumentTypeID": "MCAUtilityBill",
+	"DocumentTypeText": "* City of Cape Town rates bill",
+	"DocumentTypeScopeID": "02",
+	"DocumentTypeScopeQualifier": "MunicipalAccounts",
+	"DocumentTypeScope": "4",
+	"RequiredEntry": "false",
+	"InputCardinality": "1"
+}, {
+	"DocumentTypeID": "AccredDoc",
+	"DocumentTypeText": "Accreditation",
+	"DocumentTypeScope": "2",
+	"RequiredEntry": "false",
+	"DocumentTypeScopeQualifier": "",
+	"InputCardinality": "0..1"
+}, {
+	"DocumentTypeID": "ISO9001Certificate",
+	"DocumentTypeText": "* ISO 9000 certificate",
+	"DocumentTypeScope": "5",
+	"InputCardinality": "1"
+}, {
+	"DocumentTypeID": "VATRegDoc",
+	"DocumentTypeText": "* VAT Registration certificate",
+	"DocumentTypeScope": "5",
+	"DocumentTypeScopeQualifier": "",
+	"InputCardinality": "1",
+	"FilterArgument": "VATRegistrationNbr"
+}, {
+	"DocumentTypeID": "BEEClassif",
+	"DocumentTypeText": "* BEE classification certificate",
+	"DocumentTypeScope": "5",
+	"InputCardinality": "1",
+	"FilterArgument": "hasBEEClassification"
+}, {
+	"DocumentTypeID": "ISO9002Certificate",
+	"DocumentTypeText": "*ISO 9002 certificate",
+	"DocumentTypeScope": "5",
+	"InputCardinality": "1"
+}]

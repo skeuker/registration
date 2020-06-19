@@ -1,0 +1,9 @@
+[{
+	"CertificateAgencyID": "Fairtrade",
+	"CertificateAgencyText": "Fairtrade",
+	"CertificateTypeID": "BEE"
+}, {
+	"CertificateAgencyID": "DTI",
+	"CertificateAgencyText": "Department of Trade and Industry",
+	"CertificateTypeID": "BEE"
+}]

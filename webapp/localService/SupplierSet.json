@@ -1,0 +1,29 @@
+[{
+	"SupplierID": "TelkomVendor",
+	"CSDNumber": "MMMM8989898",
+	"OrganisationID": "Telkom",
+	"isCommunitySupplier": false,
+	"TradingAsName": "Telkom Communications",
+	"EntityStatusID": "4",
+	"LastActionID": "1",
+	"IndustryKeys": "02,01",
+	"IncomeTaxNbr": "88683266/198",
+	"VATRegistrationNbr": "4500000000",
+	"isAdministered": true,
+	"isValidated": true,
+	"VendorID": "898907786",
+	"hasSupplierSelfService": true
+}, {
+	"SupplierID": "StefanKeukerVendor",
+	"CSDNumber": "7878/556",
+	"PersonID": "Stefan Keuker",
+	"isCommunitySupplier": true,
+	"TradingAsName": "RBG Applications",
+	"EntityStatusID": "1",
+	"LastActionID": "1",
+	"IndustryKeys": "01,02",
+	"IncomeTaxNbr": "463847593/243",
+	"isAdministered": true,
+	"isValidated": true,
+	"hasSupplierSelfService": false
+}]

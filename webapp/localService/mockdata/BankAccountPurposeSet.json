@@ -1,0 +1,6 @@
+[{
+	"BankAccountPurposeID": "VEND",
+	"BankAccountPurposeText": "* Main vendor account",
+	"BankAccountPurposeScope": "5",
+	"InputCardinality": "1"
+}]

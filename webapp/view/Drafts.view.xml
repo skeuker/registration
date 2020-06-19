@@ -1,0 +1,44 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}"
+	controllerName="capetown.gov.registration.controller.Drafts">
+	<semantic:FullscreenPage title="{viewModel>/viewTitle}" showNavButton="true" navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text="">
+				<customData>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+					<core:CustomData key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+				</customData>
+			</MessageStrip>
+			<IconTabBar id="itabBarDrafts" visible="true" expandable="false">
+				<items>
+					<IconTabFilter key="itabFiltServices" text="Services" icon="sap-icon://task" visible="true">
+						<content>
+							<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.service.ServiceDraftList" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Organisations" icon="sap-icon://building" visible="{viewModel>/OrganisationTabVisible}">
+						<content>
+							<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.organisation.OrganisationDraftList" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="People" icon="sap-icon://person-placeholder" visible="{viewModel>/PeopleTabVisible}">
+						<content>
+							<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.person.PersonDraftList" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Supplier" icon="sap-icon://supplier" visible="{viewModel>/SupplierTabVisible}">
+						<content>
+							<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.supplier.SupplierDraftList" type="XML"/>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

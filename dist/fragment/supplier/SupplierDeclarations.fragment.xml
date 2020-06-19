@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formSupplierDeclarations" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout singleContainerFullSize="true" adjustLabelSpan="true"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:fields>
+							<Table id="tabSupplierDeclarations" itemPress="onPressSupplierDeclarationListItem" busy="{viewModel>/busyTableResponsibilities}"
+								busyIndicatorDelay="{viewModel>/busyDelayTableSupplierDeclarations}" updateStarted="setBusyTableSupplierDeclarations"
+								updateFinished="onUpdateFinishedTableSupplierDeclarations"
+								items="{ path: 'Registration>toDeclarations', factory: '.createSupplierDeclarationListItem' }" noDataText="No entries. Click + to add">
+								<headerToolbar>
+									<OverflowToolbar>
+										<Title text="Declarations"/>
+										<ToolbarSpacer/>
+										<Label id="labelSupplierDeclarationType" required="true" text="Declaration type"/>
+										<ComboBox id="cboxSupplierDeclarationTypes"
+											items="{ path: 'Registration>/DeclarationTypeSet', filters: [{path: 'DeclarationTypeScope', operator: 'EQ', value1: '5'}] }"
+											selectedKey="{viewModel>/cboxSupplierDeclarationTypeSelectedItem}" change="onCBoxSupplierDeclarationTypesChange"
+											selectionChange="onCBoxSupplierDeclarationTypesChange" width="300px" placeholder="{i18n>pholderSelectEntry}">
+											<items>
+												<core:ListItem key="{Registration>DeclarationTypeID}" text="{Registration>DeclarationTypeText}"/>
+											</items>
+										</ComboBox>
+										<Button type="Transparent" icon="sap-icon://add" text="Add" id="btnSupplierDeclarationAdd" press="onPressSupplierDeclarationAddButton"
+											enabled="false"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<header>
+											<Label text="Declaration type"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Time of last update"/>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Label text="Expiry date"/>
+										</header>
+									</Column>
+									<Column vAlign="Middle" width="20px"></Column>
+								</columns>
+							</Table>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+</core:FragmentDefinition>

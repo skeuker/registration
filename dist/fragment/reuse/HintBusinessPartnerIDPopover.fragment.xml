@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover id="popHintBusinessPartnerID" showHeader="false" class="sapUiContentPadding" placement="Right">
+		<content>
+			<Image src="image/HintBusinessPartnerID.png" alt="Business partner ID hint"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

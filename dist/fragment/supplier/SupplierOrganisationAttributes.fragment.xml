@@ -1,0 +1,119 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<sap.ui.layout.form:Form id="formSupplierAttributes" class="sapUiMediumMarginBottom" editable="true">
+		<sap.ui.layout.form:layout>
+			<sap.ui.layout.form:ResponsiveGridLayout singleContainerFullSize="true" adjustLabelSpan="true"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer>
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement visible="{= ${Registration>VendorID}? true : false }">
+						<sap.ui.layout.form:label>
+							<Label required="false" text="{i18n>labelVendorID}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputVendorID" placeholder="{i18n>inputPlaceHolderVendorID}" value="{Registration>VendorID}" width="20%"
+								maxLength="10" liveChange="onSupplierAttributesLiveChange" enabled="false"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="{i18n>labelTradingAsName}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputTradingAsName" placeholder="{i18n>inputPlaceHolderTradingAsName}" value="{Registration>TradingAsName}" width="35%"
+								maxLength="80" liveChange="onSupplierAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="{i18n>labelCSDNumber}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputCSDNumber" placeholder="{i18n>inputPlaceHolderCSDNumber}" value="{Registration>CSDNumber}" width="30%" maxLength="11"
+								liveChange="onSupplierAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="Industry keys" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<HBox>
+								<MultiComboBox id="mCBoxSupplierIndustries" items="{ path: 'Registration>/IndustrySet', sorter: { path: 'IndustryText' } }"
+									selectedKeys="{viewModel>/aIndustryKeys}" width="330px" selectionFinish="onSupplierAttributesLiveChange">
+									<core:Item key="{Registration>IndustryID}" text="{Registration>IndustryText}"/>
+								</MultiComboBox>
+								<core:Icon src="sap-icon://sys-help" press="onPressHintForIndustryKey" class="sapUiSmallMarginTop sapUiTinyMarginBegin" tooltip="Help"
+									color="#2B65EC"/>
+							</HBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="Community supplier" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Switch id="switchIsCommunitySupplier" state="{ path: 'Registration>isCommunitySupplier' }" type="Default" customTextOn="Yes"
+								customTextOff="No" change="onSupplierAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label id="labelSubCouncil" required="{Registration>isCommunitySupplier}" text="Subcouncil" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxSubCouncil" items="{Registration>/SubCouncilSet}" width="20%" selectedKey="{Registration>SubCouncilID}"
+								selectionChange="onSupplierAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>SubCouncilID}" text="{Registration>SubCouncilText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="felemWard"
+						visible="{= ${Registration>SubCouncilID} !== undefined &amp;&amp; ${Registration>SubCouncilID} !== '' }">
+						<sap.ui.layout.form:label>
+							<Label id="labelWard" required="{Registration>isCommunitySupplier}" text="Ward" width="100%"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<ComboBox id="cboxWard" items="{path: 'Registration>/WardSet'}" width="20%" selectedKey="{Registration>WardID}"
+								selectionChange="onSupplierAttributesLiveChange" placeholder="{i18n>pholderSelectEntry}">
+								<items>
+									<core:ListItem key="{Registration>WardID}" text="{Registration>WardText}"/>
+								</items>
+							</ComboBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="{i18n>labelIncomeTaxNumber}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputIncomeTaxNumber" placeholder="{i18n>inputPlaceHolderIncomeTaxNumber}" value="{Registration>IncomeTaxNbr}" width="25%"
+								liveChange="onSupplierAttributesLiveChange" maxLength="15"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="true" text="{i18n>labelSARSTaxCompliancePIN}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputSARSTaxCompliancePIN" placeholder="{i18n>inputPlaceHolderSARSTaxCompliancePIN}" value="{Registration>SARSTaxCompliancePIN}"
+								width="25%" liveChange="onSupplierAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement>
+						<sap.ui.layout.form:label>
+							<Label required="false" text="{i18n>labelVATRegistrationNumber}"/>
+						</sap.ui.layout.form:label>
+						<sap.ui.layout.form:fields>
+							<Input id="inputVATRegistrationNumber" value="{Registration>VATRegistrationNbr}" width="25%" liveChange="onSupplierAttributesLiveChange"/>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	<MessageStrip class="sapUiSmallMarginBeginEnd sapUiMediumMarginTopBottom" type="Information" text="{i18n>messageRequiredInput}" showIcon="true"/>
+</core:FragmentDefinition>

@@ -1,0 +1,13 @@
+[{
+	"NotificatnID": "2847284",
+	"PersonID": "Stefan Keuker",
+	"NotifiedAt": "/Date(1486332000000)/",
+	"NotificationSeverity": "Error",
+	"NotificationText": "Your individual registration was rejected. View rejection reasons by clicking the button on the bottom left. Correct your data and resubmit."
+}, {
+	"NotificatnID": "7979799",
+	"PersonID": "Stefan Keuker",
+	"NotifiedAt": "/Date(1502744400000)/",
+	"NotificationSeverity": "Error",
+	"NotificationText": "Another notification message"
+}]

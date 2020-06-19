@@ -1,0 +1,53 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" controllerName="capetown.gov.registration.controller.organisation.OrganisationCreate" busy="{viewModel>/busy}">
+	<semantic:FullscreenPage id="pageOrganisationWizardContent" title="{viewModel>/viewTitle}" showNavButton="true"
+		navButtonPress="onPressNavButton" showSubHeader="{viewModel>/userInCobrowse}">
+		<semantic:subHeader>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.reuse.Cobrowse" type="XML"/>
+		</semantic:subHeader>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:mainAction>
+			<semantic:MainAction press="onPressOrganisationCreateSaveDraftButton" text="Save draft"/>
+		</semantic:mainAction>
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndOrganisation" state="Clear"></DraftIndicator>
+		</semantic:draftIndicator>
+		<semantic:content>
+			<MessageStrip id="msMessageStrip" showCloseButton="true" showIcon="true" text=""/>
+			<Wizard complete="onPressOrganisationWizardSubmitButton" finishButtonText="{viewModel>/wizFinishButtonText}" id="wizOrganisationCreate" showNextButton="true" enableBranching="true">
+				<WizardStep id="wizstepOrganisationAttributes" icon="sap-icon://initiative" title="Organisation details" 
+					validated="false" subsequentSteps="wizstepOrganisationAddresses, wizstepOrganisationDocs">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationAttributesForCreate" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep activate="onActivateWizStepOrganisationAddresses" icon="sap-icon://addresses" id="wizstepOrganisationAddresses" title="Address"
+					validated="false" nextStep="wizstepOrganisationDocs">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationAddresses" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep activate="onActivateOrganisationDocs" icon="sap-icon://documents" id="wizstepOrganisationDocs" title="Documents"
+					validated="false" nextStep="wizstepOrganisationContacts" subsequentSteps="wizstepOrganisationContacts, wizstepOrganisationResponsibilities">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationDocuments" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep activate="onActivateOrganisationContacts" icon="sap-icon://documents" id="wizstepOrganisationContacts" title="Contacts"
+					validated="false" nextStep="wizstepOrganisationResponsibilities">
+					<content>
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="capetown.gov.registration.fragment.organisation.OrganisationContacts" type="XML"/>
+					</content>
+				</WizardStep>
+				<WizardStep activate="onActivateOrganisationResponsibilities" icon="sap-icon://task" id="wizstepOrganisationResponsibilities"
+					title="Responsibilities" validated="false">
+					<content>
+						<core:Fragment fragmentName="capetown.gov.registration.fragment.organisation.OrganisationResponsibilities" type="XML"/>
+					</content>
+				</WizardStep>
+			</Wizard>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>
